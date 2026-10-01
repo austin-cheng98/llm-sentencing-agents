@@ -282,33 +282,3 @@ guideline midpoint, which puts cases with different ranges on one scale.
 Contrasts keep only agents present in both arms, so every cell is paired and the label-swap
 null matches the estimator. The second lineage carries no label-swap null, and the figure
 draws its two rows without a design-null band.
-
-## What the design cannot support
-
-The cases are fictional and procedurally generated. No real defendant, victim, or docket
-appears anywhere, and every prompt says so. Nothing here suggests language models are fit to
-sentence anyone; the results argue the opposite.
-
-There is no human baseline. The experiment measures how far agents move toward displayed
-numbers, not whether moving less is better. Low pull is not good judgment: an agent that
-ignores the numbers entirely scores the same as one that reasons carefully and then declines
-to follow them.
-
-The displacement is allocated systematically rather than at random, and the rotation has
-period four, so with six agents two displacement columns repeat and the cross-model agents
-reuse the first column. The static arms show fabricated peer values; the cascade arm replaces
-them with live output over sixteen cases, and its last two agents occupy fixed positions, so
-nothing about speaking depth is read from them. The three Claude models share a developer and
-a training lineage, and the fourth model contributes 96 decisions from two agents. The memory
-arms carry three agents each.
-
-Collection produced more valid records than design cells because some cells were collected
-twice; the earliest record for each cell is kept, and taking the latest instead does not move
-the headline. One decision in the structure-matched Haiku cell returned prose instead of the
-required format and is recorded as a parse failure, which is why that cell has 63 records and
-not 64. The pre-registration records parse failures as data, so none was re-drawn.
-
-Some collecting sub-agents inferred what was being tested and said so in their replies, naming
-the working directory or the anchoring exposure. Those replies are recorded verbatim and none
-was re-drawn. Where a sub-agent volunteered a note addressed to the experimenters, the note is
-in the record.
