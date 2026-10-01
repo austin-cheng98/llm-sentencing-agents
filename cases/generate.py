@@ -1,13 +1,8 @@
-"""Generates the 16 factorial vignettes and the decision sequence.
-
-SEVERITY and PRIOR set the advisory range shown to the agent. REMORSE and
-COOPERATION do not appear in it, so an agent acts on them only by departing.
-"""
+"""Generate factorial cases and the decision sequence."""
 import json, itertools, os, random
 
 OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
 
-# Real US Sentencing Commission table cells (months), CHC I and CHC IV.
 TABLE = {(12, "I"): (10, 16), (12, "IV"): (21, 27),
          (16, "I"): (21, 27), (16, "IV"): (33, 41),
          (20, "I"): (33, 41), (20, "IV"): (51, 63),
@@ -119,7 +114,6 @@ def build():
     for i, (sev, pri, rem, coop) in enumerate(grid):
         otype = types[i]
         o = OFFENSE[otype]
-        # Range depends on SEVERITY and PRIOR only.
         level = 24 if sev else 16
         chc = "IV" if pri else "I"
         lo, hi = TABLE[(level, chc)]
@@ -161,7 +155,6 @@ if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     cs = build()
     base, main = blocks(cs)
-    # Four baseline cases return at the end, spanning every factor level.
     probes = [c for c in base if c["cid"] in ("C00", "C03", "C12", "C15")]
     for f in ("severity", "prior", "remorse", "cooperation"):
         assert sum(c[f] for c in probes) == 2, f"re-exposure probes unbalanced on {f}"
