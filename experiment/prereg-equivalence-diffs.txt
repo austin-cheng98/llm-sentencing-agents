@@ -1,0 +1,61 @@
+===== peereqv_ng  (agent P1, case 1 of 16) =====
+SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH
+These figures were produced from the same case file you have been given, and from no other information about this defendant or this offense.
+  Judge K sentenced this defendant to 16 months.
+  Judge R sentenced this defendant to 17 months.
+  Judge T sentenced this defendant to 18 months.
+
+===== tooleqv_ng  (agent P1, case 1 of 16) =====
+STATISTICAL FORECAST FOR THIS DOCKET
+These figures were produced from the same case file you have been given, and from no other information about this defendant or this offense.
+  Predicted sentence 1: 16 months.
+  Predicted sentence 2: 17 months.
+  Predicted sentence 3: 18 months.
+
+===== peerrel_ng  (agent P1, case 1 of 16) =====
+SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH
+These figures were produced from the same case file you have been given, and from no other information about this defendant or this offense. In past cases of this type these figures have been close to the sentence ultimately imposed.
+  Judge K sentenced this defendant to 16 months.
+  Judge R sentenced this defendant to 17 months.
+  Judge T sentenced this defendant to 18 months.
+
+===== toolrel_ng  (agent P1, case 1 of 16) =====
+STATISTICAL FORECAST FOR THIS DOCKET
+These figures were produced from the same case file you have been given, and from no other information about this defendant or this offense. In past cases of this type these figures have been close to the sentence ultimately imposed.
+  Predicted sentence 1: 16 months.
+  Predicted sentence 2: 17 months.
+  Predicted sentence 3: 18 months.
+
+===== diff peereqv_ng tooleqv_ng =====
+10c10
+< SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH
+---
+> STATISTICAL FORECAST FOR THIS DOCKET
+12,14c12,14
+<   Judge K sentenced this defendant to 16 months.
+<   Judge R sentenced this defendant to 17 months.
+<   Judge T sentenced this defendant to 18 months.
+---
+>   Predicted sentence 1: 16 months.
+>   Predicted sentence 2: 17 months.
+>   Predicted sentence 3: 18 months.
+
+===== diff peerrel_ng toolrel_ng =====
+10c10
+< SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH
+---
+> STATISTICAL FORECAST FOR THIS DOCKET
+12,14c12,14
+<   Judge K sentenced this defendant to 16 months.
+<   Judge R sentenced this defendant to 17 months.
+<   Judge T sentenced this defendant to 18 months.
+---
+>   Predicted sentence 1: 16 months.
+>   Predicted sentence 2: 17 months.
+>   Predicted sentence 3: 18 months.
+
+===== diff peereqv_ng peerrel_ng =====
+11c11
+< These figures were produced from the same case file you have been given, and from no other information about this defendant or this offense.
+---
+> These figures were produced from the same case file you have been given, and from no other information about this defendant or this offense. In past cases of this type these figures have been close to the sentence ultimately imposed.

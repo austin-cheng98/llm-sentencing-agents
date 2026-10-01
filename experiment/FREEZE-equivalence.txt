@@ -1,0 +1,24 @@
+FREEZE RECORD - informational equivalence and stated reliability arms
+
+Frozen 2026-09-30T23:35:46Z, before the first decision in peereqv_ng, tooleqv_ng,
+peerrel_ng or toolrel_ng was drawn.
+
+The pre-registration is experiment/prereg-equivalence.md. The hashes below fix
+the text of the prompts, the sample, the estimator, and the decision rule as
+they stood at that moment. Any later change to a hashed file is visible as a
+hash mismatch, so a reader can check that the analysis reported is the analysis
+written down.
+
+Verify with:  shasum -a 256 <file>
+
+78b5b8579d0fcd9d669e3a5601e1d5ec7e834f35947ce5e5652d84097033fad5  experiment/harness.py
+874b1a7aef180430207ae7168e9d2ae25b86be5790d6034ed1b8f72f204fd345  experiment/prereg-equivalence.md
+bc8b9e3f62724a3099eccb40a04f2ce0e75fb5ab80f936406072d1704604fe06  experiment/prereg-equivalence-diffs.txt
+cfbe3027a3c61fbfa92bc3c81bdeb595535966205ce09f2449ae866c4a5f2f01  analysis/equivalence.py
+7bf8df7e9a126522c9bc4770deecaf446e40eaf873284458c189891556e26965  analysis/robustness.py
+757d8bbfa1037b632170516ac027af5848d8f77cf43e352acc6aafcb8595e810  analysis/common.py
+fa5d1eff450b39ed30705945c8c70ac530fec2fbc3c22c4af99b2ede7100a85d  data/sequence.json
+3fcfe84e672872a8772582dd6b6a1a9de11ffc0475f8bdfc9740a855af74e2ff  data/cases.json
+
+Cells at freeze time: 0 of 256. Verify with
+  python3 -c "import json;print(sum(json.loads(l)['arm'].endswith(('eqv_ng','rel_ng')) for l in open('data/decisions.jsonl')))"
