@@ -1,12 +1,4 @@
-"""The trailer experiment.
-
-Each anchor arm originally ended with a closing sentence, and those sentences were
-not matched across arms: the peer arm told the agent to decide independently, the
-forecast arm hedged its authority. This runs both arms again with the closing
-sentence removed from each, holding the numbers identical, so the attribution is
-the only difference. The comparison between the two versions measures what one
-line of prompt boilerplate does.
-"""
+"""Analyze closing-sentence effects."""
 import sys, os, json
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -61,7 +53,6 @@ def by_model(recs):
         X = np.column_stack([np.ones(len(y)), dl, g, dl * g, F])
         b = ols(X, y)
         cid = np.array([r["cid"] for r in d])
-        # the same label-swap null this model's own design can resolve
         cell = np.array([f"{r['judge']}|{r['cid']}" for r in d])
         rng = np.random.default_rng(19)
         draws = []

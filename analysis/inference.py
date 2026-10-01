@@ -15,8 +15,6 @@ def fm(d):
 def contrast(recs, a1, a2, B=9999, seed=17):
     """Difference in pull. Null from swapping labels within an agent-case cell."""
     d = [r for r in recs if r["arm"] in (a1, a2)]
-    # keep only agents contributing to both arms, so every cell is genuinely
-    # paired and the label-swap null matches the estimator
     shared = ({r["judge"] for r in d if r["arm"] == a1} &
               {r["judge"] for r in d if r["arm"] == a2})
     d = [r for r in d if r["judge"] in shared]
@@ -100,8 +98,6 @@ if __name__ == "__main__":
             print(f"  {name:17s} {c['est']:+.3f}  se(case {c['se']['case']:.3f}, "
                   f"agent {c['se']['agent']:.3f})  RI p={c['p']:.4f}  "
                   f"null p95 {c['null_p95']:.3f}  n={c['n']}")
-    # every peer-side arm measured as a premium against the same bare forecast,
-    # so the erasure claim is read at the level of the premium and not of pull
     res["vs_bare_forecast"] = {}
     for arm in ("peerbare_ng", "peermatch_ng", "parafree_ng", "paraown_ng",
                 "peerdelta_ng"):

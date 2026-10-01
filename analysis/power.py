@@ -1,21 +1,11 @@
-"""What each arm can and cannot exclude, given the size it actually reached.
-
-The arms were not fielded at once and do not carry equal numbers of decisions,
-so a null in a small arm is not evidence of a small effect. For every estimate
-in the study this prints the smallest true premium the arm would detect four
-times in five at the conventional level, and says whether the arm is large
-enough to rule out the premium measured on Opus 5 with bare blocks.
-
-MDE = (z_{0.975} + z_{0.80}) * SE, the standard two-sided calculation, read off
-the standard error each contrast reports rather than an assumed variance.
-"""
+"""Compute minimum detectable effects."""
 import sys, os, json
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import ROOT
 
-Z = 1.959963985 + 0.8416212336  # 2.8016, two-sided 0.05 at 80% power
-BENCH = 0.323                   # the bare-block premium on Opus 5
+Z = 1.959963985 + 0.8416212336
+BENCH = 0.323
 
 
 def row(label, est, se, n, bench=BENCH):

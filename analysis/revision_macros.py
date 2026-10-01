@@ -1,10 +1,4 @@
-"""Emit the revision's statistics as LaTeX macros, from this repository only.
-
-The paper's existing numbers.tex is generated elsewhere. Everything added in
-revision comes from out_robustness.json and out_power.json, which are produced
-by robustness.py and power.py over the decisions in this repository, so the
-revised text cannot drift from the run it describes.
-"""
+"""Write revision statistics as LaTeX macros."""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import ROOT
@@ -23,16 +17,15 @@ def mac(n, v):
 
 
 def p(v):
-    """A p-value the way the paper writes them."""
+    """Format a p-value."""
     return "<0.001" if v < 0.001 else f"{v:.3f}"
 
 
 def sg(v, nd=3):
-    """A signed estimate, with LaTeX's minus rather than a hyphen."""
+    """Format a signed estimate."""
     return f"${v:+.{nd}f}$".replace("+", "+").replace("-", "-")
 
 
-# ------------------------------------------------ what agents choose and see
 s, a = R["sentences"], R["anchors"]
 mac("rbSentN", s["n"])
 mac("rbDistinct", s["distinct"])
@@ -44,7 +37,6 @@ mac("rbAncSix", f"{a['div6']:.1f}")
 mac("rbAncFive", f"{a['div5']:.1f}")
 mac("rbAncAll", f"{a['allthree_div6']:.0f}")
 
-# --------------------------------------------------------- exact matching
 e = R["exact"]
 mac("rbExact", f"{e['rate']:.0f}")
 mac("rbExactN", e["n"])
@@ -52,7 +44,6 @@ mac("rbExactRound", f"{e['round_share']:.0f}")
 mac("rbMatchRound", f"{e['rate_on_round_anchors']:.0f}")
 mac("rbMatchPlain", f"{e['rate_no_round_anchor']:.0f}")
 
-# ------------------------------------------- premium without round numbers
 TAG = {"matched_struct": "MS", "matched_bare": "MB", "original_sentences": "OS"}
 for k, t in TAG.items():
     c = R["premium_nonround"].get(k)
@@ -61,7 +52,6 @@ for k, t in TAG.items():
         mac(f"rbNR{t}p", p(c["p"]))
         mac(f"rbNR{t}n", c["n"])
 
-# --------------------------------------------------- premium by magnitude
 for k, t in TAG.items():
     for mg, lab in (("0.15", "Lo"), ("0.3", "Hi")):
         c = R["by_magnitude"].get(k, {}).get(mg)
@@ -69,7 +59,6 @@ for k, t in TAG.items():
             mac(f"rbMag{t}{lab}", f"{c['est']:+.2f}".replace("+", ""))
             mac(f"rbMag{t}{lab}p", p(c["p"]))
 
-# ------------------------------------------------------ premium by scale
 for k, t in TAG.items():
     for sc, lab in (("log", "Log"), ("caserank", "Rank")):
         c = R["scale"].get(k, {}).get(sc)
@@ -77,18 +66,15 @@ for k, t in TAG.items():
             mac(f"rb{lab}{t}", f"{c['est']:+.2f}".replace("+", ""))
             mac(f"rb{lab}{t}p", p(c["p"]))
 
-# ---------------------------------------------------------- confidence
 c = R["confidence"]
 mac("rbConfDistinct", c["distinct"])
 mac("rbConfTop", f"{c['top2_share']:.0f}")
 
-# ------------------------------------------- decoding noise on repeat draws
 I = json.load(open(f"{ROOT}/analysis/out_inference.json"))
 if I.get("decoding", {}).get("sd") is not None:
     mac("decodeSD", f"{I['decoding']['sd']:.3f}")
     mac("decodeCells", I["decoding"]["cells"])
 
-# -------------------------------------------------------------- power
 by = {r["label"]: r for r in P["rows"]}
 mac("pwUnder", P["n_underpowered"])
 mac("pwTotal", P["n_total"])
@@ -108,7 +94,6 @@ for label, tag in (("premium sonnet5|no guideline", "SonNG"),
         mac(f"pwLo{tag}", f"{r['ci'][0]:+.2f}".replace("+", ""))
         mac(f"pwHi{tag}", f"{r['ci'][1]:+.2f}".replace("+", ""))
 
-# ------------------------------- structure-matched premium, smaller models
 mac("blBench", f"{B['benchmark']:.3f}")
 for key, tag in (("sonnet5|matched_struct", "SonMS"),
                  ("haiku45|matched_struct", "HaiMS"),
@@ -124,7 +109,6 @@ for key, tag in (("sonnet5|matched_struct", "SonMS"),
     mac(f"bl{tag}Lo", f"{r['ci'][0]:+.3f}".replace("+", ""))
     mac(f"bl{tag}Hi", f"{r['ci'][1]:+.3f}".replace("+", ""))
 
-# ------------------------------------------- informational equivalence arm
 eq = next((r for r in E["rows"] if r["label"] == "equivalence"
            and r.get("est") is not None), None)
 if eq:
@@ -135,7 +119,6 @@ if eq:
     mac("eqLo", f"{eq['ci'][0]:+.3f}".replace("+", ""))
     mac("eqHi", f"{eq['ci'][1]:+.3f}".replace("+", ""))
 
-# ------------------------------------- source reliability, pre-registered
 for lab, tag in (("reliability", "rl"), ("peer_reliability", "rlPeer"),
                  ("tool_reliability", "rlTool")):
     r = next((x for x in E["rows"] if x["label"] == lab
@@ -149,7 +132,6 @@ for lab, tag in (("reliability", "rl"), ("peer_reliability", "rlPeer"),
     mac(f"{tag}Lo", f"{r['ci'][0]:+.3f}".replace("+", ""))
     mac(f"{tag}Hi", f"{r['ci'][1]:+.3f}".replace("+", ""))
 
-# ----------------------------------------------- non-Claude lineage arm
 for lab, tag in (("matched_struct", "MS"), ("matched_bare", "MB")):
     r = X["rows"].get(f"{X['lineage']}|{lab}")
     if not r or r.get("est") is None:

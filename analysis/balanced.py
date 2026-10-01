@@ -1,20 +1,4 @@
-"""The structure-matched premium on the smaller models, pre-registered separately.
-
-The premium the paper prefers is the structure-matched one: the peer block
-carries a descriptive sentence matching the one the forecast block carries, so
-the two differ in attribution and not in length or register. That estimate
-existed only on Opus 5. Reviewer qnHK objected that the paper's conclusions were
-stronger than its cross-model evidence, which was fair in a specific way, and
-`experiment/prereg-balanced.md` fixed the missing arm in advance:
-`peermatch_ng` on Sonnet 5 (S1, S2) and Haiku 4.5 (H1, H2), sixteen cases, one
-draw per cell, against the `toolbare_ng` records already collected for those
-models.
-
-The estimator is the frozen one in `robustness.py` and is not re-derived here.
-At thirty-two decisions an arm these are small, and the pre-registration said in
-advance that an underpowered estimate is reported as underpowered rather than
-repaired by collecting more. The MDE column is where that is read off.
-"""
+"""Structure-matched premium on smaller models."""
 import sys, os, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import load, ROOT
@@ -24,7 +8,7 @@ MODELS = ["opus5", "sonnet5", "haiku45"]
 PAIRS = [("matched_struct", "peermatch_ng", "toolbare_ng"),
          ("matched_bare", "peerbare_ng", "toolbare_ng")]
 Z = 1.959963985 + 0.8416212336
-BENCH = 0.206  # the structure-matched premium on Opus 5
+BENCH = 0.206
 
 
 def dev(d):

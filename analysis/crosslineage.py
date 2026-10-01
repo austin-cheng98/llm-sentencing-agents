@@ -1,18 +1,4 @@
-"""The premium on a non-Claude lineage, against the Claude benchmark.
-
-Reviewer PKSd's fifth objection: every arm in the paper came from one provider
-and one model family, so a premium that is really an artefact of that family
-would look exactly like a premium that is general. This adds one family from a
-different lineage, collected through the same sub-agent mechanism as every other
-arm, and asks the same two questions of it.
-
-This is an exploratory arm. It was not pre-registered, it was not frozen before
-collection, and it carries two judges against the Claude arms' four or six. It
-is reported with its MDE for that reason, and a null in it is not evidence of a
-small effect. `crossmodel.py` is frozen and reads only the `peerdelta`/`tooldelta`
-arms, so the estimates here come from the frozen estimator in `robustness.py`
-rather than from a changed frozen file.
-"""
+"""Premium estimate for the second model lineage."""
 import sys, os, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import load, ROOT

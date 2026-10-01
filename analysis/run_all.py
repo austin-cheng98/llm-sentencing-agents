@@ -2,10 +2,8 @@
 import subprocess, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-# robustness and power come last: power reads the JSON that inference and
-# crossmodel write, and revision_macros reads both of theirs
 STEPS = ["integrity", "anchoring", "trailer", "randomization", "framing",
-         "memory", "crossmodel", "inference", "cascade", "dispersion", "confidence", "census",
+         "memory", "crossmodel", "inference", "cascade", "dispersion",
          "robustness", "equivalence", "balanced", "crosslineage", "power", "revision_macros"]
 
 for name in STEPS:

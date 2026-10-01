@@ -20,13 +20,7 @@ def rows(recs):
 
 
 def following(rs):
-    """Sentence on the peer mean it saw, with and without case fixed effects.
-
-    The peer mean is a leave-out mean of the same population, so adding case
-    dummies induces the exclusion bias Angrist describes: predecessors' outcomes
-    appear on both sides within a cluster. We report the no-fixed-effect
-    estimate as primary and the fixed-effect estimate alongside it.
-    """
+    """Estimate following of the observed peer mean."""
     d = [r for r in rs if r["peer_mean"] is not None]
     if len(d) < 20:
         return None
@@ -41,7 +35,6 @@ def following(rs):
         b = ols(X, y)
         out[lab] = {"beta": float(b[1]),
                     "se": float(np.sqrt(cluster_vcov(X, y, b, g)[1, 1]))}
-    # how much of the following is literal copying
     ex = sum(1 for r in d if r["sent"] in (r.get("pv") or []))
     out["exact_copy"] = ex / len(d)
     return out
@@ -74,13 +67,7 @@ def convergence(rs):
 
 
 def placebo(recs, reps=400, seed=3):
-    """What the cascade statistics return when no influence is possible.
-
-    Independent agents on the same cases, shuffled into pseudo speaking orders.
-    Sentences cluster on round months, so a decision matches a predecessor often
-    by chance, and the peer mean is correlated with the case. Both cascade
-    statistics therefore have a floor well above zero.
-    """
+    """Estimate cascade statistics after shuffling agents within case."""
     base = [r for r in recs if r["arm"] == "nohist_ng" and r["step"] < 16]
     bycase = {}
     for r in base:
@@ -119,9 +106,7 @@ def placebo(recs, reps=400, seed=3):
 
 
 def first_speaker_gap(recs):
-    """The first agent in a cascade sees no peer block, so it should match the
-    no-peer arm. Case fixed effects are safe here because the regressor is an
-    arm indicator rather than a leave-out mean of the same population."""
+    """Compare first cascade speakers with the no-peer arm."""
     first = [r for r in recs if r["arm"] == "cascade_ng" and not (r.get("peer_vals") or [])]
     nopeer = [r for r in recs if r["arm"] == "nohist_ng" and r["step"] < 16]
     cases = sorted({r["cid"] for r in first} & {r["cid"] for r in nopeer})
@@ -156,7 +141,6 @@ def main():
                if len({r["sent"] for r in rs if r["cid"] == c}) == 1)
     res["unanimous"] = unan
     print(f"  cases where every agent returns the same sentence: {unan}/16")
-    # copying by position, and the single-peer case where no consensus exists
     bypos = {}
     for k in range(1, 6):
         dd = [r for r in rs if r["pos"] == k]
@@ -179,7 +163,6 @@ def main():
         print(f"  within-case spread: first two {cv['early_sd']:.3f}, "
               f"last two {cv['late_sd']:.3f}, ratio {cv['ratio']:.2f} "
               f"over {cv['cases']} cases")
-    # compare with the no-interaction baseline on the same cases
     base = [r for r in recs if r["arm"] == "nohist_ng" and r["step"] < 16]
     if base:
         cells = {}
