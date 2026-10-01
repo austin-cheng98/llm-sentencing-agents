@@ -1,0 +1,32 @@
+\begin{table}[t]
+\centering
+\caption{What each estimate can exclude. MDE is the smallest true effect the arm
+would detect in four samples out of five at the two-sided 5\% level, computed as
+$2.80\times\mathrm{SE}$ from the standard error each contrast reports. The last column
+marks the arms too small to detect a premium the size of the $+0.32$ measured on
+Opus~5 with bare blocks.}
+\label{tab:power}
+\small
+\begin{tabular}{lrrrrc}
+\toprule
+Estimate & $n$ & Est. & SE & MDE & Powered \\
+\midrule
+Premium, Sonnet 5, guideline present & 32 & $+0.204$ & 0.056 & 0.156 & yes \\
+Premium, Sonnet 5, guideline removed & 32 & $+0.065$ & 0.290 & 0.812 & \textbf{no} \\
+Premium, Haiku 4.5, guideline present & 32 & $+0.211$ & 0.112 & 0.315 & yes \\
+Premium, Haiku 4.5, guideline removed & 32 & $+0.071$ & 0.119 & 0.333 & \textbf{no} \\
+Extra pull from removing the guideline, Sonnet 5 & 64 & $+0.632$ & 0.152 & 0.426 & \textbf{no} \\
+Extra pull from removing the guideline, Haiku 4.5 & 64 & $+0.357$ & 0.063 & 0.176 & yes \\
+Cost of paraphrase one & 96 & $-0.326$ & 0.066 & 0.184 & yes \\
+Cost of paraphrase two & 96 & $-0.198$ & 0.070 & 0.196 & yes \\
+Bare-block premium, Opus 5 & 128 & $+0.323$ & 0.047 & 0.132 & yes \\
+Cost of the peer closing sentence & 128 & $-0.279$ & 0.074 & 0.208 & yes \\
+Premium with both original closings & 128 & $-0.006$ & 0.068 & 0.191 & yes \\
+Premium, Opus 5, guideline removed & 128 & $-0.006$ & 0.068 & 0.191 & yes \\
+Premium, smaller models pooled & 128 & $+0.138$ & 0.114 & 0.318 & yes \\
+Structure-matched premium, Opus 5 & 192 & $+0.206$ & 0.079 & 0.222 & yes \\
+Premium, Opus 5, guideline present & 192 & $-0.018$ & 0.041 & 0.116 & yes \\
+Extra pull from removing the guideline, Opus 5 & 320 & $+0.541$ & 0.071 & 0.199 & yes \\
+\bottomrule
+\end{tabular}
+\end{table}

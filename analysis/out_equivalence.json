@@ -1,0 +1,121 @@
+{
+ "model": "opus5",
+ "primary": {
+  "est": -0.004614036572314361,
+  "p": 0.973,
+  "ci": [
+   -0.24744169199252225,
+   0.23821361884789355
+  ],
+  "benchmark": 0.20607929194786542,
+  "positive_and_significant": false,
+  "ci_includes_benchmark": true,
+  "ci_excludes_zero": false,
+  "powered_for_benchmark": false,
+  "verdict": "inconclusive: the arm cannot detect a premium the size of the structure-matched estimate"
+ },
+ "rows": [
+  {
+   "est": -0.004614036572314361,
+   "se": 0.1238916609286775,
+   "p": 0.973,
+   "n": 128,
+   "label": "equivalence",
+   "arms": [
+    "peereqv_ng",
+    "tooleqv_ng"
+   ],
+   "status": "ok",
+   "mde": 0.347093045965586,
+   "ci": [
+    -0.24744169199252225,
+    0.23821361884789355
+   ]
+  },
+  {
+   "est": 0.001062830780282651,
+   "se": 0.1393221959346138,
+   "p": 0.9953,
+   "n": 128,
+   "label": "reliability",
+   "arms": [
+    "peerrel_ng",
+    "toolrel_ng"
+   ],
+   "status": "ok",
+   "mde": 0.390323004753307,
+   "ci": [
+    -0.2720086732515604,
+    0.2741343348121257
+   ]
+  },
+  {
+   "est": 0.20607929194786542,
+   "se": 0.07938824661650133,
+   "p": 0.0054,
+   "n": 192,
+   "label": "matched_struct",
+   "arms": [
+    "peermatch_ng",
+    "toolbare_ng"
+   ],
+   "status": "ok",
+   "mde": 0.22241293825136157,
+   "ci": [
+    0.05047832857952281,
+    0.36168025531620807
+   ]
+  },
+  {
+   "est": 0.3227015567057807,
+   "se": 0.047025234573289804,
+   "p": 0.0002,
+   "n": 128,
+   "label": "matched_bare",
+   "arms": [
+    "peerbare_ng",
+    "toolbare_ng"
+   ],
+   "status": "ok",
+   "mde": 0.13174520208172638,
+   "ci": [
+    0.2305320969421327,
+    0.4148710164694287
+   ]
+  },
+  {
+   "est": 0.01217144947655511,
+   "se": 0.10618009474489747,
+   "p": 0.9055,
+   "n": 128,
+   "label": "peer_reliability",
+   "arms": [
+    "peerrel_ng",
+    "peereqv_ng"
+   ],
+   "status": "ok",
+   "mde": 0.2974725839468522,
+   "ci": [
+    -0.19594153622344393,
+    0.22028443517655413
+   ]
+  },
+  {
+   "est": 0.006494582123957594,
+   "se": 0.09080576577561272,
+   "p": 0.9448,
+   "n": 128,
+   "label": "tool_reliability",
+   "arms": [
+    "toolrel_ng",
+    "tooleqv_ng"
+   ],
+   "status": "ok",
+   "mde": 0.25440009116061035,
+   "ci": [
+    -0.17148471879624333,
+    0.18447388304415852
+   ]
+  }
+ ]
+}
