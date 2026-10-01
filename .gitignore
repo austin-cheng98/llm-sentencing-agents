@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+# figures are rebuilt from the analysis outputs by figures/make_all.py
+figures/*.pdf
+figures/*.png
