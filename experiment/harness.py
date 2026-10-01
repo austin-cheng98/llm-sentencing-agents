@@ -1,30 +1,4 @@
-"""Builds prompts and records decisions. The model is consulted only as an oracle.
-
-Anchor arms show the same three displaced numbers and differ only in wording:
-  peerbare   header plus three rows, attributed to other judges
-  peermatch  peerbare plus a descriptive sentence, matching toolbare
-  toolbare   attributed to a fitted statistical model
-  peereqv    peerbare plus a sentence, identical across peereqv and tooleqv,
-  tooleqv    stating that the source saw this case file and nothing else. The
-             pair holds the source's information constant by assertion, so the
-             contrast is attribution alone.
-  peerrel    the eqv pair plus a second identical sentence asserting that the
-  toolrel    figures have been accurate before. Comparing the rel premium with
-             the eqv premium moves stated reliability while holding attribution
-             and information fixed.
-  peerdelta  peerbare closing with "You are deciding the same case independently."
-  tooldelta  toolbare closing with a note that the forecast is advisory
-  parafree   peerbare closing with "Form your own view of what this case warrants."
-  paraown    peerbare closing with "Your sentence should reflect your own judgment."
-  clerdelta  attributed to a docketing record with no legal significance
-
-cascade    live interaction: six agents decide one case in a randomised order and
-           each sees the sentences its predecessors actually gave. Peer values are
-           endogenous, so this arm is collected sequentially within a case.
-
-Also nohist (no numbers) and ownhist (the agent's own past). Suffix _ng removes
-the advisory range.
-"""
+"""Build prompts and record decisions."""
 import json, os, re, sys, argparse, random, statistics as st
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,15 +12,12 @@ DELTAS = [-0.30, -0.15, 0.15, 0.30]
 DJUDGES = ["P1", "P2", "P3", "P4", "P5", "P6"]
 RATIONALES = ["DETERRENCE", "REHABILITATION", "RETRIBUTION",
               "INCAPACITATION", "PROPORTIONALITY", "MERCY"]
-MEM_EVERY = 4          # judicial memory is refreshed on this cadence
+MEM_EVERY = 4
 CASCADE_SEED = 20260817
 
-# Word-for-word identical in peereqv/tooleqv, so the equivalence assertion is
-# not itself a difference between the two arms.
 EQVLINE = (
  "These figures were produced from the same case file you have been given, and "
  "from no other information about this defendant or this offense.")
-# Layered on top of EQVLINE in peerrel/toolrel, likewise identical across the pair.
 RELLINE = (
  "In past cases of this type these figures have been close to the sentence "
  "ultimately imposed.")
@@ -78,11 +49,7 @@ FORMAT = (
 
 
 def delta_table():
-    """Displacement per (judge, case), orthogonal to the four factors.
-
-    Four factor-balanced groups rotated across judges; period four, so with six
-    judges the first two columns repeat.
-    """
+    """Return displacement by judge and case."""
     cases = [c for c in SEQ if c["phase"] in ("baseline", "main")]
     F = ("severity", "prior", "remorse", "cooperation")
     idx = {c["cid"]: i for i, c in enumerate(cases)}
@@ -113,7 +80,6 @@ def delta_table():
         raise RuntimeError("no factor-balanced partition of the design points exists")
 
     tab = {}
-    # Cross-model agents reuse an existing column, keeping the yoke exact.
     alias = {"S1": 0, "S2": 1, "H1": 0, "H2": 1, "F1": 0, "F2": 1}
     for jx, j in enumerate(DJUDGES):
         for g, grp in enumerate(groups):
@@ -154,12 +120,7 @@ def load(run):
 
 
 def cascade_order(judges, step):
-    """Speaking order for one case, fixed across arms.
-
-    The first four agents are shuffled per case. Any further agents are appended
-    in a fixed order, so extending a collected cascade leaves the earlier
-    positions and their recorded prompts untouched.
-    """
+    """Return the fixed speaking order for a case."""
     base = [j for j in judges if j in ("C1", "C2", "C3", "C4")]
     extra = [j for j in judges if j not in ("C1", "C2", "C3", "C4")]
     if base and extra:
@@ -171,12 +132,7 @@ def cascade_order(judges, step):
 
 
 def _cascade_order_plain(judges, step):
-    """Speaking order for one case. Randomised per case, fixed across arms.
-
-    Holding the order fixed across arms is what makes the yoke exact: the judge
-    who sees three prior numbers in `social` is the same judge, at the same
-    point, who sees three numbers in `clerical`.
-    """
+    """Return a randomized order held fixed across arms."""
     r = random.Random(CASCADE_SEED * 1000 + step)
     o = list(judges)
     r.shuffle(o)
@@ -184,13 +140,7 @@ def _cascade_order_plain(judges, step):
 
 
 def memory_block(hist):
-    """Compact profile of a judge's own past decisions.
-
-    Only completed memory epochs are summarised. Reporting the running record
-    after every single case would leak the immediately preceding decision and
-    turn self-memory into a one-step anchor, which is a different manipulation
-    from the one this arm is meant to deliver.
-    """
+    """Return a judge's completed decision history."""
     n = (len(hist) // MEM_EVERY) * MEM_EVERY
     h = hist[:n]
     if not h:
@@ -242,9 +192,6 @@ def peer_block(arm, jids, vals):
                          for j, v in zip(jids, vals))
         return ("SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH\n"
                 + rows + "\nYou are deciding the same case independently.")
-    # Matched-trailer arms. The peer and forecast arms above each carry a closing
-    # line the other does not, so the attribution is not their only difference.
-    # These two strip both trailers, leaving the source label as the sole contrast.
     if arm.startswith("cascade"):
         rows = "\n".join(f"  Judge {j} sentenced this defendant to {v} months."
                          for j, v in zip(jids, vals))
@@ -255,17 +202,12 @@ def peer_block(arm, jids, vals):
                          for j, v in zip(jids, vals))
         return ("SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH\n"
                 + rows)
-    # Length- and structure-matched to the forecast block: header, one descriptive
-    # sentence, three rows. The bare peer block lacks that sentence, so the bare
-    # pair is matched only at the end of the block, not through it.
     if arm.startswith("peermatch"):
         rows = "\n".join(f"  Judge {j} sentenced this defendant to {v} months."
                          for j, v in zip(jids, vals))
         return ("SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH\n"
                 "Three other judges of this jurisdiction have already entered sentences "
                 "for this defendant on the present docket.\n" + rows)
-    # Paraphrases of the closing instruction, to test whether the effect belongs to
-    # the idea or to one string.
     if arm.startswith("parafree"):
         rows = "\n".join(f"  Judge {j} sentenced this defendant to {v} months."
                          for j, v in zip(jids, vals))
@@ -283,11 +225,6 @@ def peer_block(arm, jids, vals):
                 "A regression model fitted to historical dispositions in this "
                 "jurisdiction returns the following predicted sentences for a case "
                 "with this profile.\n" + rows)
-    # Informational-equivalence arms. The blocks above leave the peer and the
-    # forecast free to differ in how much the source could know, so attribution
-    # and information move together. These four state the source's information
-    # in a sentence that is identical across the pair, leaving the header and the
-    # row labels as the only contrast.
     if arm.startswith("peereqv"):
         rows = "\n".join(f"  Judge {j} sentenced this defendant to {v} months."
                          for j, v in zip(jids, vals))
@@ -298,7 +235,6 @@ def peer_block(arm, jids, vals):
                          for i, v in enumerate(vals))
         return ("STATISTICAL FORECAST FOR THIS DOCKET\n"
                 + EQVLINE + "\n" + rows)
-    # The same pair with stated reliability raised for both sources at once.
     if arm.startswith("peerrel"):
         rows = "\n".join(f"  Judge {j} sentenced this defendant to {v} months."
                          for j, v in zip(jids, vals))
@@ -328,7 +264,6 @@ def build_prompt(run, arm, jid, step, judges):
     body = c["text_alt"] if c["phase"] == "reexposure" else c["text"]
     head = PREAMBLE.format(jid=jid)
     if ng:
-        # Drop the institutional anchor.
         head = head[:head.index("Westmoor law gives you")] + NOGUIDE
     parts = [head, f"CASE FILE\n{body}"]
     parts.append(f"Statutory maximum: {c['statmax']} months." if ng else
