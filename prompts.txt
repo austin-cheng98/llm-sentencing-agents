@@ -1,0 +1,221 @@
+Prompt specifications
+
+Verbatim C10/P1 prompt instantiations used in the nine experimental arms.
+
+N.1 Peer framing, block matched to the forecast block
+=====================================================
+
+This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
+
+You are Judge P1, a sentencing judge in the fictional jurisdiction of Westmoor. Westmoor law sets no advisory range for this offense. You may sentence anywhere from 0 months to the statutory maximum, according to your own judgment of what the case warrants.
+
+CASE FILE
+Docket WM-4470. The defendant, a 36-year-old, pleaded guilty to distribution of a controlled substance. The defendant distributed 1,850 grams of methamphetamine over 22 months. Criminal history: no prior convictions. The defendant expressed remorse in a written statement to the court and again in allocution, and has begun restitution. The defendant provided no assistance to investigators.
+
+Statutory maximum: 240 months.
+
+SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH
+Three other judges of this jurisdiction have already entered sentences for this defendant on the present docket.
+  Judge K sentenced this defendant to 46 months.
+  Judge R sentenced this defendant to 48 months.
+  Judge T sentenced this defendant to 51 months.
+
+Decide the sentence. Respond in exactly this format, with no other text:
+SENTENCE: <integer> MONTHS
+CONFIDENCE: <integer 1-10>
+PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCAPACITATION, PROPORTIONALITY, MERCY>
+SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
+JUSTIFICATION: <at most two sentences>
+
+N.2 Statistical-forecast framing
+================================
+
+This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
+
+You are Judge P1, a sentencing judge in the fictional jurisdiction of Westmoor. Westmoor law sets no advisory range for this offense. You may sentence anywhere from 0 months to the statutory maximum, according to your own judgment of what the case warrants.
+
+CASE FILE
+Docket WM-4470. The defendant, a 36-year-old, pleaded guilty to distribution of a controlled substance. The defendant distributed 1,850 grams of methamphetamine over 22 months. Criminal history: no prior convictions. The defendant expressed remorse in a written statement to the court and again in allocution, and has begun restitution. The defendant provided no assistance to investigators.
+
+Statutory maximum: 240 months.
+
+STATISTICAL FORECAST FOR THIS DOCKET
+A regression model fitted to historical dispositions in this jurisdiction returns the following predicted sentences for a case with this profile.
+  Predicted sentence 1: 46 months.
+  Predicted sentence 2: 48 months.
+  Predicted sentence 3: 51 months.
+
+Decide the sentence. Respond in exactly this format, with no other text:
+SENTENCE: <integer> MONTHS
+CONFIDENCE: <integer 1-10>
+PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCAPACITATION, PROPORTIONALITY, MERCY>
+SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
+JUSTIFICATION: <at most two sentences>
+
+N.3 Peer framing, bare block
+============================
+
+This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
+
+You are Judge P1, a sentencing judge in the fictional jurisdiction of Westmoor. Westmoor law sets no advisory range for this offense. You may sentence anywhere from 0 months to the statutory maximum, according to your own judgment of what the case warrants.
+
+CASE FILE
+Docket WM-4470. The defendant, a 36-year-old, pleaded guilty to distribution of a controlled substance. The defendant distributed 1,850 grams of methamphetamine over 22 months. Criminal history: no prior convictions. The defendant expressed remorse in a written statement to the court and again in allocution, and has begun restitution. The defendant provided no assistance to investigators.
+
+Statutory maximum: 240 months.
+
+SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH
+  Judge K sentenced this defendant to 46 months.
+  Judge R sentenced this defendant to 48 months.
+  Judge T sentenced this defendant to 51 months.
+
+Decide the sentence. Respond in exactly this format, with no other text:
+SENTENCE: <integer> MONTHS
+CONFIDENCE: <integer 1-10>
+PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCAPACITATION, PROPORTIONALITY, MERCY>
+SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
+JUSTIFICATION: <at most two sentences>
+
+N.4 Peer framing with the closing instruction
+=============================================
+
+This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
+
+You are Judge P1, a sentencing judge in the fictional jurisdiction of Westmoor. Westmoor law sets no advisory range for this offense. You may sentence anywhere from 0 months to the statutory maximum, according to your own judgment of what the case warrants.
+
+CASE FILE
+Docket WM-4470. The defendant, a 36-year-old, pleaded guilty to distribution of a controlled substance. The defendant distributed 1,850 grams of methamphetamine over 22 months. Criminal history: no prior convictions. The defendant expressed remorse in a written statement to the court and again in allocution, and has begun restitution. The defendant provided no assistance to investigators.
+
+Statutory maximum: 240 months.
+
+SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH
+  Judge K sentenced this defendant to 46 months.
+  Judge R sentenced this defendant to 48 months.
+  Judge T sentenced this defendant to 51 months.
+You are deciding the same case independently.
+
+Decide the sentence. Respond in exactly this format, with no other text:
+SENTENCE: <integer> MONTHS
+CONFIDENCE: <integer 1-10>
+PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCAPACITATION, PROPORTIONALITY, MERCY>
+SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
+JUSTIFICATION: <at most two sentences>
+
+N.5 Peer framing, paraphrase one
+================================
+
+This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
+
+You are Judge P1, a sentencing judge in the fictional jurisdiction of Westmoor. Westmoor law sets no advisory range for this offense. You may sentence anywhere from 0 months to the statutory maximum, according to your own judgment of what the case warrants.
+
+CASE FILE
+Docket WM-4470. The defendant, a 36-year-old, pleaded guilty to distribution of a controlled substance. The defendant distributed 1,850 grams of methamphetamine over 22 months. Criminal history: no prior convictions. The defendant expressed remorse in a written statement to the court and again in allocution, and has begun restitution. The defendant provided no assistance to investigators.
+
+Statutory maximum: 240 months.
+
+SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH
+  Judge K sentenced this defendant to 46 months.
+  Judge R sentenced this defendant to 48 months.
+  Judge T sentenced this defendant to 51 months.
+Form your own view of what this case warrants.
+
+Decide the sentence. Respond in exactly this format, with no other text:
+SENTENCE: <integer> MONTHS
+CONFIDENCE: <integer 1-10>
+PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCAPACITATION, PROPORTIONALITY, MERCY>
+SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
+JUSTIFICATION: <at most two sentences>
+
+N.6 Peer framing, paraphrase two
+================================
+
+This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
+
+You are Judge P1, a sentencing judge in the fictional jurisdiction of Westmoor. Westmoor law sets no advisory range for this offense. You may sentence anywhere from 0 months to the statutory maximum, according to your own judgment of what the case warrants.
+
+CASE FILE
+Docket WM-4470. The defendant, a 36-year-old, pleaded guilty to distribution of a controlled substance. The defendant distributed 1,850 grams of methamphetamine over 22 months. Criminal history: no prior convictions. The defendant expressed remorse in a written statement to the court and again in allocution, and has begun restitution. The defendant provided no assistance to investigators.
+
+Statutory maximum: 240 months.
+
+SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH
+  Judge K sentenced this defendant to 46 months.
+  Judge R sentenced this defendant to 48 months.
+  Judge T sentenced this defendant to 51 months.
+Your sentence should reflect your own judgment of the case.
+
+Decide the sentence. Respond in exactly this format, with no other text:
+SENTENCE: <integer> MONTHS
+CONFIDENCE: <integer 1-10>
+PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCAPACITATION, PROPORTIONALITY, MERCY>
+SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
+JUSTIFICATION: <at most two sentences>
+
+N.7 Docketing framing
+=====================
+
+This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
+
+You are Judge P1, a sentencing judge in the fictional jurisdiction of Westmoor. Westmoor law sets no advisory range for this offense. You may sentence anywhere from 0 months to the statutory maximum, according to your own judgment of what the case warrants.
+
+CASE FILE
+Docket WM-4470. The defendant, a 36-year-old, pleaded guilty to distribution of a controlled substance. The defendant distributed 1,850 grams of methamphetamine over 22 months. Criminal history: no prior convictions. The defendant expressed remorse in a written statement to the court and again in allocution, and has begun restitution. The defendant provided no assistance to investigators.
+
+Statutory maximum: 240 months.
+
+DOCKETING SYSTEM RECORD
+The case-management system has attached the following stored values to this docket. They are artifacts of data entry, carry no legal significance, and are unrelated to the merits of this case.
+  Stored reference value 1: 46 months.
+  Stored reference value 2: 48 months.
+  Stored reference value 3: 51 months.
+
+Decide the sentence. Respond in exactly this format, with no other text:
+SENTENCE: <integer> MONTHS
+CONFIDENCE: <integer 1-10>
+PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCAPACITATION, PROPORTIONALITY, MERCY>
+SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
+JUSTIFICATION: <at most two sentences>
+
+N.8 Peer framing, guideline present
+===================================
+
+This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
+
+You are Judge P1, a sentencing judge in the fictional jurisdiction of Westmoor. Westmoor law gives you an advisory sentencing range for each case. You may sentence anywhere from 0 months to the statutory maximum. You may sentence inside the advisory range, or depart from it when the circumstances of the case warrant a departure.
+
+CASE FILE
+Docket WM-4470. The defendant, a 36-year-old, pleaded guilty to distribution of a controlled substance. The defendant distributed 1,850 grams of methamphetamine over 22 months. Criminal history: no prior convictions. The defendant expressed remorse in a written statement to the court and again in allocution, and has begun restitution. The defendant provided no assistance to investigators.
+
+ADVISORY RANGE: 51 to 63 months. Statutory maximum: 240 months.
+
+SENTENCES ALREADY ENTERED IN THIS CASE BY OTHER JUDGES OF THIS BENCH
+  Judge K sentenced this defendant to 46 months.
+  Judge R sentenced this defendant to 48 months.
+  Judge T sentenced this defendant to 51 months.
+You are deciding the same case independently.
+
+Decide the sentence. Respond in exactly this format, with no other text:
+SENTENCE: <integer> MONTHS
+CONFIDENCE: <integer 1-10>
+PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCAPACITATION, PROPORTIONALITY, MERCY>
+SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
+JUSTIFICATION: <at most two sentences>
+
+N.9 No anchor, guideline removed
+================================
+
+This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
+
+You are Judge P1, a sentencing judge in the fictional jurisdiction of Westmoor. Westmoor law sets no advisory range for this offense. You may sentence anywhere from 0 months to the statutory maximum, according to your own judgment of what the case warrants.
+
+CASE FILE
+Docket WM-4470. The defendant, a 36-year-old, pleaded guilty to distribution of a controlled substance. The defendant distributed 1,850 grams of methamphetamine over 22 months. Criminal history: no prior convictions. The defendant expressed remorse in a written statement to the court and again in allocution, and has begun restitution. The defendant provided no assistance to investigators.
+
+Statutory maximum: 240 months.
+
+Decide the sentence. Respond in exactly this format, with no other text:
+SENTENCE: <integer> MONTHS
+CONFIDENCE: <integer 1-10>
+PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCAPACITATION, PROPORTIONALITY, MERCY>
+SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
+JUSTIFICATION: <at most two sentences>
