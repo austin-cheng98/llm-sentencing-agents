@@ -8,6 +8,7 @@ P = json.load(open(f"{ROOT}/analysis/out_power.json"))
 B = json.load(open(f"{ROOT}/analysis/out_balanced.json"))
 E = json.load(open(f"{ROOT}/analysis/out_equivalence.json"))
 X = json.load(open(f"{ROOT}/analysis/out_crosslineage.json"))
+R7 = json.load(open(f"{ROOT}/analysis/out_r7_source_access.json"))
 
 out = []
 
@@ -143,6 +144,21 @@ for lab, tag in (("matched_struct", "MS"), ("matched_bare", "MB")):
     mac(f"xl{tag}Lo", f"{r['ci'][0]:+.3f}".replace("+", ""))
     mac(f"xl{tag}Hi", f"{r['ci'][1]:+.3f}".replace("+", ""))
     mac(f"xl{tag}Bench", f"{r['bench']:.3f}")
+
+r7 = R7["primary_premium"]
+mac("rSevenPairs", R7["primary_pairs_target"])
+mac("rSevenN", r7["n"])
+mac("rSevenEst", f"{r7['est']:+.3f}")
+mac("rSevenP", p(r7["p"]))
+mac("rSevenMde", f"{r7['mde80_t15']:.3f}")
+mac("rSevenLo", f"{r7['ci95_t15'][0]:+.3f}")
+mac("rSevenHi", f"{r7['ci95_t15'][1]:+.3f}")
+mac("rSevenPeerSlope", f"{R7['number_use']['neutral_shared_file']['peeraccess_ng']['slope']:.3f}")
+mac("rSevenToolSlope", f"{R7['number_use']['neutral_shared_file']['toolaccess_ng']['slope']:.3f}")
+mac("rSevenPeerExact", f"{100 * R7['number_use']['neutral_shared_file']['peeraccess_ng']['exact_match_rate']:.1f}")
+mac("rSevenToolExact", f"{100 * R7['number_use']['neutral_shared_file']['toolaccess_ng']['exact_match_rate']:.1f}")
+mac("rSevenPeerOutside", f"{100 * R7['number_use']['neutral_shared_file']['peeraccess_ng']['outside_displayed_range_rate']:.1f}")
+mac("rSevenToolOutside", f"{100 * R7['number_use']['neutral_shared_file']['toolaccess_ng']['outside_displayed_range_rate']:.1f}")
 
 txt = "\n".join(out) + "\n"
 open(f"{ROOT}/analysis/out_revision_macros.tex", "w").write(txt)
