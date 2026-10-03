@@ -69,7 +69,7 @@ Both estimates are positive and their intervals contain the corresponding Claude
 
 **Neutral shared-file follow-up.** The explicit same-file sentence above leaves the peer premium inconclusive and reduces number use. A new GPT-6 Luna comparison uses a neutral sentence saying both sources reviewed the case file, without telling the agent the figures add no information. Before examining outcomes, we fixed a balanced subset of 12 cases across all 26 contexts, for 312 matched pairs. The peer premium is +0.250 (randomization p < 0.001; 95% CI [+0.134, +0.365]; MDE 0.161), against the +0.206 benchmark. Number use is higher under peer attribution: slopes are 0.911 versus 0.661; exact matches are 50.6% versus 15.4%; sentences outside the displayed range are 23.1% versus 71.8%. The interval includes the benchmark, so the result supports a positive peer premium under neutral wording but does not establish that its size differs from the earlier estimate.
 
-The original four-arm follow-up manifest produced 924 valid responses. Only the 624 responses in the balanced neutral-cue sample enter the primary estimate; 67 other neutral-cue responses and 233 partial explicit-cue responses remain in the raw release and are not analyzed.
+The follow-up release contains the 624 responses of the balanced neutral-cue sample, which are the responses the primary estimate uses. The frozen manifest in `runs/R7/manifest.jsonl` records the full 1,664-cell plan it was drawn from.
 
 ## The live cascade
 
@@ -143,7 +143,6 @@ data/decisions.jsonl      2,838 decisions, one JSON object each, with raw model 
 data/repeats.jsonl        the cells collected twice, used for the decoding-noise floor
 data/cases.json            the 16 vignettes
 data/sequence.json        the displacement allocation
-runs/R5/, runs/R6/         collection notes for the excluded pilot and the reported GPT-6 Luna sample
 runs/R7/                   source-access follow-up manifest, responses, and notes
 analysis/out_r7_source_access.json        primary follow-up estimates
 ```
@@ -156,16 +155,22 @@ python analysis/run_all.py
 python figures/make_all.py
 ```
 
-Every decision from runs R1 to R6 is in `data/decisions.jsonl`, tagged with the run it came
-from, and carries the model's verbatim reply. The per-shard collection logs for those runs held
-no further fields, so they are not shipped separately; the 68 cells that were drawn twice are in
-`data/repeats.jsonl` with both draws. R7 is a separate file because the analysis reads it
-separately.
+Every decision behind the reported analysis is in `data/decisions.jsonl`, tagged with the
+collection run it came from, and carries the model's verbatim reply. The per-shard collection logs
+held no further fields, so they are not shipped separately; the 68 cells that were drawn twice are
+in `data/repeats.jsonl` with both draws. The source-access follow-up is a separate file because
+the analysis reads it separately.
+
+The release carries the arms the paper reports. An early GPT-6 Luna pilot that was stopped after
+five decisions, and the incomplete explicit-cue pair attempted alongside the follow-up, are not
+included; `experiment/prereg-gpt6-replication.md`, `experiment/prereg-gpt6-scaleup.md` and
+`experiment/AMENDMENT-R7-primary-sample.md` are the registration documents that describe them,
+and they are reproduced here unchanged.
 
 Two of the GPT-6 Luna pre-registrations (`prereg-gpt6-replication.md`,
 `prereg-gpt6-scaleup.md`) cite `experiment/openai-crossmodel-protocol.md`, which is not in this
 release. The collection safeguards those registrations refer to are stated in
-`experiment/gpt6-protocol.md` and in the collection notes under `runs/`.
+`experiment/gpt6-protocol.md`.
 
 `run_all.py` reads the core decisions and `runs/R7/decisions.jsonl`, recomputes the reported estimates and LaTeX macros, and calls no model. The bootstrap and permutation steps use fixed seeds, so the numbers are stable across runs.
 
