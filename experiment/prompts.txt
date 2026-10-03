@@ -2,7 +2,7 @@ Prompt specifications
 
 Verbatim C10/P1 prompt instantiations used in the nine experimental arms.
 
-N.1 Peer framing, block matched to the forecast block
+Peer framing, block matched to the forecast block
 =====================================================
 
 This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
@@ -27,7 +27,7 @@ PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCA
 SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
 JUSTIFICATION: <at most two sentences>
 
-N.2 Statistical-forecast framing
+Statistical-forecast framing
 ================================
 
 This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
@@ -52,7 +52,7 @@ PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCA
 SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
 JUSTIFICATION: <at most two sentences>
 
-N.3 Peer framing, bare block
+Peer framing, bare block
 ============================
 
 This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
@@ -76,7 +76,7 @@ PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCA
 SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
 JUSTIFICATION: <at most two sentences>
 
-N.4 Peer framing with the closing instruction
+Peer framing with the closing instruction
 =============================================
 
 This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
@@ -101,7 +101,7 @@ PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCA
 SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
 JUSTIFICATION: <at most two sentences>
 
-N.5 Peer framing, paraphrase one
+Peer framing, paraphrase one
 ================================
 
 This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
@@ -126,7 +126,7 @@ PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCA
 SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
 JUSTIFICATION: <at most two sentences>
 
-N.6 Peer framing, paraphrase two
+Peer framing, paraphrase two
 ================================
 
 This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
@@ -151,7 +151,7 @@ PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCA
 SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
 JUSTIFICATION: <at most two sentences>
 
-N.7 Docketing framing
+Docketing framing
 =====================
 
 This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
@@ -176,7 +176,7 @@ PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCA
 SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
 JUSTIFICATION: <at most two sentences>
 
-N.8 Peer framing, guideline present
+Peer framing, guideline present
 ===================================
 
 This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
@@ -201,7 +201,7 @@ PRIMARY_RATIONALE: <exactly one of DETERRENCE, REHABILITATION, RETRIBUTION, INCA
 SECONDARY_RATIONALE: <exactly one of the same six words, or NONE>
 JUSTIFICATION: <at most two sentences>
 
-N.9 No anchor, guideline removed
+No anchor, guideline removed
 ================================
 
 This is a controlled research simulation studying how language-model agents make repeated decisions. Every case in this study is entirely fictional and was procedurally generated for the simulation. No real defendant, victim, case, court, or jurisdiction is involved. Your output is a data point in a behavioral experiment, not legal advice and not a real judicial act.
