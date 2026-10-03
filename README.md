@@ -6,7 +6,7 @@ Agents sentence procedurally generated cases. Each agent sees three numbers disp
 
 The displacement is orthogonal to every case factor. The slope of an agent's sentence on the displacement measures how far the agent follows the numbers. We call that slope *pull*. Regression to the mean cannot produce it. When two arms show identical numbers under different attributions, the difference in their slopes is the *peer premium*.
 
-The dataset contains 2,838 decisions over four models: 1,270 on Claude Opus 5, 160 on Claude Sonnet 5, 160 on Claude Haiku 4.5, and 1,248 on GPT-6 Luna.
+The core dataset contains 2,838 decision records over four models: 1,270 on Claude Opus 5, 160 on Claude Sonnet 5, 160 on Claude Haiku 4.5, and 1,248 on GPT-6 Luna. Of these, 2,837 contain a parseable sentence. A separate GPT-6 Luna follow-up adds 624 decisions to its primary analysis.
 
 ## The result
 
@@ -58,14 +58,18 @@ The equivalence sentence changes how agents use the numbers. It removes an infer
 
 Sonnet 5 is uninformative rather than negative: its MDE is about three times the benchmark, so the arm could not detect the effect it was designed to test. Haiku 4.5 is not a clean null either. Its structure-matched interval lies below the benchmark, but its MDE of 0.219 marginally exceeds the 0.206 it was powered against. By the pre-registered criterion, the arm falls just short. The result is suggestive rather than decisive. The difference between Haiku's bare and structure-matched cells was not pre-registered as a cross-model claim, so we do not report it as one.
 
-**A second lineage.** GPT-6 Luna used the fresh-context protocol in `experiment/openai-crossmodel-protocol.md`: 26 fresh judge IDs, three arms, and 1,248 decisions.
+**A second lineage.** The GPT-6 Luna sample contains 1,248 decisions across three arms and 26 fresh judge contexts. Collection details are in `experiment/gpt6-protocol.md`.
 
 | Contrast | Premium | p | 95% CI | MDE | Claude benchmark | n |
 | --- | ---: | ---: | --- | ---: | ---: | ---: |
 | Structure-matched | +0.22 | <0.001 | [+0.125, +0.316] | 0.136 | +0.206 | 832 |
 | Bare | +0.26 | <0.001 | [+0.159, +0.353] | 0.138 | +0.323 | 832 |
 
-Both estimates are positive and their intervals contain the corresponding Claude benchmark. The R6 MDEs are below the benchmarks, so the estimates meet the registered precision criterion; the intervals still describe uncertainty about cross-model differences rather than prove equivalence.
+Both estimates are positive and their intervals contain the corresponding Claude benchmark. Their MDEs are below the benchmark values; the intervals still describe uncertainty about cross-model differences rather than prove equivalence.
+
+**Neutral shared-file follow-up.** The explicit same-file sentence above leaves the peer premium inconclusive and reduces number use. A new GPT-6 Luna comparison uses a neutral sentence saying both sources reviewed the case file, without telling the agent the figures add no information. Before examining outcomes, we fixed a balanced subset of 12 cases across all 26 contexts, for 312 matched pairs. The peer premium is +0.250 (randomization p < 0.001; 95% CI [+0.134, +0.365]; MDE 0.161), against the +0.206 benchmark. Number use is higher under peer attribution: slopes are 0.911 versus 0.661; exact matches are 50.6% versus 15.4%; sentences outside the displayed range are 23.1% versus 71.8%. The interval includes the benchmark, so the result supports a positive peer premium under neutral wording but does not establish that its size differs from the earlier estimate.
+
+The original four-arm follow-up manifest produced 924 valid responses. Only the 624 responses in the balanced neutral-cue sample enter the primary estimate; 67 other neutral-cue responses and 233 partial explicit-cue responses remain in the raw release and are not analyzed.
 
 ## The live cascade
 
@@ -95,12 +99,13 @@ experiment/harness.py           builds prompts, parses and records decisions
 experiment/status.py            which cells of an arm are still missing
 experiment/protocol.md          the collection protocol given to each data-collection worker
 experiment/cascade-protocol.md  the sequential protocol for the live-cascade arm
-experiment/openai-crossmodel-protocol.md  the sub-agent protocol for the second lineage
+experiment/gpt6-protocol.md              collection details for the GPT-6 Luna sample
 experiment/prereg-equivalence.md          pre-registration, equivalence and reliability arms
+experiment/prereg-r7-source-access.md    registration for the neutral shared-file follow-up
+experiment/AMENDMENT-R7-*.md              launch and outcome-blind sample amendments
+experiment/r7_source_access.py            collect and analyze the R7 follow-up
 experiment/prereg-equivalence-diffs.txt   the exact prompt deltas those arms introduce
 experiment/prereg-balanced.md             pre-registration, structure-matched small-model cells
-experiment/prereg-gpt6-scaleup.md         R6 sampling plan
-
 experiment/FREEZE-*.txt                   SHA-256 freeze records for both pre-registrations
 
 analysis/common.py        loading, OLS, cluster-robust covariance, wild cluster bootstrap
@@ -139,8 +144,9 @@ data/repeats.jsonl        the cells collected twice, used for the decoding-noise
 data/cases.json            the 16 vignettes
 data/sequence.json        the displacement allocation
 runs/R1..R4/              the original per-shard collection logs
-
 runs/R6/                   reported GPT-6 Luna sample and collection notes
+runs/R7/                   source-access follow-up manifest, responses, and notes
+analysis/out_r7_source_access.json        primary follow-up estimates
 ```
 
 ## Reproducing
@@ -151,7 +157,7 @@ python analysis/run_all.py
 python figures/make_all.py
 ```
 
-`run_all.py` reads `data/decisions.jsonl` and reprints every estimate. It calls no model. The bootstrap and permutation steps use fixed seeds, so the numbers are stable across runs.
+`run_all.py` reads the core decisions and `runs/R7/decisions.jsonl`, recomputes the reported estimates and LaTeX macros, and calls no model. The bootstrap and permutation steps use fixed seeds, so the numbers are stable across runs.
 
 `make_all.py` then rebuilds all eight figures from the JSON that step wrote; run it second.
 
