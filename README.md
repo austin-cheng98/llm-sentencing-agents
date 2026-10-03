@@ -69,7 +69,7 @@ Both estimates are positive and their intervals contain the corresponding Claude
 
 **Neutral shared-file follow-up.** The explicit same-file sentence above leaves the peer premium inconclusive and reduces number use. A new GPT-6 Luna comparison uses a neutral sentence saying both sources reviewed the case file, without telling the agent the figures add no information. Before examining outcomes, we fixed a balanced subset of 12 cases across all 26 contexts, for 312 matched pairs. The peer premium is +0.250 (randomization p < 0.001; 95% CI [+0.134, +0.365]; MDE 0.161), against the +0.206 benchmark. Number use is higher under peer attribution: slopes are 0.911 versus 0.661; exact matches are 50.6% versus 15.4%; sentences outside the displayed range are 23.1% versus 71.8%. The interval includes the benchmark, so the result supports a positive peer premium under neutral wording but does not establish that its size differs from the earlier estimate.
 
-The follow-up release contains the 624 responses of the balanced neutral-cue sample, which are the responses the primary estimate uses. The frozen manifest in `runs/R7/manifest.jsonl` records the full 1,664-cell plan it was drawn from.
+`runs/R7/decisions.jsonl` contains all 924 recorded responses: the 624 responses in the balanced neutral shared-file sample used by the primary estimate, 67 additional neutral shared-file responses outside the selected steps, and 233 partial explicit-cue responses. The latter 300 records are retained in the raw archive and excluded from confirmatory analysis. The frozen manifest in `runs/R7/manifest.jsonl` records the full 1,664-cell plan.
 
 ## The live cascade
 
@@ -100,13 +100,18 @@ experiment/status.py            which cells of an arm are still missing
 experiment/protocol.md          the collection protocol given to each data-collection worker
 experiment/cascade-protocol.md  the sequential protocol for the live-cascade arm
 experiment/gpt6-protocol.md              collection details for the GPT-6 Luna sample
+experiment/prereg-gpt6-luna.md             registration for the GPT-6 Luna sample
 experiment/prereg-equivalence.md          pre-registration, equivalence and reliability arms
 experiment/prereg-r7-source-access.md    registration for the neutral shared-file follow-up
 experiment/AMENDMENT-R7-*.md              launch and outcome-blind sample amendments
 experiment/r7_source_access.py            collect and analyze the R7 follow-up
 experiment/prereg-equivalence-diffs.txt   the exact prompt deltas those arms introduce
 experiment/prereg-balanced.md             pre-registration, structure-matched small-model cells
-experiment/FREEZE-*.txt                   SHA-256 freeze records for both pre-registrations
+experiment/FREEZE-*.txt                   original SHA-256 freeze records
+experiment/FREEZE-VERIFICATION.md          status of frozen and amended code hashes
+experiment/frozen/harness-balanced-equivalence.py
+                                             source snapshot used by two freezes
+experiment/RELEASE-CODE-CHECKSUMS.txt      hashes for current released analysis code
 
 analysis/common.py        loading, OLS, cluster-robust covariance, wild cluster bootstrap
 analysis/anchoring.py     pull by arm, the peer premium, the guideline effect
@@ -161,16 +166,10 @@ held no further fields, so they are not shipped separately; the 68 cells that we
 in `data/repeats.jsonl` with both draws. The source-access follow-up is a separate file because
 the analysis reads it separately.
 
-The release carries the arms the paper reports. An early GPT-6 Luna pilot that was stopped after
-five decisions, and the incomplete explicit-cue pair attempted alongside the follow-up, are not
-included; `experiment/prereg-gpt6-replication.md`, `experiment/prereg-gpt6-scaleup.md` and
-`experiment/AMENDMENT-R7-primary-sample.md` are the registration documents that describe them,
-and they are reproduced here unchanged.
-
-Two of the GPT-6 Luna pre-registrations (`prereg-gpt6-replication.md`,
-`prereg-gpt6-scaleup.md`) cite `experiment/openai-crossmodel-protocol.md`, which is not in this
-release. The collection safeguards those registrations refer to are stated in
-`experiment/gpt6-protocol.md`.
+The GPT-6 Luna sample registration and collection details are in
+`experiment/prereg-gpt6-luna.md` and `experiment/gpt6-protocol.md`. The R7 sample-selection
+amendments are in `experiment/AMENDMENT-R7-primary-sample.md` and
+`experiment/AMENDMENT-R7-power-target.md`.
 
 `run_all.py` reads the core decisions and `runs/R7/decisions.jsonl`, recomputes the reported estimates and LaTeX macros, and calls no model. The bootstrap and permutation steps use fixed seeds, so the numbers are stable across runs.
 
@@ -184,13 +183,11 @@ python cases/generate.py
 
 The generator asserts its invariants. It refuses to emit a design in which the advisory range correlates with a discretionary factor, in which offense types are unbalanced against any factor, or in which the two case blocks differ in composition.
 
-Checking a pre-registration freeze:
+Freeze records preserve the code and design hashes as registered. Later amendments may supersede a frozen hash; see `experiment/FREEZE-VERIFICATION.md` for the status of each reported mismatch. Verify the current released analysis code with:
 
 ```
-shasum -a 256 -c <(grep -E '^[0-9a-f]{64}  ' experiment/FREEZE-equivalence.txt)
+shasum -a 256 -c experiment/RELEASE-CODE-CHECKSUMS.txt
 ```
-
-A hash mismatch means that a file named in the freeze has changed since the arm was registered. Readers can then check whether the reported analysis matches the registered analysis.
 
 ## Collecting new decisions
 

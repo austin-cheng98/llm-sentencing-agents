@@ -9,6 +9,4 @@ sample is the 312 matched judge-case pairs in steps 0, 1, 2, 5, 6, 7, 8, 10, 11,
 attempted once, with no replacement draws. All 624 responses in those pairs parsed successfully, and
 there were no tool calls. Raw replies, prompt hashes and parse outcomes are in `decisions.jsonl`.
 
-`decisions.jsonl` holds those 624 responses, which are the responses the analysis uses.
-`experiment/AMENDMENT-R7-primary-sample.md` is the registration amendment that fixed the sample;
-it is reproduced unchanged and describes the wider collection the sample was drawn from.
+`decisions.jsonl` retains all 924 recorded responses: the 624 fixed-sample responses used by the confirmatory analysis, 67 additional neutral shared-file responses outside the selected steps, and 233 partial explicit-cue responses. The latter 300 responses are excluded from confirmatory analysis. `experiment/AMENDMENT-R7-primary-sample.md` and `experiment/AMENDMENT-R7-power-target.md` document the sample selection and amendment.

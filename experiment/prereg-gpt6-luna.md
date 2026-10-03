@@ -1,8 +1,4 @@
-# GPT-6 Luna scale-up
-
-This run replaces the underpowered GPT-6 Luna run in the reported analysis. The
-original raw records remain archived for traceability but are not pooled with
-this collection.
+# GPT-6 Luna sample
 
 ## Fixed sample
 
@@ -12,8 +8,8 @@ judge--case decisions (26 judges x 3 arms x 16 cases). Use one fresh GPT-6 Luna
 context per cell, one draw per cell, and the frozen `experiment/harness.py`
 prompt as the entire child instruction. Contexts may be launched through the
 collaboration runner or an isolated local Codex process; both are fresh model
-contexts. Record raw replies, including format failures, in `runs/R6` shards
-with model tag `gpt6`. Use the harness defaults for
+contexts. Record raw replies, including format failures, in
+`data/decisions.jsonl` under run `R6` and model tag `gpt6`. Use the harness defaults for
 decoding and reasoning. Do not add cells after inspecting results.
 
 The judge IDs reuse the fixed displacement columns through `delta_table()`; this
@@ -34,14 +30,12 @@ detectable effects (MDE = [1.959963985 + 0.8416212336] x clustered SE).
 For precision, compare the primary MDE with the Opus 5 structure-matched
 premium of +0.206 and the secondary MDE with the Opus 5 bare-block premium of
 +0.323. Report the point estimate and uncertainty regardless of whether the
-MDE is below its benchmark. The scale-up is a replication and precision
-extension; it does not establish cross-model equivalence by itself.
+MDE is below its benchmark. This sample estimates the registered contrasts; it does not establish cross-model
+equivalence by itself.
 
 ## Collection and audit
 
-Follow `experiment/openai-crossmodel-protocol.md`: no decision in the
-collector context, no design information in child instructions, one fresh child
-per cell, default settings, and verbatim raw replies. Record model identity,
-delegation details, UTC date range, counts, failures, and deviations in
-`runs/R6/collection-notes.md`. Audit all 1,248 cells before replacing the old
-GPT-6 records in `data/decisions.jsonl` and regenerating analyses.
+Follow `experiment/gpt6-protocol.md`: no decision in the collector context, no
+design information in child instructions, one fresh child per cell, default
+settings, and verbatim raw replies. Collection details are reported there. Audit
+all 1,248 cells before regenerating analyses.
