@@ -85,7 +85,7 @@ COOP_TXT = {0: "The defendant provided no assistance to investigators."}
 
 
 def assign_types(grid):
-    """Assign offense types so each co-occurs equally with every factor level."""
+    """Balance offense types across factor levels."""
     names = list(OFFENSE)
     pool = [names[i % len(names)] for i in range(16)]
     rng = random.Random(20260817)
@@ -107,7 +107,7 @@ def assign_types(grid):
 
 
 def build():
-    """Return the 16 crossed cases in a fixed, reproducible order."""
+    """Build the reproducible case list."""
     grid = list(itertools.product([0, 1], [0, 1], [0, 1], [0, 1]))
     types = assign_types(grid)
     cases = []
@@ -142,7 +142,7 @@ def build():
 
 
 def blocks(cases):
-    """Two blocks of 8, each balanced on every factor."""
+    """Split cases into two balanced blocks."""
     a = [c for c in cases if (c["severity"] ^ c["prior"] ^ c["remorse"] ^ c["cooperation"]) == 0]
     b = [c for c in cases if c not in a]
     for blk, name in ((a, "baseline"), (b, "main")):
