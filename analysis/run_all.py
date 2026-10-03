@@ -3,7 +3,7 @@ import subprocess, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 STEPS = ["integrity", "anchoring", "trailer", "randomization", "framing",
-         "memory", "crossmodel", "inference", "cascade", "dispersion",
+         "memory", "crossmodel", "inference", "cascade", "dispersion", "confidence", "census",
          "robustness", "equivalence", "balanced", "crosslineage", "power", "revision_macros"]
 
 for name in STEPS:

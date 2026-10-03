@@ -1,4 +1,22 @@
-"""Check sensitivity to round numbers, linearity, and scale."""
+"""Robustness of the premium to round numbers, to linearity, and to the scale.
+
+Three things a reader can reasonably doubt about the pull estimator, each
+checked here against the same decisions the headline contrasts use.
+
+Round numbers. Sentences cluster on year and half-year boundaries, so a
+decision can land on a displayed number by taste rather than by copying. The
+displayed numbers are themselves arbitrary, which bounds how much of the
+premium that taste can explain, but the exact-match rate is not immune and the
+split below says by how much.
+
+Linearity. Pull is one slope through four displacements. Estimating the
+premium separately at each magnitude says whether the single slope hides a
+kink.
+
+Scale. Deviation is a ratio, so the premium inherits the sentence scale.
+Re-running the contrasts on within-case ranks and on log ratios says whether a
+monotone change of scale moves the answer.
+"""
 import sys, os, json, collections
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -47,6 +65,7 @@ def premium(d, a1, outcome, B=9999, seed=17):
     return {"est": float(obs), "se": se, "p": (cnt + 1) / (B + 1), "n": len(d)}
 
 
+# ---------------------------------------------------------------- outcomes
 def dev(d):
     return [r["dev"] for r in d]
 
@@ -57,7 +76,11 @@ def logratio(d):
 
 
 def caserank(d):
-    """Convert outcomes to within-case ranks."""
+    """Within-case rank of the sentence, centred and scaled to unit width.
+
+    Only the ordering of sentences inside a case survives, so any monotone
+    redefinition of the sentence scale leaves this outcome untouched.
+    """
     by = collections.defaultdict(list)
     for i, r in enumerate(d):
         by[r["cid"]].append((r["sentence"], i))
@@ -66,6 +89,7 @@ def caserank(d):
         rows.sort()
         vals = [s for s, _ in rows]
         for pos, (s, i) in enumerate(rows):
+            # midrank, so ties (common here) do not invent an ordering
             tied = [p for p, v in enumerate(vals) if v == s]
             out[i] = (sum(tied) / len(tied)) / max(len(rows) - 1, 1) - 0.5
     return out
@@ -76,6 +100,7 @@ def main():
     allrecs = [r for r in load() if r.get("delta") is not None]
     res = {}
 
+    # ------------------------------------------------ 1. what agents choose
     s = [r["sentence"] for r in allrecs]
     res["sentences"] = {
         "n": len(s),
@@ -92,6 +117,7 @@ def main():
              res["sentences"]["div5"], res["sentences"]["div10"]))
     print("  most common:", ", ".join(f"{v}mo x{c}" for v, c in res["sentences"]["modes"]))
 
+    # ------------------------------------------------ 2. what they are shown
     shown = [v for r in allrecs for v in r["peer_vals"]]
     res["anchors"] = {
         "n": len(shown),
@@ -107,6 +133,7 @@ def main():
     print("  records where all three are divisible by 6: %.1f%%"
           % res["anchors"]["allthree_div6"])
 
+    # ----------------------------------- 3. does roundness carry the copying
     eq = [r for r in allrecs if r["sentence"] in r["peer_vals"]]
     rnd = [r for r in eq if r["sentence"] % 6 == 0]
     base6 = res["anchors"]["div6"]
@@ -131,6 +158,7 @@ def main():
     print("  match rate when some shown number is round: %.1f%%   when none is: %.1f%%"
           % (res["exact"]["rate_on_round_anchors"], res["exact"]["rate_no_round_anchor"]))
 
+    # ------------------------- 4. the premium with no round number in sight
     res["premium_nonround"] = {}
     print("\npremium on records where no shown number is divisible by 6")
     for name, a1, a2 in HEADLINE:
@@ -145,6 +173,7 @@ def main():
             res["premium_nonround"][name] = None
             print("  %-19s too few records (%d)" % (name, len(d)))
 
+    # ------------------------------------------- 5. is one slope enough
     res["by_magnitude"] = {}
     print("\npremium estimated separately at each displacement magnitude")
     for name, a1, a2 in HEADLINE:
@@ -161,6 +190,7 @@ def main():
                 print("  %-19s |d|=%.2f  too few records (%d)" % (name, mag, len(d)))
         res["by_magnitude"][name] = row
 
+    # --------------------------------- 6. does the scale carry the answer
     res["scale"] = {}
     print("\nheadline contrasts under a monotone change of outcome")
     for name, a1, a2 in HEADLINE:
@@ -174,6 +204,7 @@ def main():
                       % (name, label, c["est"], c["se"], c["p"]))
         res["scale"][name] = row
 
+    # ------------------------------------------- 7. confidence as a report
     conf = [r["confidence"] for r in allrecs if r.get("confidence") is not None]
     res["confidence"] = {"n": len(conf), "distinct": len(set(conf)),
                          "dist": dict(sorted(collections.Counter(conf).items())),

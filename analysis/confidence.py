@@ -1,10 +1,4 @@
-"""Reported confidence and exact adoption, arm by arm.
-
-Both quantities are read off the primary model's static arms in run R1, the
-only arms in which every agent sees three displayed numbers under a stated
-attribution. Exact adoption counts a decision whose sentence equals one of the
-numbers it was shown.
-"""
+"""Report confidence and exact adoption."""
 import json, os, sys
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -12,8 +6,6 @@ from common import load, ols, PRIMARY, FACTORS, ROOT
 
 ARMS = ["peerbare_ng", "peermatch_ng", "peerdelta_ng", "tooldelta_ng",
         "toolbare_ng", "clerdelta_ng"]
-# the second lineage was collected in three arms only, all with the guideline
-# removed. It is reported beside the primary model and not pooled with it.
 CROSS = "gpt6"
 CROSS_ARMS = ["peerbare_ng", "peermatch_ng", "toolbare_ng"]
 

@@ -1,4 +1,4 @@
-"""Three attributions of the same numbers, and what agents do with none."""
+"""Compare attributions and no-anchor behavior."""
 import json, os, sys
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +27,7 @@ def three_way(recs):
 
 
 def no_anchor(recs):
-    """Level and between-agent spread when no numbers are shown."""
+    """Summarize no-anchor outcomes."""
     out = {}
     for arm in ("nohist", "nohist_ng"):
         d = [r for r in recs if r["arm"] == arm and r["step"] < 16]

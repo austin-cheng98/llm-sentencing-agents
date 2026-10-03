@@ -1,5 +1,4 @@
-"""Memory arms: whether an agent's own record acts like a peer's.
-"""
+"""Analyze memory arms."""
 import json, os, sys
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -7,7 +6,7 @@ from common import load, ols, cluster_vcov, factor_matrix, PRIMARY, ROOT
 
 
 def drift(recs, arm):
-    """Slope of deviation on position, over the first sixteen cases."""
+    """Estimate drift across positions."""
     d = [r for r in recs if r["arm"] == arm and r["step"] < 16]
     if len(d) < 20:
         return None
@@ -21,7 +20,7 @@ def drift(recs, arm):
 
 
 def reexposure(recs, arm):
-    """Change on the four returning cases, matched within agent."""
+    """Estimate change on returning cases."""
     d = [r for r in recs if r["arm"] == arm]
     first = {(r["judge"], r["cid"]): r for r in d if r["step"] < 16}
     sh = [(r["sentence"] - first[(r["judge"], r["cid"])]["sentence"]) / r["mid"]

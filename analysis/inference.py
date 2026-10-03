@@ -1,5 +1,4 @@
-"""Yoked contrasts, three clustering units, and two placebo floors.
-"""
+"""Compute yoked contrasts and placebo floors."""
 import sys, os, json, glob, collections, itertools
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -13,7 +12,7 @@ def fm(d):
 
 
 def contrast(recs, a1, a2, B=9999, seed=17):
-    """Difference in pull. Null from swapping labels within an agent-case cell."""
+    """Compute the arm contrast."""
     d = [r for r in recs if r["arm"] in (a1, a2)]
     shared = ({r["judge"] for r in d if r["arm"] == a1} &
               {r["judge"] for r in d if r["arm"] == a2})
@@ -52,7 +51,7 @@ def contrast(recs, a1, a2, B=9999, seed=17):
 
 
 def between_agent_floor(recs, arms):
-    """Split an arm's agents in half. Bounds a between-agent comparison."""
+    """Estimate the between-agent floor."""
     out = []
     for arm in arms:
         d = [r for r in recs if r["arm"] == arm]
@@ -68,7 +67,7 @@ def between_agent_floor(recs, arms):
 
 
 def decoding_noise():
-    """Spread across repeat draws on a byte-identical prompt."""
+    """Estimate repeat-draw noise."""
     path = os.path.join(ROOT, "data", "repeats.jsonl")
     if not os.path.exists(path):
         return {"cells": 0, "sd": None}

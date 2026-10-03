@@ -1,4 +1,4 @@
-"""Premium estimate for the second model lineage."""
+"""Estimate the premium on the second model lineage."""
 import sys, os, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import load, ROOT

@@ -1,4 +1,4 @@
-"""Checks that the design survived contact with the data."""
+"""Check design and data integrity."""
 import json, os, sys, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import load, ROOT, FACTORS

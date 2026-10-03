@@ -1,4 +1,4 @@
-"""Main estimates: pull by arm, the peer premium, and the guideline effect."""
+"""Main pull and premium estimates."""
 import json, os, sys
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -19,7 +19,7 @@ def cells(recs):
 
 
 def premium(recs, suf=""):
-    """Extra pull bought by attributing the numbers to peers rather than a model."""
+    """Estimate the peer premium."""
     d = [r for r in recs if r["arm"] in (f"peerdelta{suf}", f"tooldelta{suf}")]
     y = np.array([r["dev"] for r in d])
     dl = np.array([r["delta"] for r in d])
@@ -34,7 +34,7 @@ def premium(recs, suf=""):
 
 
 def guideline_effect(recs):
-    """Extra pull once the advisory range is gone. Peer and tool arms only."""
+    """Estimate the guideline effect."""
     d = [r for r in recs if r["arm"].startswith(("peerdelta", "tooldelta"))]
     y = np.array([r["dev"] for r in d])
     dl = np.array([r["delta"] for r in d])

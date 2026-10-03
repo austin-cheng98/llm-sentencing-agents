@@ -17,7 +17,7 @@ def pull(d):
 
 
 def contrast(recs, a1, a2):
-    """Difference in pull between two arms, a1 minus a2."""
+    """Compute the pull difference."""
     d = [r for r in recs if r["arm"] in (a1, a2)]
     shared = ({r["judge"] for r in d if r["arm"] == a1} &
               {r["judge"] for r in d if r["arm"] == a2})
@@ -37,7 +37,7 @@ def contrast(recs, a1, a2):
 
 
 def by_model(recs):
-    """The matched-prompt premium, estimated separately for each agent model."""
+    """Estimate the premium by model."""
     out = {}
     for m in ("opus5", "sonnet5", "haiku45"):
         d = [r for r in recs if r["model"] == m

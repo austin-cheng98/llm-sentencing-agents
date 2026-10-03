@@ -172,6 +172,32 @@
    "powered_for_bench": true
   },
   {
+   "label": "GPT-6 Luna, structure-matched",
+   "est": 0.22014259204326206,
+   "se": 0.048685764274351714,
+   "n": 832,
+   "mde": 0.1363973175472677,
+   "ci": [
+    0.1247184940655327,
+    0.3155666900209914
+   ],
+   "excludes_bench": false,
+   "powered_for_bench": true
+  },
+  {
+   "label": "GPT-6 Luna, bare blocks",
+   "est": 0.2558121756764147,
+   "se": 0.04938052457943776,
+   "n": 832,
+   "mde": 0.13834374774846678,
+   "ci": [
+    0.15902634750071667,
+    0.3525980038521127
+   ],
+   "excludes_bench": false,
+   "powered_for_bench": true
+  },
+  {
    "label": "guideline removal opus5",
    "est": 0.5413340187426549,
    "se": 0.07118403147605974,
@@ -212,5 +238,5 @@
   }
  ],
  "n_underpowered": 3,
- "n_total": 16
+ "n_total": 18
 }

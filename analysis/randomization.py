@@ -1,5 +1,4 @@
-"""Randomization inference by permuting the displacement allocation.
-"""
+"""Run randomization inference."""
 import json, os, sys
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -10,7 +9,7 @@ import harness as H
 
 
 def case_groups():
-    """The four factor-balanced groups the displacement was assigned over."""
+    """Return the balanced factor groups."""
     tab = H.delta_table()
     cases = [c for c in H.SEQ if c["phase"] in ("baseline", "main")]
     g = {}
@@ -48,7 +47,7 @@ def ri_pull(recs, arm, B=9999, seed=11):
 
 
 def ri_premium(recs, suf="", B=9999, seed=13):
-    """Sharp null on attribution: swap labels within a cell."""
+    """Estimate the label-swap null."""
     d = [r for r in recs if r["arm"] in (f"peerdelta{suf}", f"tooldelta{suf}")]
     y = np.array([r["dev"] for r in d])
     dl = np.array([r["delta"] for r in d])

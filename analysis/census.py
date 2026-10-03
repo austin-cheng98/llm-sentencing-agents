@@ -1,9 +1,4 @@
-"""Emit the per-arm decision census as a LaTeX fragment, so the counts cannot drift.
-
-Every record in data/decisions.jsonl is counted once, keyed on
-(model, arm, agent, case, step), including the arms added in revision and the
-second lineage. Agents are prompt-label variants of one model, not personas.
-"""
+"""Write the per-arm decision census as LaTeX."""
 import json, os, sys, collections
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

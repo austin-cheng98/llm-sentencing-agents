@@ -1,4 +1,4 @@
-"""The live cascade: following, position effects, and convergence."""
+"""Live cascade estimates."""
 import sys, os, json
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -41,7 +41,7 @@ def following(rs):
 
 
 def position(rs):
-    """Spread around the case mean, by speaking position."""
+    """Summarize outcomes by speaking position."""
     out = {}
     for p in sorted({r["pos"] for r in rs}):
         v = [r["dev"] for r in rs if r["pos"] == p]
@@ -51,7 +51,7 @@ def position(rs):
 
 
 def convergence(rs):
-    """Within-case spread among the first two speakers versus the last two."""
+    """Compare early and late within-case spread."""
     early, late = [], []
     for c in {r["cid"] for r in rs}:
         g = sorted([r for r in rs if r["cid"] == c], key=lambda r: r["pos"])
