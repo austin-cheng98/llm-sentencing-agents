@@ -1,0 +1,13 @@
+# FREEZE RECORD - GPT-6 Luna source-access follow-up
+# Frozen 2026-10-03T14:46:58Z, before any R7 model call. Target: 1,664 decisions.
+# SHA-256 fixes prompts, sample, order, data, and analysis. Earlier result unchanged.
+fa17b1fc4d8ad41e9917f1e7d1882bcc3f0fc562ef8e0c989562359421198f7e  experiment/prereg-r7-source-access.md
+071f7e0e60768ed6bc7600f780c48fbfcf6eaf4494d2fa4e4d6b2ec46b7bbf29  experiment/r7_source_access.py
+f44ac934e078603ed7ca974dbdf135f77a886d671eb96acfc3dcf37789301db1  runs/R7/manifest.jsonl
+8624610c7e7579daee0b25b4c6be61f807e313c6c00e5488678c12bd713960dd  experiment/harness.py
+7bf8df7e9a126522c9bc4770deecaf446e40eaf873284458c189891556e26965  analysis/robustness.py
+757d8bbfa1037b632170516ac027af5848d8f77cf43e352acc6aafcb8595e810  analysis/common.py
+3fcfe84e672872a8772582dd6b6a1a9de11ffc0475f8bdfc9740a855af74e2ff  data/cases.json
+fa5d1eff450b39ed30705945c8c70ac530fec2fbc3c22c4af99b2ede7100a85d  data/sequence.json
+# Cells at freeze time: 0 of 1,664.
+# Verify with: shasum -a 256 -c experiment/FREEZE-R7-source-access.txt
