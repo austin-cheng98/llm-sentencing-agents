@@ -58,14 +58,14 @@ The equivalence sentence changes how agents use the numbers. It removes an infer
 
 Sonnet 5 is uninformative rather than negative: its MDE is about three times the benchmark, so the arm could not detect the effect it was designed to test. Haiku 4.5 is not a clean null either. Its structure-matched interval lies below the benchmark, but its MDE of 0.219 marginally exceeds the 0.206 it was powered against. By the pre-registered criterion, the arm falls just short. The result is suggestive rather than decisive. The difference between Haiku's bare and structure-matched cells was not pre-registered as a cross-model claim, so we do not report it as one.
 
-**A second lineage.** GPT-6 Luna used the fresh-context protocol in `experiment/openai-crossmodel-protocol.md`. The original two-judge run was replaced by the preregistered R6 scale-up (`experiment/prereg-gpt6-scaleup.md`): 26 fresh judge IDs, three arms, and 1,248 decisions.
+**A second lineage.** GPT-6 Luna used the fresh-context protocol in `experiment/openai-crossmodel-protocol.md`: 26 fresh judge IDs, three arms, and 1,248 decisions.
 
 | Contrast | Premium | p | 95% CI | MDE | Claude benchmark | n |
 | --- | ---: | ---: | --- | ---: | ---: | ---: |
 | Structure-matched | +0.22 | <0.001 | [+0.125, +0.316] | 0.136 | +0.206 | 832 |
 | Bare | +0.26 | <0.001 | [+0.159, +0.353] | 0.138 | +0.323 | 832 |
 
-Both estimates are positive and their intervals contain the corresponding Claude benchmark. The scale-up's MDEs are below the benchmarks, so the estimates meet the registered precision criterion; the intervals still describe uncertainty about cross-model differences rather than prove equivalence. The original R1 records and deviations remain in `runs/R1` for traceability but are not included in the reported dataset.
+Both estimates are positive and their intervals contain the corresponding Claude benchmark. The R6 MDEs are below the benchmarks, so the estimates meet the registered precision criterion; the intervals still describe uncertainty about cross-model differences rather than prove equivalence.
 
 ## The live cascade
 
@@ -99,7 +99,8 @@ experiment/openai-crossmodel-protocol.md  the sub-agent protocol for the second 
 experiment/prereg-equivalence.md          pre-registration, equivalence and reliability arms
 experiment/prereg-equivalence-diffs.txt   the exact prompt deltas those arms introduce
 experiment/prereg-balanced.md             pre-registration, structure-matched small-model cells
-experiment/prereg-gpt6-scaleup.md         pre-registration, expanded GPT-6 Luna run
+experiment/prereg-gpt6-scaleup.md         R6 sampling plan
+
 experiment/FREEZE-*.txt                   SHA-256 freeze records for both pre-registrations
 
 analysis/common.py        loading, OLS, cluster-robust covariance, wild cluster bootstrap
@@ -138,9 +139,8 @@ data/repeats.jsonl        the cells collected twice, used for the decoding-noise
 data/cases.json            the 16 vignettes
 data/sequence.json        the displacement allocation
 runs/R1..R4/              the original per-shard collection logs
-runs/R1/                   original exploratory GPT-6 records and deviations
-runs/R5/                   excluded GPT-6 pilot records
-runs/R6/                   expanded GPT-6 scale-up records and collection notes
+
+runs/R6/                   reported GPT-6 Luna sample and collection notes
 ```
 
 ## Reproducing
