@@ -143,8 +143,7 @@ data/decisions.jsonl      2,838 decisions, one JSON object each, with raw model 
 data/repeats.jsonl        the cells collected twice, used for the decoding-noise floor
 data/cases.json            the 16 vignettes
 data/sequence.json        the displacement allocation
-runs/R1..R4/              the original per-shard collection logs
-runs/R6/                   reported GPT-6 Luna sample and collection notes
+runs/R5/, runs/R6/         collection notes for the excluded pilot and the reported GPT-6 Luna sample
 runs/R7/                   source-access follow-up manifest, responses, and notes
 analysis/out_r7_source_access.json        primary follow-up estimates
 ```
@@ -156,6 +155,17 @@ pip install -r requirements.txt
 python analysis/run_all.py
 python figures/make_all.py
 ```
+
+Every decision from runs R1 to R6 is in `data/decisions.jsonl`, tagged with the run it came
+from, and carries the model's verbatim reply. The per-shard collection logs for those runs held
+no further fields, so they are not shipped separately; the 68 cells that were drawn twice are in
+`data/repeats.jsonl` with both draws. R7 is a separate file because the analysis reads it
+separately.
+
+Two of the GPT-6 Luna pre-registrations (`prereg-gpt6-replication.md`,
+`prereg-gpt6-scaleup.md`) cite `experiment/openai-crossmodel-protocol.md`, which is not in this
+release. The collection safeguards those registrations refer to are stated in
+`experiment/gpt6-protocol.md` and in the collection notes under `runs/`.
 
 `run_all.py` reads the core decisions and `runs/R7/decisions.jsonl`, recomputes the reported estimates and LaTeX macros, and calls no model. The bootstrap and permutation steps use fixed seeds, so the numbers are stable across runs.
 
@@ -204,15 +214,3 @@ Each record carries the arm, agent, model, case identifier, the four case factor
 - **Decoding noise.** Repeat draws on a byte-identical prompt differ by a within-cell standard deviation of 0.064, over the cells in `data/repeats.jsonl`.
 
 Contrasts keep only agents present in both arms, so every cell is paired and the label-swap null matches the estimator. The second lineage carries no label-swap null, and the figure draws its two rows without a design-null band.
-
-## What the design cannot support
-
-The cases are fictional and procedurally generated. No real defendant, victim, or docket appears anywhere, and every prompt says so. The results do not support using language models to sentence anyone.
-
-There is no human baseline. The experiment measures how far agents move toward displayed numbers, not whether moving less is better. Low pull is not good judgment: an agent that ignores the numbers entirely scores the same as one that reasons carefully and then declines to follow them.
-
-The displacement is allocated systematically rather than at random, and the rotation has period four, so with six agents two displacement columns repeat and the cross-model agents reuse the first column. The static arms show fabricated peer values. The cascade arm replaces them with live output over sixteen cases, and its last two agents occupy fixed positions, so nothing about speaking depth is read from them. The three Claude models share a developer and a training lineage; GPT-6 Luna contributes 1,248 decisions from 26 fresh judge IDs. The memory arms carry three agents each.
-
-Collection produced more valid records than design cells because some cells were collected twice. The earliest record for each cell is kept, and taking the latest instead does not move the headline. One decision in the structure-matched Haiku cell returned prose instead of the required format and is recorded as a parse failure, which is why that cell has 63 records and not 64. The pre-registration records parse failures as data, so none was re-drawn.
-
-Some collecting sub-agents inferred what was being tested and said so in their replies, naming the working directory or the anchoring exposure. Those replies are recorded verbatim and none was re-drawn. When a sub-agent volunteered a note addressed to the experimenters, the note is in the record.

@@ -4,3 +4,5 @@ __pycache__/
 # figures are rebuilt from the analysis outputs by figures/make_all.py
 figures/*.pdf
 figures/*.png
+# LaTeX fragments written by analysis/run_all.py for the paper build
+analysis/out_*.tex
