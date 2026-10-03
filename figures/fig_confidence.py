@@ -1,9 +1,4 @@
-"""Figure: reported confidence falls as the agent follows the numbers more.
-
-The fitted line and the correlation are read on the primary model's six unguided
-arms. The second lineage is drawn beside them, in its own colour and marker, and
-is not pooled into the fit: it carries three arms and two agents.
-"""
+"""Plot confidence and exact adoption."""
 import sys, os, json
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -17,7 +12,6 @@ D = json.load(open(f"{ROOT}/analysis/out_confidence.json"))
 LAB = {"peerbare_ng": "Peer, bare", "peermatch_ng": "Peer, structure-matched",
        "peerdelta_ng": "Peer, closing line", "tooldelta_ng": "Forecast, hedged",
        "toolbare_ng": "Forecast, bare", "clerdelta_ng": "Docketing"}
-# hand-placed so the nine annotations never collide
 OFF = {"clerdelta_ng": (0, 7, "center"), "toolbare_ng": (-5, 2, "right"),
        "tooldelta_ng": (4, 3, "left"), "peerdelta_ng": (-4, -7, "right"),
        "peermatch_ng": (-4, -7, "right"), "peerbare_ng": (0, -9, "center")}
@@ -41,8 +35,6 @@ for a in D["arms"]:
     dx, dy, ha = OFF[a["arm"]]
     ax.annotate(LAB[a["arm"]], (a["pull"], a["conf"]), textcoords="offset points",
                 xytext=(dx, dy), ha=ha, fontsize=6.2, color=F.INK)
-# the second lineage is annotated in place like the rest; only the marker
-# carries the colour, so the labels read on one scale
 for a in D.get("cross", []):
     ax.scatter(a["pull"], a["conf"], s=30, marker="D", color=F.CROSS, zorder=4,
                linewidths=0.7, edgecolors="white")

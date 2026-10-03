@@ -19,7 +19,6 @@ casc = [r for r in recs if r["arm"] == "cascade_ng" and r["ok"]]
 fig, (ax, bx) = plt.subplots(1, 2, figsize=(5.9, 1.75),
                              gridspec_kw=dict(width_ratios=[1.3, 1], wspace=0.5))
 
-# --- panel a: the funnel, each case centred on its own mean ---
 bycase = {}
 for r in casc:
     bycase.setdefault(r["cid"], []).append((len(r.get("peer_vals") or []),
@@ -43,7 +42,6 @@ F.finish(ax, "speaking position", "sentence, centred on the case mean",
          "a  Agents converge as the cascade proceeds")
 ax.title.set_fontsize(7.4)
 
-# --- panel b: spread, and static pull vs live herding ---
 base = C.get("baseline_sd"); e, l = C["convergence"]["early_sd"], C["convergence"]["late_sd"]
 bars = [("No peers\n(independent)", base, F.NEUTRAL),
         ("Cascade,\nfirst two", e, F.PEER),

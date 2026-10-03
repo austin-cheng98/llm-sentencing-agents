@@ -36,12 +36,9 @@ def panel(ax, recs, arms, title, xlabel=None, adopt_x=0.358):
         d = [r for r in recs if r["arm"] == arm]
         if len(d) < 6:
             continue
-        # fix the order so the scatter jitter below does not depend on how the
-        # records happened to arrive from disk
         d.sort(key=lambda r: (r["judge"], r["step"]))
         a, b, se = slope(d)
         xs = np.array([r["delta"] for r in d]); ys = np.array([r["dev"] for r in d])
-        # jitter only along x, so the vertical reading stays exact
         jit = (np.random.default_rng(3).random(len(xs)) - 0.5) * 0.022
         ax.scatter(xs + jit, ys, s=7, alpha=0.30, color=COL[arm], linewidths=0,
                    zorder=2)
@@ -53,7 +50,6 @@ def panel(ax, recs, arms, title, xlabel=None, adopt_x=0.358):
         ax.plot(gx, a + b * gx, color=COL[arm], lw=1.6, zorder=3,
                 label=f"{LAB[arm]}  $\\hat{{\\pi}}$={b:+.2f}")
     ax.axhline(0, color=F.MUTED, lw=0.6, ls=(0, (3, 3)), zorder=1)
-    # reference line: an agent that simply adopts the displayed numbers
     ax.plot([-0.32, 0.32], [-0.32, 0.32], color=F.MUTED, lw=0.8, ls=":", zorder=1)
     ax.text(adopt_x, 0.30, "full\nadoption", fontsize=6.2, color=F.MUTED,
             ha="left", va="center", style="italic", linespacing=1.1, clip_on=False)
@@ -69,7 +65,6 @@ def main():
     recs = [r for r in allrecs if r["model"] == PRIMARY]
     gpt = [r for r in allrecs if r["model"] == "gpt6"]
     fig = plt.figure(figsize=(8.7, 2.05))
-    # a narrow empty column sets the pull panel off from the three scatters
     gs = fig.add_gridspec(1, 5, width_ratios=[1, 1, 1, 0.04, 0.80], wspace=0.62)
     a1 = fig.add_subplot(gs[0, 0])
     a2 = fig.add_subplot(gs[0, 1], sharey=a1)
@@ -82,7 +77,6 @@ def main():
     panel(a3, gpt, ["peerbare_ng", "toolbare_ng"],
           "c  GPT-6 Luna, guideline removed", adopt_x=0.392)
     a2.xaxis.set_label_coords(0.5, -0.20)
-    # nudge the pull panel left, closer to the scatters
     bb = a4.get_position()
     a4.set_position([bb.x0 - 0.014, bb.y0, bb.width, bb.height])
     a1.set_ylabel("sentence, deviation from\nguideline midpoint")

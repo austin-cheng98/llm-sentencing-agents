@@ -1,9 +1,4 @@
-"""Figure: pull across models, and across a second lineage.
-
-Panel a keeps the guideline contrast, which only the Claude models were run in
-both ways. Panel b holds the blocks bare on both sides, the one condition every
-model including GPT-6 Luna was collected in, so the four sit on one scale.
-"""
+"""Plot pull across models."""
 import sys, os
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -16,13 +11,11 @@ F.setup()
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SHORT = {"opus5": "Opus 5", "sonnet5": "Sonnet 5", "haiku45": "Haiku 4.5",
          "gpt6": "GPT-6 Luna"}
-# panel a: the guideline contrast, on the arms carrying the original closing lines
 GUIDE = [("opus5", "Claude Opus 5"), ("sonnet5", "Claude Sonnet 5"),
          ("haiku45", "Claude Haiku 4.5")]
 ARMS = [("peerdelta", "guideline", F.PEER), ("tooldelta", "guideline", F.TOOL),
         ("peerdelta_ng", "no guideline", F.PEER),
         ("tooldelta_ng", "no guideline", F.TOOL)]
-# panel b: bare blocks, no guideline. The only condition shared by all four
 BARE = [("opus5", "Opus 5"), ("sonnet5", "Sonnet 5"), ("haiku45", "Haiku 4.5"),
         ("gpt6", "GPT-6 Luna")]
 BARMS = [("peerbare_ng", F.PEER), ("toolbare_ng", F.TOOL)]
@@ -84,7 +77,6 @@ ax.text(0.008, 1.015, "full adoption of the shown numbers",
         ha="left", va="bottom", style="italic")
 F.finish(ax, None, "pull  $\\hat{\\pi}$  (95% CI)", None)
 F.finish(bx, None, None, None)
-# the two panels share a scale but not an axis, so panel b keeps its own labels
 bx.tick_params(axis="y", labelsize=7.4)
 
 h = [plt.Rectangle((0, 0), 1, 1, fc=F.PEER, ec=F.PEER),

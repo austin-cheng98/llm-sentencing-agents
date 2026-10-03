@@ -10,13 +10,9 @@ F.setup()
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IN = json.load(open(f"{ROOT}/analysis/out_inference.json"))
 TR = json.load(open(f"{ROOT}/analysis/out_trailer.json"))
-# the cross-lineage arm, copied from analysis/out_crosslineage.json in the
-# artifact repository. It is exploratory and was not pre-registered, so it
-# carries no label-swap null and is drawn without a design-null band.
 XL = json.load(open(f"{ROOT}/analysis/out_crosslineage.json"))["rows"]
 C, BM = IN["contrast"], TR["by_model"]
 
-# every row carries the design null of its own contrast, not a shared band
 rows = [
     ("Bare blocks", "Opus 5", C["matched_bare"]["est"], C["matched_bare"]["se"]["case"],
      F.PEER, C["matched_bare"]["null_p95"]),
@@ -35,9 +31,6 @@ rows = [
      XL["gpt6|matched_bare"]["se"], F.CROSS, None),
 ]
 
-# flatter than it is tall: at \textwidth the rendered height is the aspect
-# ratio times the text width, so widening the canvas buys vertical space in the
-# paper without shrinking the type
 fig, ax = plt.subplots(figsize=(6.9, 1.62))
 ax.text(0.0, 1.02, "design null, per contrast", transform=ax.get_xaxis_transform(),
         fontsize=9.6, color=F.MUTED, va="bottom", ha="center", style="italic")
@@ -53,7 +46,6 @@ for k, (lab, mdl, e, se, col, nl) in enumerate(rows):
     ax.text(0.74, y, f"{e:+.2f}", fontsize=10.8, va="center", ha="right",
             color=F.INK, fontweight="bold" if (nl and abs(e) > nl) else "normal")
 ax.set_yticks(range(len(rows)))
-# one line per row, so seven rows stand no taller than the original five
 ax.set_yticklabels([f"{l}, {m}" for l, m, *_ in rows][::-1], fontsize=10.8)
 ax.set_ylim(-0.6, len(rows) - 0.35)
 ax.set_xlim(-0.26, 0.76)

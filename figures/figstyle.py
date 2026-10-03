@@ -1,25 +1,19 @@
-"""Shared plotting style.
-
-Serif type at the paper's own size, thin axes, no gridlines competing with the
-data, and a small palette that stays legible in greyscale.
-"""
+"""Shared plotting style."""
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 INK = "#1a1a1a"
 MUTED = "#8a8f98"
-PEER = "#1f4e79"      # peer framing
-TOOL = "#c1121f"      # tool framing
+PEER = "#1f4e79"
+TOOL = "#c1121f"
 NEUTRAL = "#5c6670"
 ACCENT = "#2a7f62"
-CROSS = "#6b4e9c"     # a lineage outside the Claude family
+CROSS = "#6b4e9c"
 FAINT = "#e8eaed"
 
 def setup():
     plt.rcParams.update({
-        # NeurIPS prohibits Type 3 fonts; 42 embeds TrueType instead of
-        # matplotlib's default Type 3 glyph procedures
         "pdf.fonttype": 42,
         "ps.fonttype": 42,
         "font.family": "serif",

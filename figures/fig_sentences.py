@@ -12,11 +12,7 @@ F4 = ("severity", "prior", "remorse", "cooperation")
 
 
 def endpoints(recs, treated, base):
-    """Pull in the base arm and in the treated arm, on the agents shared by both.
-
-    Same balanced sample and same specification as the contrast in
-    analysis10, so the gap between the two points is the reported estimate.
-    """
+    """Return pull endpoints for an arm contrast."""
     d = [r for r in recs if r["arm"] in (treated, base)]
     shared = ({r["judge"] for r in d if r["arm"] == treated} &
               {r["judge"] for r in d if r["arm"] == base})
@@ -54,7 +50,7 @@ LBL = {"peerdelta_ng": "“You are deciding the same\ncase independently.”",
 
 
 def spread(vals, gap):
-    """Nudge label positions apart, keeping their order and centre of mass."""
+    """Separate overlapping labels."""
     order = sorted(range(len(vals)), key=lambda i: vals[i])
     out = list(vals)
     for k in range(1, len(order)):
