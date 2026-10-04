@@ -6,8 +6,21 @@ from common import load, ols, PRIMARY, FACTORS, ROOT
 
 ARMS = ["peerbare_ng", "peermatch_ng", "peerdelta_ng", "tooldelta_ng",
         "toolbare_ng", "clerdelta_ng"]
-CROSS_MODELS = ("gpt6", "gpt6sol")
-CROSS_ARMS = ["peerbare_ng", "peermatch_ng", "toolbare_ng"]
+MODEL_ARMS = {
+    "opus5": ARMS,
+    "sonnet5": ["peerbare_ng", "peermatch_ng", "peerdelta_ng",
+                "tooldelta_ng", "toolbare_ng"],
+    "haiku45": ["peerbare_ng", "peermatch_ng", "peerdelta_ng",
+                "tooldelta_ng", "toolbare_ng"],
+    "gpt6": ["peerbare_ng", "peermatch_ng", "toolbare_ng"],
+    "gpt6sol": ["peerbare_ng", "peermatch_ng", "toolbare_ng"],
+}
+OTHER_MODELS = ("sonnet5", "haiku45", "gpt6", "gpt6sol")
+PROVIDER_MODELS = {
+    "Claude": ("opus5", "sonnet5", "haiku45"),
+    "OpenAI": ("gpt6", "gpt6sol"),
+}
+SHARED_ARMS = ("peerbare_ng", "peermatch_ng", "toolbare_ng")
 
 
 def pull(d):
@@ -56,18 +69,38 @@ def main():
     print(f"  confidence with a guideline {cg:.2f}, without {cu:.2f}")
 
     cross = []
-    for model in CROSS_MODELS:
-        model_cells = cells(load(model=model), CROSS_ARMS)
+    for model in OTHER_MODELS:
+        model_cells = cells(load(model=model), MODEL_ARMS[model])
         for a in model_cells:
             a["model"] = model
             cross.append(a)
             print(f"  {model}/{a['arm']:12s} pull {a['pull']:+.3f}  confidence "
                   f"{a['conf']:.2f}  exact adoption {a['exact']:4.1f}%  n={a['n']}")
 
+    cells_by_model_arm = {
+        (a["model"], a["arm"]): a
+        for a in ([{"model": PRIMARY, "arm": arm, "pull": p, "conf": c,
+                    "exact": e, "n": n}
+                   for arm, p, c, e, n in rows] + cross)
+    }
+    provider_exact = []
+    for provider, models in PROVIDER_MODELS.items():
+        for arm in SHARED_ARMS:
+            model_values = [cells_by_model_arm[(model, arm)] for model in models]
+            provider_exact.append({
+                "provider": provider,
+                "arm": arm,
+                "exact": float(np.mean([a["exact"] for a in model_values])),
+                "models": [{"model": model, "exact": a["exact"], "n": a["n"]}
+                           for model, a in zip(models, model_values)],
+            })
+
     out = {"arms": [{"arm": a, "pull": p, "conf": c, "exact": e, "n": n}
                     for a, p, c, e, n in rows],
            "corr": corr, "conf_guided": cg, "conf_unguided": cu,
-           "cross_models": list(CROSS_MODELS), "cross": cross}
+           "cross_models": list(OTHER_MODELS), "cross": cross,
+           "provider_exact_method": "unweighted mean of model-level exact-match rates",
+           "provider_exact": provider_exact}
     json.dump(out, open(os.path.join(ROOT, "analysis", "out_confidence.json"), "w"),
               indent=1)
 

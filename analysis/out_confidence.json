@@ -47,10 +47,92 @@
  "conf_guided": 7.177083333333333,
  "conf_unguided": 6.522792022792022,
  "cross_models": [
+  "sonnet5",
+  "haiku45",
   "gpt6",
   "gpt6sol"
  ],
  "cross": [
+  {
+   "arm": "peerbare_ng",
+   "pull": 0.9708772603604516,
+   "conf": 6.0625,
+   "exact": 21.875,
+   "n": 32,
+   "model": "sonnet5"
+  },
+  {
+   "arm": "peermatch_ng",
+   "pull": 0.8041483546978678,
+   "conf": 6.0,
+   "exact": 12.5,
+   "n": 32,
+   "model": "sonnet5"
+  },
+  {
+   "arm": "peerdelta_ng",
+   "pull": 0.905877964974406,
+   "conf": 6.0625,
+   "exact": 25.0,
+   "n": 16,
+   "model": "sonnet5"
+  },
+  {
+   "arm": "tooldelta_ng",
+   "pull": 0.8408444381406054,
+   "conf": 6.25,
+   "exact": 18.75,
+   "n": 16,
+   "model": "sonnet5"
+  },
+  {
+   "arm": "toolbare_ng",
+   "pull": 0.9462894595234111,
+   "conf": 6.15625,
+   "exact": 9.375,
+   "n": 32,
+   "model": "sonnet5"
+  },
+  {
+   "arm": "peerbare_ng",
+   "pull": 1.0285066306799644,
+   "conf": 7.0,
+   "exact": 21.875,
+   "n": 32,
+   "model": "haiku45"
+  },
+  {
+   "arm": "peermatch_ng",
+   "pull": 0.8979339539695925,
+   "conf": 6.741935483870968,
+   "exact": 22.580645161290324,
+   "n": 31,
+   "model": "haiku45"
+  },
+  {
+   "arm": "peerdelta_ng",
+   "pull": 0.9543697941933424,
+   "conf": 6.875,
+   "exact": 18.75,
+   "n": 16,
+   "model": "haiku45"
+  },
+  {
+   "arm": "tooldelta_ng",
+   "pull": 0.8834184237477511,
+   "conf": 6.9375,
+   "exact": 18.75,
+   "n": 16,
+   "model": "haiku45"
+  },
+  {
+   "arm": "toolbare_ng",
+   "pull": 0.9074238046229982,
+   "conf": 6.90625,
+   "exact": 25.0,
+   "n": 32,
+   "model": "haiku45"
+  },
   {
    "arm": "peerbare_ng",
    "pull": 0.9221126007709506,
@@ -98,6 +180,126 @@
    "exact": 29.807692307692307,
    "n": 416,
    "model": "gpt6sol"
+  }
+ ],
+ "provider_exact_method": "unweighted mean of model-level exact-match rates",
+ "provider_exact": [
+  {
+   "provider": "Claude",
+   "arm": "peerbare_ng",
+   "exact": 22.916666666666668,
+   "models": [
+    {
+     "model": "opus5",
+     "exact": 25.0,
+     "n": 64
+    },
+    {
+     "model": "sonnet5",
+     "exact": 21.875,
+     "n": 32
+    },
+    {
+     "model": "haiku45",
+     "exact": 21.875,
+     "n": 32
+    }
+   ]
+  },
+  {
+   "provider": "Claude",
+   "arm": "peermatch_ng",
+   "exact": 21.415770609318997,
+   "models": [
+    {
+     "model": "opus5",
+     "exact": 29.166666666666668,
+     "n": 96
+    },
+    {
+     "model": "sonnet5",
+     "exact": 12.5,
+     "n": 32
+    },
+    {
+     "model": "haiku45",
+     "exact": 22.580645161290324,
+     "n": 31
+    }
+   ]
+  },
+  {
+   "provider": "Claude",
+   "arm": "toolbare_ng",
+   "exact": 20.833333333333332,
+   "models": [
+    {
+     "model": "opus5",
+     "exact": 28.125,
+     "n": 96
+    },
+    {
+     "model": "sonnet5",
+     "exact": 9.375,
+     "n": 32
+    },
+    {
+     "model": "haiku45",
+     "exact": 25.0,
+     "n": 32
+    }
+   ]
+  },
+  {
+   "provider": "OpenAI",
+   "arm": "peerbare_ng",
+   "exact": 38.94230769230769,
+   "models": [
+    {
+     "model": "gpt6",
+     "exact": 41.34615384615385,
+     "n": 416
+    },
+    {
+     "model": "gpt6sol",
+     "exact": 36.53846153846154,
+     "n": 416
+    }
+   ]
+  },
+  {
+   "provider": "OpenAI",
+   "arm": "peermatch_ng",
+   "exact": 46.27403846153846,
+   "models": [
+    {
+     "model": "gpt6",
+     "exact": 36.29807692307692,
+     "n": 416
+    },
+    {
+     "model": "gpt6sol",
+     "exact": 56.25,
+     "n": 416
+    }
+   ]
+  },
+  {
+   "provider": "OpenAI",
+   "arm": "toolbare_ng",
+   "exact": 21.514423076923077,
+   "models": [
+    {
+     "model": "gpt6",
+     "exact": 13.221153846153847,
+     "n": 416
+    },
+    {
+     "model": "gpt6sol",
+     "exact": 29.807692307692307,
+     "n": 416
+    }
+   ]
   }
  ]
 }
