@@ -21,16 +21,18 @@ TAG = {"peerbare_ng": "PB", "peermatch_ng": "PM", "peerdelta_ng": "PC",
 LABEL_OFF = {
     ("opus5", "clerdelta_ng"): (5, 5, "left"),
     ("opus5", "toolbare_ng"): (-8, -11, "right"),
-    ("opus5", "tooldelta_ng"): (-8, 11, "right"),
     ("opus5", "peerdelta_ng"): (-8, -13, "right"),
     ("opus5", "peermatch_ng"): (-8, -13, "right"),
     ("opus5", "peerbare_ng"): (0, -12, "center"),
-    ("gpt6", "peerbare_ng"): (7, 10, "left"),
-    ("gpt6", "peermatch_ng"): (7, -11, "left"),
-    ("gpt6", "toolbare_ng"): (8, -11, "left"),
-    ("gpt6sol", "peerbare_ng"): (8, 10, "left"),
-    ("gpt6sol", "peermatch_ng"): (7, -11, "left"),
-    ("gpt6sol", "toolbare_ng"): (7, 10, "left"),
+}
+LABEL_COLUMN = {
+    ("gpt6", "peermatch_ng"): (1.06, 6.30),
+    ("gpt6", "peerbare_ng"): (1.06, 6.39),
+    ("gpt6", "toolbare_ng"): (1.06, 6.48),
+    ("gpt6sol", "toolbare_ng"): (1.06, 6.57),
+    ("gpt6sol", "peerbare_ng"): (1.06, 6.66),
+    ("opus5", "tooldelta_ng"): (1.06, 6.75),
+    ("gpt6sol", "peermatch_ng"): (1.06, 6.84),
 }
 
 fig, (ax, bx) = plt.subplots(1, 2, figsize=(6.6, 3.6),
@@ -45,11 +47,18 @@ for a, model in points:
     color = MODEL_STYLE[model][0]
     ax.scatter(a["pull"], a["conf"], s=34, marker="o", color=color, zorder=3,
                linewidths=0.7, edgecolors="white")
-    dx, dy, ha = LABEL_OFF[(model, a["arm"])]
-    ax.annotate(f"{MODEL_TAG[model]} {TAG[a['arm']]}", (a["pull"], a["conf"]),
-                textcoords="offset points", xytext=(dx, dy), ha=ha, fontsize=5.6,
-                color=color, arrowprops=dict(arrowstyle="-", lw=0.45,
-                                             color=F.MUTED, shrinkA=0, shrinkB=2))
+    key = (model, a["arm"])
+    label = f"{MODEL_TAG[model]} {TAG[a['arm']]}"
+    line = dict(arrowstyle="-", lw=0.45, color=F.MUTED, shrinkA=0, shrinkB=2)
+    if key in LABEL_COLUMN:
+        ax.annotate(label, (a["pull"], a["conf"]), xytext=LABEL_COLUMN[key],
+                    textcoords="data", ha="left", fontsize=5.6, color=color,
+                    arrowprops=line)
+    else:
+        dx, dy, ha = LABEL_OFF[key]
+        ax.annotate(label, (a["pull"], a["conf"]), textcoords="offset points",
+                    xytext=(dx, dy), ha=ha, fontsize=5.6, color=color,
+                    arrowprops=line)
 ax.set_ylim(5.70, 7.10); ax.set_xlim(-0.12, 1.42)
 F.finish(ax, "pull  $\\hat{\\pi}$", "mean reported confidence",
          f"a  Confidence falls as pull rises ($r={D['corr']:.2f}$)")
