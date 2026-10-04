@@ -19,7 +19,7 @@ MODEL_TAG = {"opus5": "O", "gpt6": "L", "gpt6sol": "S"}
 TAG = {"peerbare_ng": "PB", "peermatch_ng": "PM", "peerdelta_ng": "PC",
        "tooldelta_ng": "FH", "toolbare_ng": "FB", "clerdelta_ng": "D"}
 LABEL_OFF = {
-    ("opus5", "clerdelta_ng"): (5, 5, "left"),
+    ("opus5", "clerdelta_ng"): (0, -12, "center"),
     ("opus5", "toolbare_ng"): (-8, -11, "right"),
     ("opus5", "peerdelta_ng"): (-8, -13, "right"),
     ("opus5", "peermatch_ng"): (-8, -13, "right"),
