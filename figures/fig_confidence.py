@@ -31,14 +31,6 @@ ARM_MARKER = {
     "peermatch_ng": "p",
     "peerbare_ng": "o",
 }
-ARM_TAG = {
-    "clerdelta_ng": "D",
-    "tooldelta_ng": "FH",
-    "toolbare_ng": "FB",
-    "peerdelta_ng": "PC",
-    "peermatch_ng": "PM",
-    "peerbare_ng": "PB",
-}
 ARM_NAME = {
     "clerdelta_ng": "Docketing",
     "tooldelta_ng": "Forecast hedged",
@@ -47,8 +39,10 @@ ARM_NAME = {
     "peermatch_ng": "Peer matched",
     "peerbare_ng": "Peer bare",
 }
-PROVIDER_STYLE = {"Claude": "#505050", "OpenAI": "#828282"}
+PROVIDER_STYLE = {"Claude": "#6B4E9C", "OpenAI": "#A66000"}
 SHARED_ARMS = ("peerbare_ng", "peermatch_ng", "toolbare_ng")
+MARKER_AREA = 48
+LEGEND_MARKER_SIZE = 5.3
 
 fig, (ax, bx) = plt.subplots(
     1, 2, figsize=(6.8, 5.0), gridspec_kw={"width_ratios": [1.12, 1], "wspace": 0.58}
@@ -66,7 +60,7 @@ points = [(a, "opus5") for a in primary]
 points += [(a, a["model"]) for a in D["cross"]]
 for a, model in points:
     ax.scatter(
-        a["pull"], a["conf"], s=48, marker=ARM_MARKER[a["arm"]],
+        a["pull"], a["conf"], s=MARKER_AREA, marker=ARM_MARKER[a["arm"]],
         color=MODEL_STYLE[model][0], edgecolors="white", linewidths=0.8, zorder=3,
     )
 
@@ -83,14 +77,14 @@ model_handles = [
 ]
 arm_handles = [
     Line2D([0], [0], marker=ARM_MARKER[arm], linestyle="None", color=F.INK,
-           markersize=5.3, label=f"{ARM_TAG[arm]}  {ARM_NAME[arm]}")
+           markersize=LEGEND_MARKER_SIZE, label=ARM_NAME[arm])
     for arm in ("clerdelta_ng", "tooldelta_ng", "toolbare_ng", "peerdelta_ng",
                 "peermatch_ng", "peerbare_ng")
 ]
 fig.legend(handles=model_handles, loc="lower center", bbox_to_anchor=(0.5, 0.205),
            ncol=5, fontsize=6.5, handlelength=1.4, columnspacing=0.9,
            handletextpad=0.35, borderaxespad=0)
-fig.legend(handles=arm_handles, loc="lower center", bbox_to_anchor=(0.5, 0.06),
+fig.legend(handles=arm_handles, loc="lower center", bbox_to_anchor=(0.5, 0.13),
            ncol=3, fontsize=6.2, handlelength=1.1, columnspacing=0.8,
            handletextpad=0.35, labelspacing=0.25, borderaxespad=0)
 
@@ -102,8 +96,7 @@ height = 0.30
 claude = [provider_rows[("Claude", arm)] for arm in SHARED_ARMS]
 openai = [provider_rows[("OpenAI", arm)] for arm in SHARED_ARMS]
 bx.barh(y - height / 2, claude, height, color=PROVIDER_STYLE["Claude"], zorder=2)
-bx.barh(y + height / 2, openai, height, color=PROVIDER_STYLE["OpenAI"],
-        edgecolor=F.INK, linewidth=0.25, hatch="//", zorder=2)
+bx.barh(y + height / 2, openai, height, color=PROVIDER_STYLE["OpenAI"], zorder=2)
 for yi, values in zip(y, zip(claude, openai)):
     for offset, value in zip((-height / 2, height / 2), values):
         bx.text(value + 0.8, yi + offset, f"{value:.0f}%", va="center",
@@ -118,8 +111,7 @@ bx.xaxis.label.set_size(6.5)
 bx.title.set_fontsize(7.4)
 bx.legend(
     handles=[Patch(facecolor=PROVIDER_STYLE["Claude"], label="Claude mean"),
-             Patch(facecolor=PROVIDER_STYLE["OpenAI"], edgecolor=F.INK,
-                   hatch="//", label="OpenAI mean")],
+             Patch(facecolor=PROVIDER_STYLE["OpenAI"], label="OpenAI mean")],
     loc="upper center", bbox_to_anchor=(0.53, 0.99), ncol=2, fontsize=5.8,
     handlelength=1.2, columnspacing=0.8, handletextpad=0.35, borderaxespad=0,
 )
