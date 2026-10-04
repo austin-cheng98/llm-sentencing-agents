@@ -39,10 +39,11 @@ ARM_NAME = {
     "peermatch_ng": "Peer matched",
     "peerbare_ng": "Peer bare",
 }
-PROVIDER_STYLE = {"Claude": "#6B4E9C", "OpenAI": "#A66000"}
+PROVIDER_STYLE = {"Claude": "#1F4E79", "OpenAI": "#C1121F"}
 SHARED_ARMS = ("peerbare_ng", "peermatch_ng", "toolbare_ng")
 MARKER_AREA = 48
 LEGEND_MARKER_SIZE = 5.3
+MARKER_SCALE = {"clerdelta_ng": 1 / np.sqrt(2), "peermatch_ng": 1.052}
 
 fig, (ax, bx) = plt.subplots(
     1, 2, figsize=(6.8, 5.0), gridspec_kw={"width_ratios": [1.12, 1], "wspace": 0.58}
@@ -59,8 +60,10 @@ ax.plot(gx, np.polyval(fit, gx), color=F.MUTED, lw=0.9, ls=(0, (4, 2)), zorder=1
 points = [(a, "opus5") for a in primary]
 points += [(a, a["model"]) for a in D["cross"]]
 for a, model in points:
+    scale = MARKER_SCALE.get(a["arm"], 1)
     ax.scatter(
-        a["pull"], a["conf"], s=MARKER_AREA, marker=ARM_MARKER[a["arm"]],
+        a["pull"], a["conf"], s=MARKER_AREA * scale ** 2,
+        marker=ARM_MARKER[a["arm"]],
         color=MODEL_STYLE[model][0], edgecolors="white", linewidths=0.8, zorder=3,
     )
 
@@ -77,7 +80,8 @@ model_handles = [
 ]
 arm_handles = [
     Line2D([0], [0], marker=ARM_MARKER[arm], linestyle="None", color=F.INK,
-           markersize=LEGEND_MARKER_SIZE, label=ARM_NAME[arm])
+           markersize=LEGEND_MARKER_SIZE * MARKER_SCALE.get(arm, 1),
+           label=ARM_NAME[arm])
     for arm in ("clerdelta_ng", "tooldelta_ng", "toolbare_ng", "peerdelta_ng",
                 "peermatch_ng", "peerbare_ng")
 ]
