@@ -1,4 +1,4 @@
-"""Headline figure: seven estimates of one quantity."""
+"""Headline estimates across the matched model samples."""
 import sys, os, json
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -25,13 +25,15 @@ rows = [
      BM["haiku45"].get("null_p95")),
     ("Bare blocks", "Sonnet 5", BM["sonnet5"]["est"], BM["sonnet5"]["se"], F.ACCENT,
      BM["sonnet5"].get("null_p95")),
-    ("Structure-matched blocks", "GPT-6 Luna", XL["gpt6|matched_struct"]["est"],
-     XL["gpt6|matched_struct"]["se"], F.CROSS, None),
-    ("Bare blocks", "GPT-6 Luna", XL["gpt6|matched_bare"]["est"],
-     XL["gpt6|matched_bare"]["se"], F.CROSS, None),
 ]
+for model, name, color in (("gpt6", "GPT-6 Luna", F.CROSS),
+                           ("gpt6sol", "GPT-6 Sol", F.CROSS_SOL)):
+    for lab, contrast in (("Structure-matched blocks", "matched_struct"),
+                          ("Bare blocks", "matched_bare")):
+        r = XL[f"{model}|{contrast}"]
+        rows.append((lab, name, r["est"], r["se"], color, None))
 
-fig, ax = plt.subplots(figsize=(6.9, 1.62))
+fig, ax = plt.subplots(figsize=(6.9, 1.95))
 ax.text(0.0, 1.02, "design null, per contrast", transform=ax.get_xaxis_transform(),
         fontsize=9.6, color=F.MUTED, va="bottom", ha="center", style="italic")
 ax.axvline(0, color=F.INK, lw=0.7, zorder=1)

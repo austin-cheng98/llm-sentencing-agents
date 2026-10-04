@@ -6,7 +6,7 @@ from common import load, ols, PRIMARY, FACTORS, ROOT
 
 ARMS = ["peerbare_ng", "peermatch_ng", "peerdelta_ng", "tooldelta_ng",
         "toolbare_ng", "clerdelta_ng"]
-CROSS = "gpt6"
+CROSS_MODELS = ("gpt6", "gpt6sol")
 CROSS_ARMS = ["peerbare_ng", "peermatch_ng", "toolbare_ng"]
 
 
@@ -55,15 +55,19 @@ def main():
     cu = float(np.mean([r["confidence"] for r in u]))
     print(f"  confidence with a guideline {cg:.2f}, without {cu:.2f}")
 
-    cross = cells([r for r in load(model=CROSS)], CROSS_ARMS)
-    for a in cross:
-        print(f"  {CROSS}/{a['arm']:12s} pull {a['pull']:+.3f}  confidence "
-              f"{a['conf']:.2f}  exact adoption {a['exact']:4.1f}%  n={a['n']}")
+    cross = []
+    for model in CROSS_MODELS:
+        model_cells = cells(load(model=model), CROSS_ARMS)
+        for a in model_cells:
+            a["model"] = model
+            cross.append(a)
+            print(f"  {model}/{a['arm']:12s} pull {a['pull']:+.3f}  confidence "
+                  f"{a['conf']:.2f}  exact adoption {a['exact']:4.1f}%  n={a['n']}")
 
     out = {"arms": [{"arm": a, "pull": p, "conf": c, "exact": e, "n": n}
                     for a, p, c, e, n in rows],
            "corr": corr, "conf_guided": cg, "conf_unguided": cu,
-           "cross_model": CROSS, "cross": cross}
+           "cross_models": list(CROSS_MODELS), "cross": cross}
     json.dump(out, open(os.path.join(ROOT, "analysis", "out_confidence.json"), "w"),
               indent=1)
 

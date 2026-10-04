@@ -28,11 +28,12 @@ def main():
         rows.append(row(f"premium {key}", c["est"], c["se"], c["n"]))
     p = cm["pooled_small"]
     rows.append(row("premium pooled small models", p["est"], p["se"], p["n"]))
-    for contrast, label in (("matched_struct", "GPT-6 Luna, structure-matched"),
-                            ("matched_bare", "GPT-6 Luna, bare blocks")):
-        c = xl["rows"].get(f"{xl['lineage']}|{contrast}")
-        if c and c.get("est") is not None:
-            rows.append(row(label, c["est"], c["se"], c["n"], c["bench"]))
+    for model, name in xl.get("models", {xl["lineage"]: "GPT-6 Luna"}).items():
+        for contrast, label in (("matched_struct", "structure-matched"),
+                                ("matched_bare", "bare blocks")):
+            c = xl["rows"].get(f"{model}|{contrast}")
+            if c and c.get("est") is not None:
+                rows.append(row(f"{name}, {label}", c["est"], c["se"], c["n"], c["bench"]))
     for m, g in cm["guideline"].items():
         rows.append(row(f"guideline removal {m}", g["extra"], g["se"], g["n"]))
 
@@ -60,6 +61,10 @@ def main():
     ]
     table_labels = {
         "opus5 matched_struct": "Structure-matched premium, Opus 5",
+        "GPT-6 Luna, structure-matched": "Structure-matched premium, GPT-6 Luna",
+        "GPT-6 Luna, bare blocks": "Bare-block premium, GPT-6 Luna",
+        "GPT-6 Sol, structure-matched": "Structure-matched premium, GPT-6 Sol",
+        "GPT-6 Sol, bare blocks": "Bare-block premium, GPT-6 Sol",
         "opus5 matched_bare": "Bare-block premium, Opus 5",
         "opus5 closing_sentence": "Cost of the peer closing sentence",
         "opus5 original_sentences": "Premium with both original closings",

@@ -6,11 +6,11 @@ Agents sentence procedurally generated cases. Each agent sees three numbers disp
 
 The displacement is orthogonal to every case factor. The slope of an agent's sentence on the displacement measures how far the agent follows the numbers. We call that slope *pull*. Regression to the mean cannot produce it. When two arms show identical numbers under different attributions, the difference in their slopes is the *peer premium*.
 
-The core dataset contains 2,838 decision records over four models: 1,270 on Claude Opus 5, 160 on Claude Sonnet 5, 160 on Claude Haiku 4.5, and 1,248 on GPT-6 Luna. Of these, 2,837 contain a parseable sentence. A separate GPT-6 Luna follow-up adds 624 decisions to its primary analysis.
+The core dataset contains 4,086 decision records over five models: 1,270 on Claude Opus 5, 160 on Claude Sonnet 5, 160 on Claude Haiku 4.5, 1,248 on GPT-6 Luna, and 1,248 on GPT-6 Sol. Of these, 4,085 contain a parseable sentence. The separate GPT-6 Luna follow-up adds 624 decisions to its primary analysis.
 
 ## The result
 
-These seven estimates compare peer attribution with a statistical forecast over identical numbers while the guideline is removed:
+These nine estimates compare peer attribution with a statistical forecast over identical numbers while the guideline is removed:
 
 | Condition | Model | Premium | p | n |
 | --- | --- | ---: | ---: | ---: |
@@ -21,8 +21,10 @@ These seven estimates compare peer attribution with a statistical forecast over 
 | Bare blocks | Sonnet 5 | +0.02 | 0.89 | 64 |
 | Structure-matched blocks | GPT-6 Luna | +0.22 | <0.001 | 832 |
 | Bare blocks | GPT-6 Luna | +0.26 | <0.001 | 832 |
+| Structure-matched blocks | GPT-6 Sol | +0.24 | <0.001 | 832 |
+| Bare blocks | GPT-6 Sol | +0.11 | <0.001 | 832 |
 
-The estimates range from −0.01 to +0.32. A single closing sentence changes the estimate more than changing the model does.
+Both GPT-6 runs use identical prompts, cases, displayed numbers, and displacement assignments. Their structure-matched premiums are similar; the Sol bare-block estimate is smaller than Luna's. Luna used extra-high reasoning and Sol high reasoning, so this difference does not isolate model identity.
 
 ## What the wording costs
 
@@ -85,11 +87,11 @@ Removing the guideline also widens between-agent disagreement, from 0.029 to 0.2
 
 ## Round numbers and the confidence scale
 
-Agents prefer round sentences. Over 1,407 decisions they use only 86 distinct values, 68% divisible by six and 41% by twelve. Round values can produce exact matches without copying: the rate is 28% where some displayed number is round against 7% where none is. We read copying against a floor that carries the same preference for round values.
+Across 3,807 parseable sentences, agents use 93 distinct values; 65% are divisible by six and 42% by twelve. Exact matches to a displayed value occur in 29% of decisions. The rate is 40% when at least one displayed number is divisible by six and 18% when none is, so exact matching alone does not establish copying.
 
-The premium is less affected because both arms see identical numbers, and the numbers are round only by accident (16.7% divisible by six, about what chance gives). Restricted to records where no displayed number is divisible by six, the bare premium is 0.35 (p = 0.007, n = 64) against 0.32 on the full sample, and the structure-matched premium 0.19 (p = 0.238, n = 96) against 0.21. The point estimates move very little. The structure-matched estimate loses conventional significance on half the records because of the reduced power, not because the effect reverses.
+The premium is less affected because both arms see identical numbers; 16.7% of shown values are divisible by six. In Opus 5 records where no shown number is divisible by six, the bare premium is 0.35 (p = 0.007, n = 64) and the structure-matched premium is 0.19 (p = 0.238, n = 96), close to the full-sample estimates of 0.32 and 0.21. The smaller matched sample reduces precision.
 
-Reported confidence does not support the same check. Agents use 4 of its ten values, with 96% a six or a seven. The correlation between pull and stated confidence across arms (r = −0.82) is a pattern across arm means, not a calibrated measure.
+Reported confidence does not support the same check. Agents use 4 of its ten values, with 98% a six or a seven. The correlation between pull and stated confidence across the primary-model arm means (r = −0.82) is descriptive, not a calibrated measure.
 
 ## Layout
 
@@ -101,6 +103,10 @@ experiment/protocol.md          the collection protocol given to each data-colle
 experiment/cascade-protocol.md  the sequential protocol for the live-cascade arm
 experiment/gpt6-protocol.md              collection details for the GPT-6 Luna sample
 experiment/prereg-gpt6-luna.md             registration for the GPT-6 Luna sample
+experiment/prereg-gpt6-sol-replication.md registration and collection plan for GPT-6 Sol
+experiment/collect_gpt6_sol.py             frozen GPT-6 Sol collector and audit
+experiment/FREEZE-gpt6-sol.txt             input and prompt-manifest hashes for R8
+experiment/prompts.txt                     prompts shared by the matched GPT-6 runs
 experiment/prereg-equivalence.md          pre-registration, equivalence and reliability arms
 experiment/prereg-r7-source-access.md    registration for the neutral shared-file follow-up
 experiment/AMENDMENT-R7-*.md              launch and outcome-blind sample amendments
@@ -134,7 +140,7 @@ analysis/run_all.py       runs every analysis in order
 analysis/out_*.json       what each analysis writes; the figures read these
 
 figures/figstyle.py       shared plotting style
-figures/fig_forest.py     seven estimates of one quantity
+figures/fig_forest.py     nine estimates of one quantity
 figures/fig_sentences.py  what each closing sentence costs, numbers held identical
 figures/fig_models.py     pull per model, guideline present and removed
 figures/fig_main.py       pull against displacement, by attribution
@@ -144,11 +150,12 @@ figures/fig_confidence.py confidence against pull, and exact adoption
 figures/fig_factors.py    the legal content of the cases, with and without a guideline
 figures/make_all.py       rebuilds all eight
 
-data/decisions.jsonl      2,838 decisions, one JSON object each, with raw model output
+data/decisions.jsonl      4,086 decision records, one JSON object each, with raw model output
 data/repeats.jsonl        the cells collected twice, used for the decoding-noise floor
 data/cases.json            the 16 vignettes
 data/sequence.json        the displacement allocation
 runs/R7/                   source-access follow-up manifest, responses, and notes
+runs/R8/                   GPT-6 Sol manifest, attempts, decisions, and audit
 analysis/out_r7_source_access.json        primary follow-up estimates
 ```
 
@@ -160,14 +167,13 @@ python analysis/run_all.py
 python figures/make_all.py
 ```
 
-Every decision behind the reported analysis is in `data/decisions.jsonl`, tagged with the
-collection run it came from, and carries the model's verbatim reply. The per-shard collection logs
-held no further fields, so they are not shipped separately; the 68 cells that were drawn twice are
-in `data/repeats.jsonl` with both draws. The source-access follow-up is a separate file because
-the analysis reads it separately.
+Core decision records and model replies are in `data/decisions.jsonl`; the 68 cells drawn twice are
+in `data/repeats.jsonl` with both draws. The R7 source-access follow-up and the frozen R8 Sol
+manifest, attempt log, and decisions are retained in their run directories.
 
 The GPT-6 Luna sample registration and collection details are in
-`experiment/prereg-gpt6-luna.md` and `experiment/gpt6-protocol.md`. The R7 sample-selection
+`experiment/prereg-gpt6-luna.md` and `experiment/gpt6-protocol.md`. The R8 GPT-6 Sol collection
+plan is in `experiment/prereg-gpt6-sol-replication.md`. The R7 sample-selection
 amendments are in `experiment/AMENDMENT-R7-primary-sample.md` and
 `experiment/AMENDMENT-R7-power-target.md`.
 

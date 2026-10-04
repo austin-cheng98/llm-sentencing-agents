@@ -10,6 +10,7 @@ TOOL = "#c1121f"
 NEUTRAL = "#5c6670"
 ACCENT = "#2a7f62"
 CROSS = "#6b4e9c"
+CROSS_SOL = "#007f86"
 FAINT = "#e8eaed"
 
 def setup():

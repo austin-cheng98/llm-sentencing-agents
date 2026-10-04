@@ -1,0 +1,25 @@
+{
+  "run": "R8",
+  "model_id": "gpt-6-sol",
+  "reasoning_effort": "high",
+  "cells": 1248,
+  "valid": 1248,
+  "parse_failures": 0,
+  "tool_calls": 0,
+  "by_arm": {
+    "peerbare_ng": {
+      "attempted": 416,
+      "valid": 416
+    },
+    "toolbare_ng": {
+      "attempted": 416,
+      "valid": 416
+    },
+    "peermatch_ng": {
+      "attempted": 416,
+      "valid": 416
+    }
+  },
+  "manifest_sha256": "88c24dd21ea5718be750be47f3627cd5e10450b0f3a67675627351b2aad2811a",
+  "freeze_sha256": "cffd2dd107dd1d8f8432652af8802c727b27233d725acbe920508386bd8da46a"
+}

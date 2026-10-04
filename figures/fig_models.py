@@ -10,14 +10,14 @@ import matplotlib.pyplot as plt
 F.setup()
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SHORT = {"opus5": "Opus 5", "sonnet5": "Sonnet 5", "haiku45": "Haiku 4.5",
-         "gpt6": "GPT-6 Luna"}
+         "gpt6": "GPT-6 Luna", "gpt6sol": "GPT-6 Sol"}
 GUIDE = [("opus5", "Claude Opus 5"), ("sonnet5", "Claude Sonnet 5"),
          ("haiku45", "Claude Haiku 4.5")]
 ARMS = [("peerdelta", "guideline", F.PEER), ("tooldelta", "guideline", F.TOOL),
         ("peerdelta_ng", "no guideline", F.PEER),
         ("tooldelta_ng", "no guideline", F.TOOL)]
 BARE = [("opus5", "Opus 5"), ("sonnet5", "Sonnet 5"), ("haiku45", "Haiku 4.5"),
-        ("gpt6", "GPT-6 Luna")]
+        ("gpt6", "GPT-6 Luna"), ("gpt6sol", "GPT-6 Sol")]
 BARMS = [("peerbare_ng", F.PEER), ("toolbare_ng", F.TOOL)]
 
 

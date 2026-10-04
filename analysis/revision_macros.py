@@ -133,17 +133,18 @@ for lab, tag in (("reliability", "rl"), ("peer_reliability", "rlPeer"),
     mac(f"{tag}Lo", f"{r['ci'][0]:+.3f}".replace("+", ""))
     mac(f"{tag}Hi", f"{r['ci'][1]:+.3f}".replace("+", ""))
 
-for lab, tag in (("matched_struct", "MS"), ("matched_bare", "MB")):
-    r = X["rows"].get(f"{X['lineage']}|{lab}")
-    if not r or r.get("est") is None:
-        continue
-    mac(f"xl{tag}N", r["n"])
-    mac(f"xl{tag}Est", f"{r['est']:+.3f}".replace("+", ""))
-    mac(f"xl{tag}P", p(r["p"]))
-    mac(f"xl{tag}Mde", f"{r['mde']:.3f}")
-    mac(f"xl{tag}Lo", f"{r['ci'][0]:+.3f}".replace("+", ""))
-    mac(f"xl{tag}Hi", f"{r['ci'][1]:+.3f}".replace("+", ""))
-    mac(f"xl{tag}Bench", f"{r['bench']:.3f}")
+for model, prefix in (("gpt6", "xl"), ("gpt6sol", "sol")):
+    for lab, tag in (("matched_struct", "MS"), ("matched_bare", "MB")):
+        r = X["rows"].get(f"{model}|{lab}")
+        if not r or r.get("est") is None:
+            continue
+        mac(f"{prefix}{tag}N", r["n"])
+        mac(f"{prefix}{tag}Est", f"{r['est']:+.3f}".replace("+", ""))
+        mac(f"{prefix}{tag}P", p(r["p"]))
+        mac(f"{prefix}{tag}Mde", f"{r['mde']:.3f}")
+        mac(f"{prefix}{tag}Lo", f"{r['ci'][0]:+.3f}".replace("+", ""))
+        mac(f"{prefix}{tag}Hi", f"{r['ci'][1]:+.3f}".replace("+", ""))
+        mac(f"{prefix}{tag}Bench", f"{r['bench']:.3f}")
 
 r7 = R7["primary_premium"]
 mac("rSevenPairs", R7["primary_pairs_target"])

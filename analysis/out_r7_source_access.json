@@ -17,10 +17,10 @@
   ],
   "primary_pairs_target": 312,
   "attempted_by_arm_all": {
-    "peeraccess_ng": 312,
-    "toolaccess_ng": 312,
-    "peereqv_ng": 0,
-    "tooleqv_ng": 0
+    "peeraccess_ng": 344,
+    "toolaccess_ng": 347,
+    "peereqv_ng": 138,
+    "tooleqv_ng": 95
   },
   "valid_by_arm_primary_sample": {
     "peeraccess_ng": 312,
@@ -46,8 +46,8 @@
   "secondary_explicit_cue": {
     "status": "incomplete; not analyzed",
     "attempted_by_arm": {
-      "peereqv_ng": 0,
-      "tooleqv_ng": 0
+      "peereqv_ng": 138,
+      "tooleqv_ng": 95
     }
   },
   "number_use": {

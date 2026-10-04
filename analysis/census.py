@@ -14,7 +14,7 @@ LABEL = {"peerdelta": "Peer, guideline present", "tooldelta": "Forecast, guideli
          "peereqv_ng": "Peer, same-file sentence", "tooleqv_ng": "Forecast, same-file sentence",
          "peerrel_ng": "Peer, stated reliability", "toolrel_ng": "Forecast, stated reliability"}
 MODEL = {"opus5": "Opus 5", "sonnet5": "Sonnet 5", "haiku45": "Haiku 4.5",
-         "gpt6": "GPT-6 Luna"}
+         "gpt6": "GPT-6 Luna", "gpt6sol": "GPT-6 Sol"}
 ORDER = ["peerbare_ng", "toolbare_ng", "peermatch_ng", "parafree_ng", "paraown_ng",
          "peerdelta_ng", "tooldelta_ng", "clerdelta_ng", "peerdelta", "tooldelta",
          "peereqv_ng", "tooleqv_ng", "peerrel_ng", "toolrel_ng",

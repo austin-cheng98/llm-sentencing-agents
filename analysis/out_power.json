@@ -198,6 +198,32 @@
    "powered_for_bench": true
   },
   {
+   "label": "GPT-6 Sol, structure-matched",
+   "est": 0.23871820250547066,
+   "se": 0.05357576261838467,
+   "n": 832,
+   "mde": 0.1500970646268889,
+   "ci": [
+    0.13370970777343671,
+    0.3437266972375046
+   ],
+   "excludes_bench": false,
+   "powered_for_bench": true
+  },
+  {
+   "label": "GPT-6 Sol, bare blocks",
+   "est": 0.11328337066091704,
+   "se": 0.04376013759184682,
+   "n": 832,
+   "mde": 0.12259775464122023,
+   "ci": [
+    0.027513500980897276,
+    0.1990532403409368
+   ],
+   "excludes_bench": true,
+   "powered_for_bench": true
+  },
+  {
    "label": "guideline removal opus5",
    "est": 0.5413340187426549,
    "se": 0.07118403147605974,
@@ -238,5 +264,5 @@
   }
  ],
  "n_underpowered": 3,
- "n_total": 18
+ "n_total": 20
 }

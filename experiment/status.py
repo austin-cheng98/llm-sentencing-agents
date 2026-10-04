@@ -34,7 +34,7 @@ def main(argv):
         print(" ".join(str(s) for s in range(n) if s not in h))
         return
     h = have(run)
-    judges, arms = (R6_JUDGES, R6_ARMS) if run == "R6" else (JUDGES, ARMS)
+    judges, arms = (R6_JUDGES, R6_ARMS) if run in ("R6", "R8") else (JUDGES, ARMS)
     tot = done = 0
     for a in arms:
         row = []

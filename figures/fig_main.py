@@ -60,11 +60,45 @@ def panel(ax, recs, arms, title, xlabel=None, adopt_x=0.358):
     F.finish(ax, xlabel, None, title)
 
 
+def panel_gpt(ax, recs):
+    rng = np.random.default_rng(3)
+    models = (("gpt6", "Luna", F.CROSS, "o", -0.006),
+              ("gpt6sol", "Sol", F.CROSS_SOL, "^", 0.006))
+    arms = (("peerbare_ng", "peer", "-"), ("toolbare_ng", "forecast", "--"))
+    for model, name, color, marker, shift in models:
+        for arm, source, ls in arms:
+            d = [r for r in recs if r["model"] == model and r["arm"] == arm]
+            if len(d) < 6:
+                continue
+            a, b, se = slope(d)
+            xs = np.array([r["delta"] for r in d])
+            ys = np.array([r["dev"] for r in d])
+            jitter = (rng.random(len(xs)) - 0.5) * 0.018 + shift
+            ax.scatter(xs + jitter, ys, s=5, alpha=0.18, color=color,
+                       marker=marker, linewidths=0, zorder=2)
+            for dv in sorted(set(xs)):
+                mask = xs == dv
+                ax.plot([dv + shift], [ys[mask].mean()], marker, ms=4,
+                        color=color, mec="white", mew=0.6, zorder=4)
+            gx = np.linspace(-0.34, 0.34, 20)
+            ax.plot(gx, a + b * gx, color=color, lw=1.35, ls=ls,
+                    label=f"{name}: {source}", zorder=3)
+    ax.axhline(0, color=F.MUTED, lw=0.6, ls=(0, (3, 3)), zorder=1)
+    ax.plot([-0.32, 0.32], [-0.32, 0.32], color=F.MUTED, lw=0.8,
+            ls=":", zorder=1)
+    ax.set_xlim(-0.42, 0.46)
+    ax.set_xticks([-0.30, -0.15, 0.15, 0.30])
+    ax.set_xticklabels(["$-$30", "$-$15", "+15", "+30"], fontsize=7.5)
+    ax.legend(loc="upper left", ncol=2, handlelength=1.0, borderpad=0.15,
+              columnspacing=0.5, handletextpad=0.3, labelspacing=0.15,
+              fontsize=5.5)
+    F.finish(ax, None, None, "c  GPT-6 models, guideline removed")
+
+
 def main():
     allrecs = [r for r in load() if r.get("delta") is not None]
     recs = [r for r in allrecs if r["model"] == PRIMARY]
-    gpt = [r for r in allrecs if r["model"] == "gpt6"]
-    fig = plt.figure(figsize=(8.7, 2.05))
+    fig = plt.figure(figsize=(8.7, 2.15))
     gs = fig.add_gridspec(1, 5, width_ratios=[1, 1, 1, 0.04, 0.80], wspace=0.62)
     a1 = fig.add_subplot(gs[0, 0])
     a2 = fig.add_subplot(gs[0, 1], sharey=a1)
@@ -74,8 +108,7 @@ def main():
     panel(a2, recs, ["peerbare_ng", "toolbare_ng", "clerdelta_ng"],
           "b  Guideline removed",
           xlabel="displacement $\\delta$ of the shown numbers (%)", adopt_x=0.392)
-    panel(a3, gpt, ["peerbare_ng", "toolbare_ng"],
-          "c  GPT-6 Luna, guideline removed", adopt_x=0.392)
+    panel_gpt(a3, allrecs)
     a2.xaxis.set_label_coords(0.5, -0.20)
     bb = a4.get_position()
     a4.set_position([bb.x0 - 0.014, bb.y0, bb.width, bb.height])
@@ -87,14 +120,15 @@ def main():
     for model, arm in [(PRIMARY, "peerbare_ng"), (PRIMARY, "toolbare_ng"),
                        (PRIMARY, "peerdelta_ng"), (PRIMARY, "tooldelta_ng"),
                        (PRIMARY, "clerdelta_ng"),
-                       ("gpt6", "peerbare_ng"), ("gpt6", "toolbare_ng")]:
+                       ("gpt6", "peerbare_ng"), ("gpt6", "toolbare_ng"),
+                       ("gpt6sol", "peerbare_ng"), ("gpt6sol", "toolbare_ng")]:
         d = [r for r in allrecs if r["model"] == model and r["arm"] == arm]
         if len(d) >= 6:
             _, b, se = slope(d)
             rows.append((model, arm, b, se, len(d)))
     ypos = np.arange(len(rows))[::-1]
     for y, (model, arm, b, se, n) in zip(ypos, rows):
-        col = F.CROSS if model == "gpt6" else COL[arm]
+        col = {"gpt6": F.CROSS, "gpt6sol": F.CROSS_SOL}.get(model, COL[arm])
         a4.plot([b - 1.96 * se, b + 1.96 * se], [y, y], color=col, lw=1.5,
                 solid_capstyle="butt")
         a4.plot([b], [y], "o", ms=5, color=col, mec="white", mew=0.8)
@@ -103,7 +137,8 @@ def main():
     short = {"peerbare_ng": "Peer, bare", "toolbare_ng": "Forecast, bare",
              "peerdelta_ng": "Peer, closing line", "tooldelta_ng": "Forecast, hedged",
              "clerdelta_ng": "Docketing"}
-    a4.set_yticklabels([short[a] + ("  (GPT-6)" if m == "gpt6" else "")
+    model_label = {"gpt6": " (GPT-6 Luna)", "gpt6sol": " (GPT-6 Sol)"}
+    a4.set_yticklabels([short[a] + model_label.get(m, "")
                         for m, a, _, _, _ in rows], fontsize=6.4)
     a4.tick_params(axis="y", pad=1.5)
     a4.set_ylim(-0.6, len(rows) - 0.4)
