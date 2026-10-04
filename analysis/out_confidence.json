@@ -2,102 +2,92 @@
  "arms": [
   {
    "arm": "peerbare_ng",
-   "pull": 0.8848421550543545,
-   "conf": 6.0,
-   "exact": 25.0,
-   "n": 64
+   "model": "Claude (pooled)",
+   "pull": 0.9422670502872812,
+   "conf": 6.265625,
+   "exact": 23.4375,
+   "n": 128,
+   "n_by_model": {
+    "opus5": 64,
+    "sonnet5": 32,
+    "haiku45": 32
+   }
   },
   {
    "arm": "peermatch_ng",
-   "pull": 0.7551021987152962,
-   "conf": 6.34375,
-   "exact": 29.166666666666668,
-   "n": 96
-  },
-  {
-   "arm": "peerdelta_ng",
-   "pull": 0.6062143153573408,
-   "conf": 6.5,
-   "exact": 20.3125,
-   "n": 64
-  },
-  {
-   "arm": "tooldelta_ng",
-   "pull": 0.612280433384404,
-   "conf": 6.765625,
-   "exact": 18.75,
-   "n": 64
+   "model": "Claude (pooled)",
+   "pull": 0.7928208238997331,
+   "conf": 6.352201257861635,
+   "exact": 24.528301886792452,
+   "n": 159,
+   "n_by_model": {
+    "opus5": 96,
+    "sonnet5": 32,
+    "haiku45": 31
+   }
   },
   {
    "arm": "toolbare_ng",
-   "pull": 0.5490229067674309,
-   "conf": 6.614583333333333,
-   "exact": 28.125,
-   "n": 96
-  },
-  {
-   "arm": "clerdelta_ng",
-   "pull": 0.06910734034155816,
-   "conf": 6.84375,
-   "exact": 7.8125,
-   "n": 64
+   "model": "Claude (pooled)",
+   "pull": 0.7001563968897404,
+   "conf": 6.58125,
+   "exact": 23.75,
+   "n": 160,
+   "n_by_model": {
+    "opus5": 96,
+    "sonnet5": 32,
+    "haiku45": 32
+   }
   }
  ],
- "corr": -0.8163815033264339,
- "conf_guided": 7.177083333333333,
- "conf_unguided": 6.522792022792022,
- "cross_models": [
-  "gpt6",
-  "gpt6sol"
- ],
- "cross": [
+ "family": [
   {
    "arm": "peerbare_ng",
-   "pull": 0.9221126007709506,
-   "conf": 6.427884615384615,
-   "exact": 41.34615384615385,
-   "n": 416,
-   "model": "gpt6"
+   "model": "GPT-6 (pooled)",
+   "pull": 0.8575909732074167,
+   "conf": 6.552884615384615,
+   "exact": 38.94230769230769,
+   "n": 832,
+   "n_by_model": {
+    "gpt6": 416,
+    "gpt6sol": 416
+   }
   },
   {
    "arm": "peermatch_ng",
-   "pull": 0.8864430171377985,
-   "conf": 6.415865384615385,
-   "exact": 36.29807692307692,
-   "n": 416,
-   "model": "gpt6"
+   "model": "GPT-6 (pooled)",
+   "pull": 0.9024735973131162,
+   "conf": 6.632211538461538,
+   "exact": 46.27403846153846,
+   "n": 832,
+   "n_by_model": {
+    "gpt6": 416,
+    "gpt6sol": 416
+   }
   },
   {
    "arm": "toolbare_ng",
-   "pull": 0.666300425094537,
-   "conf": 6.507211538461538,
-   "exact": 13.221153846153847,
-   "n": 416,
-   "model": "gpt6"
-  },
-  {
-   "arm": "peerbare_ng",
-   "pull": 0.7930693456438827,
-   "conf": 6.677884615384615,
-   "exact": 36.53846153846154,
-   "n": 416,
-   "model": "gpt6sol"
-  },
-  {
-   "arm": "peermatch_ng",
-   "pull": 0.9185041774884338,
-   "conf": 6.8485576923076925,
-   "exact": 56.25,
-   "n": 416,
-   "model": "gpt6sol"
-  },
-  {
-   "arm": "toolbare_ng",
-   "pull": 0.6797859749829656,
-   "conf": 6.612980769230769,
-   "exact": 29.807692307692307,
-   "n": 416,
-   "model": "gpt6sol"
+   "model": "GPT-6 (pooled)",
+   "pull": 0.6730432000387514,
+   "conf": 6.560096153846154,
+   "exact": 21.514423076923077,
+   "n": 832,
+   "n_by_model": {
+    "gpt6": 416,
+    "gpt6sol": 416
+   }
   }
- ]
+ ],
+ "corr": -0.9250875625184241,
+ "pooling": {
+  "Claude (pooled)": [
+   "opus5",
+   "sonnet5",
+   "haiku45"
+  ],
+  "GPT-6 (pooled)": [
+   "gpt6",
+   "gpt6sol"
+  ]
+ }
 }

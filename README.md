@@ -91,7 +91,7 @@ Across 3,807 parseable sentences, agents use 93 distinct values; 65% are divisib
 
 The premium is less affected because both arms see identical numbers; 16.7% of shown values are divisible by six. In Opus 5 records where no shown number is divisible by six, the bare premium is 0.35 (p = 0.007, n = 64) and the structure-matched premium is 0.19 (p = 0.238, n = 96), close to the full-sample estimates of 0.32 and 0.21. The smaller matched sample reduces precision.
 
-Reported confidence does not support the same check. Agents use 4 of its ten values, with 98% a six or a seven. The correlation between pull and stated confidence across the primary-model arm means (r = −0.82) is descriptive, not a calibrated measure.
+Reported confidence does not support the same check. Agents use 4 of its ten values, with 98% a six or a seven. Figure 7 pools Opus 5, Sonnet 5, and Haiku 4.5 as Claude and Luna with Sol as GPT-6 across three shared unguided arms. The pull-confidence correlation across Claude's three pooled arm means (r = −0.93) is descriptive, not a calibrated measure; GPT-6 is shown outside the fitted line. This pooling is for descriptive confidence and exact-adoption comparisons; peer-premium estimates remain model-specific.
 
 ## Layout
 
