@@ -1,0 +1,5 @@
+AWARD: 349000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The surgically treated fracture and permanent loss of grip strength support a substantial valuation. The conflicting accounts and lack of an independent witness create uncertainty about liability.

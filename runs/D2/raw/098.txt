@@ -1,0 +1,5 @@
+AWARD: 215000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The model predictions cluster near $212,400, consistent with the documented fracture, surgery, and permanent impairment. Contested liability limits confidence in the valuation.

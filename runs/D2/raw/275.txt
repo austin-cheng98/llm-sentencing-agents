@@ -1,0 +1,5 @@
+AWARD: 231000 DOLLARS
+CONFIDENCE: 7
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: The fracture, surgery, permanent impairment, and documented loss of grip strength support a substantial award. The model predictions are consistent with this valuation, while the unsupported economic loss does not justify an additional amount.

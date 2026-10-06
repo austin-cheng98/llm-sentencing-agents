@@ -1,0 +1,5 @@
+AWARD: 20000 DOLLARS
+CONFIDENCE: 3
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The conflicting accounts leave liability uncertain. The treatment delay, missed sessions, and absence of a lasting restriction support a modest valuation, though the file omits the dollar amounts needed for a firmer estimate.

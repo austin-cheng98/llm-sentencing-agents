@@ -1,0 +1,5 @@
+AWARD: 66500 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: This is the median of the three same-file valuations. It accounts for the documented four-month course of treatment and the absence of residual restriction.

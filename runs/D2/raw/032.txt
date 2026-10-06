@@ -1,0 +1,5 @@
+AWARD: 64600 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The valuation matches the model’s central prediction for this file. Conflicting accounts and no independent witness limit confidence.

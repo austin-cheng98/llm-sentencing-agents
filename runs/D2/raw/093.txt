@@ -1,0 +1,5 @@
+AWARD: 50000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: Four months of treatment with no lasting restriction supports a limited injury valuation. The conflicting accounts and lack of an independent witness reduce confidence in liability.

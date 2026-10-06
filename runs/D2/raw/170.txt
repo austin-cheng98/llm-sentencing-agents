@@ -1,0 +1,5 @@
+AWARD: 60200 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The three valuations from adjusters who reviewed the same file center on $60,200. The treatment delay, limited attendance, and absence of residual restriction support staying near that figure.

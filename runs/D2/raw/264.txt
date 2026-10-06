@@ -1,0 +1,5 @@
+AWARD: 53200 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The model’s estimates provide a reference for this file, but conflicting accounts leave liability uncertain. Treatment ended after four months without residual restriction.

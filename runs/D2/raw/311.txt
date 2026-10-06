@@ -1,0 +1,5 @@
+AWARD: 495000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: The fracture required surgery and left documented permanent impairment and reduced grip strength. The other same-file valuations support an amount near $495,000.

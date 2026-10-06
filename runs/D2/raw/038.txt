@@ -1,0 +1,5 @@
+AWARD: 322600 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The valuation reflects the documented permanent impairment and loss of grip strength, along with the three valuations entered from this same file. Confidence is moderate because the prompt does not state the total economic losses.

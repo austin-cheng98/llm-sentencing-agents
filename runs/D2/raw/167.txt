@@ -1,0 +1,5 @@
+AWARD: 10000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The cervical strain resolved after four months with no residual restriction. The eleven-week treatment delay, limited attendance, disputed liability, and undocumented economic loss limit the supported valuation.

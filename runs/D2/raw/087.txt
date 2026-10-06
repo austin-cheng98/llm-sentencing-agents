@@ -1,0 +1,5 @@
+AWARD: 436400 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: The permanent impairment and documented loss of grip strength support a substantial award. This valuation is consistent with the other assessments of the same file.

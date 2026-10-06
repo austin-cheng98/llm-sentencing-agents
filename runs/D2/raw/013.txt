@@ -1,0 +1,5 @@
+AWARD: 53200 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The valuation reflects the historical settlement predictions for this file. Confidence is limited by the conflicting accounts of the collision.

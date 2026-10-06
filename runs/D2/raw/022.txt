@@ -1,0 +1,5 @@
+AWARD: 20000 DOLLARS
+CONFIDENCE: 3
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The strain resolved after four months without residual restriction, and the treatment delay and missed sessions limit support for a larger award. The file description gives no dollar amounts for medical bills or lost wages, so confidence is low.

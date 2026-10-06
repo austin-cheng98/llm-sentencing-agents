@@ -1,0 +1,5 @@
+AWARD: 30000 DOLLARS
+CONFIDENCE: 3
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The four-month recovery and absence of lasting restriction support compensation for a temporary injury. Confidence is limited because the file summary does not state the billed treatment or wage-loss amounts.

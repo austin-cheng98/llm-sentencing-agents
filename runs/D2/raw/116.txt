@@ -1,0 +1,5 @@
+AWARD: 234600 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The median of the three valuations entered from this file is a reasonable estimate given the permanent impairment and documented grip-strength loss. Contested liability and the treatment gaps limit confidence in that amount.

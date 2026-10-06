@@ -1,0 +1,5 @@
+AWARD: 109200 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The other valuations on this file cluster around $109,200. Four months of treatment support an award, while recovery without residual restriction limits a higher one.

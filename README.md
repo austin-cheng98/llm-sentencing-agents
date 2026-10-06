@@ -148,7 +148,8 @@ figures/fig_cascade.py    convergence and the collapse of disagreement
 figures/fig_design.py     the displaced anchors and the two labels
 figures/fig_confidence.py confidence against pull, and exact adoption
 figures/fig_factors.py    the legal content of the cases, with and without a guideline
-figures/make_all.py       rebuilds all eight
+figures/damages_civil.py  the civil-damages extension figure
+figures/make_all.py       rebuilds all nine figures
 
 data/decisions.jsonl      4,086 decision records, one JSON object each, with raw model output
 data/repeats.jsonl        the cells collected twice, used for the decoding-noise floor
@@ -157,6 +158,16 @@ data/sequence.json        the displacement allocation
 runs/R7/                   source-access follow-up manifest, responses, and notes
 runs/R8/                   GPT-6 Sol manifest, attempts, decisions, and audit
 analysis/out_r7_source_access.json        primary follow-up estimates
+
+cases/claims.json          the 16 fictional civil-damages claims
+damages/                   civil-damages registrations, amendments, freezes, and results
+runs/D1/                   Claude Opus 5 civil-damages records and manifest
+runs/D2/                   GPT-6 Sol civil-damages records, raw replies, and attempt logs
+scripts/damages*.py        civil-damages prompt, analysis, and collection code
+scripts/reproduce_damages.py runs the released D1 and D2 analyses without model calls
+analysis/damages_d*.json   civil-damages analysis outputs
+
+paper/                     LaTeX source, bibliography, style, macros, and reference PDF
 ```
 
 ## Reproducing
@@ -164,6 +175,7 @@ analysis/out_r7_source_access.json        primary follow-up estimates
 ```
 pip install -r requirements.txt
 python analysis/run_all.py
+python scripts/reproduce_damages.py
 python figures/make_all.py
 ```
 
@@ -179,7 +191,26 @@ amendments are in `experiment/AMENDMENT-R7-primary-sample.md` and
 
 `run_all.py` reads the core decisions and `runs/R7/decisions.jsonl`, recomputes the reported estimates and LaTeX macros, and calls no model. The bootstrap and permutation steps use fixed seeds, so the numbers are stable across runs.
 
-`make_all.py` then rebuilds all eight figures from the JSON that step wrote; run it second.
+`reproduce_damages.py` recomputes the registered D1 analyses and the D2 comparison from the
+released claim set, manifests, and decision records. It does not call a model. The wrapper
+redirects the frozen D1 scripts' original machine-specific data path to this checkout without
+changing those frozen scripts or their hashes. The D1 files contain 320 responses in the
+ten-agent analysis panel plus two partial responses outside that panel. D2 contains 319 replies
+for 320 planned cells; one pre-model-response failure was not retried, leaving 159 matched pairs.
+The frozen D1 expansion output remains the original eight-agent analysis; the later A12/A01
+confirmation is analyzed separately, and the D2 comparison recomputes the ten-agent D1 panel.
+
+`make_all.py` rebuilds all nine figures from the generated analysis JSON. To build the paper PDF
+after the analyses and figures:
+
+```
+cd paper
+tectonic -C -k main.tex
+```
+
+The paper source and reference PDF are in `paper/`. `analysis/run_all.py` refreshes
+`paper/revision.tex` along with its machine-readable output; `paper/numbers.tex` contains the
+core-study macros used by the source.
 
 Rebuilding the case set:
 

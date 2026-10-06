@@ -1,0 +1,5 @@
+AWARD: 50000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: Four months of treatment and full recovery support a moderate valuation. The conflicting accounts and lack of an independent witness reduce confidence.

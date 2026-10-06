@@ -1,0 +1,5 @@
+AWARD: 15000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The disputed account creates liability risk. The documented strain resolved without residual restriction, and the treatment gap, limited attendance, and unsupported economic loss constrain the valuation.

@@ -1,0 +1,5 @@
+AWARD: 360000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The surgically repaired fracture, permanent impairment, and loss of grip strength support a substantial award. The treatment gap, limited attendance, and undocumented economic loss temper the valuation.

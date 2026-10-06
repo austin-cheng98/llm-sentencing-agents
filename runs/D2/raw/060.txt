@@ -1,0 +1,5 @@
+AWARD: 12000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The cervical strain resolved within four months without residual restriction, and the delayed, limited treatment weakens support for a higher award. No documented economic loss supports an additional amount.

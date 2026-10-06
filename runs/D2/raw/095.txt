@@ -1,0 +1,5 @@
+AWARD: 20000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: Four months of treatment for a cervical strain supports compensation, but treatment ended with no residual restriction. The claimed economic loss is undocumented, so I assign it little weight.

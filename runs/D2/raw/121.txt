@@ -1,0 +1,5 @@
+AWARD: 45000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: Four months of treatment support compensation for temporary pain, but the file records no lasting restriction. The claimed economic loss is undocumented, so I give it little weight.

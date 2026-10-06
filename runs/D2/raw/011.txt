@@ -1,0 +1,5 @@
+AWARD: 241500 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The other adjusters’ valuations center on $241,500, which is consistent with the serious fracture and documented permanent impairment. The delayed treatment and limited attendance at prescribed sessions temper the valuation.

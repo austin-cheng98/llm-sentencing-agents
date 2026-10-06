@@ -1,0 +1,5 @@
+AWARD: 105100 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The valuation is near the low end of the historical model predictions, reflecting the delayed treatment, limited attendance, and absence of residual restriction. Confidence is moderate because the file gives no dollar amounts for wages or medical bills.

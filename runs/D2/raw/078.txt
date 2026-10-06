@@ -1,0 +1,5 @@
+AWARD: 40000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The conflicting accounts, treatment delay, and limited attendance reduce the valuation below the model predictions. The injury resolved within four months without residual restriction.

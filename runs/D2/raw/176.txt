@@ -1,0 +1,5 @@
+AWARD: 48300 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The valuation uses the midpoint of the historical settlement predictions for this file. Conflicting accounts and the delayed, incomplete treatment make the outcome uncertain.

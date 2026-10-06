@@ -1,0 +1,5 @@
+AWARD: 50000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The documented strain required four months of treatment but left no residual restriction. The demand’s economic loss is unsupported, so I value the claim below the model predictions.

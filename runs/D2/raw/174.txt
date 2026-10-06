@@ -1,0 +1,5 @@
+AWARD: 358800 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The award uses the model's central prediction for this file. Contested liability and the treatment gap limit confidence in that estimate.

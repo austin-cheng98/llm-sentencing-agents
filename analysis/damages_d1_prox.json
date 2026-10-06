@@ -1,0 +1,280 @@
+{
+  "benchmark_premium": 0.206,
+  "benchmark_pull": 0.61,
+  "confirming_agents": [
+    "A12",
+    "A01"
+  ],
+  "continuity_panel": [
+    "A02",
+    "A05",
+    "A08",
+    "A10",
+    "A11",
+    "A04",
+    "A07",
+    "A09",
+    "A12",
+    "A01"
+  ],
+  "continuity_premium": {
+    "ci95_t": [
+      -0.021551243530081365,
+      0.4521112128013762
+    ],
+    "ci95_z": [
+      -0.00249701069376268,
+      0.43305697996505754
+    ],
+    "clusters": 16,
+    "est": 0.21527998463564743,
+    "mde": 0.31129184808260474,
+    "n": 320,
+    "p_ri_within_agent": 0.0712,
+    "se": 0.11111275359960766,
+    "t": 1.9374912209574435
+  },
+  "continuity_pull_slope": {
+    "ci95_t": [
+      0.16790029144116828,
+      0.5979092624037606
+    ],
+    "ci95_z": [
+      0.18519845587219808,
+      0.5806110979727308
+    ],
+    "clusters": 16,
+    "est": 0.38290477692246444,
+    "mde": 0.2826026962317944,
+    "n": 320,
+    "p_ri_within_agent": 0.0014,
+    "se": 0.1008724254952401,
+    "t": 3.7959310985392403
+  },
+  "estimand1_inside_band": {
+    "both": 12,
+    "direction_as_predicted": true,
+    "discordant": 16,
+    "measure": "inside_band",
+    "min_attainable_two_sided_p": 3.0517578125e-05,
+    "n_pairs": 32,
+    "p_exact_sign_test": 0.004180908203125,
+    "peer_only": 2,
+    "peer_total": 14,
+    "predicted_direction": "tool_only > peer_only",
+    "tool_only": 14,
+    "tool_total": 26,
+    "verdict": "direction holds and the test rejects: confirmed"
+  },
+  "estimand2_paired_distance": {
+    "ci95_t": [
+      0.031984586111973884,
+      0.24801286218602112
+    ],
+    "ci95_z": [
+      0.04067485283580154,
+      0.23932259546219348
+    ],
+    "clusters": 16,
+    "direction_as_predicted": true,
+    "est": 0.1399987241489975,
+    "mde": 0.14197418519936672,
+    "mean_peer": 0.21699519856643246,
+    "mean_tool": 0.07699647441743498,
+    "measure": "proportional distance from central figure (peer minus tool)",
+    "n_pairs": 32,
+    "predicted_direction": "positive",
+    "se": 0.05067637573784518,
+    "t": 2.762603325723751,
+    "verdict": "interval excludes zero while the MDE exceeds the estimate: suggestive rather than decisive"
+  },
+  "estimand3_within_two_percent": {
+    "both": 9,
+    "direction_as_predicted": true,
+    "discordant": 16,
+    "measure": "within_tol",
+    "min_attainable_two_sided_p": 3.0517578125e-05,
+    "n_pairs": 32,
+    "p_exact_sign_test": 0.000518798828125,
+    "peer_only": 1,
+    "peer_total": 10,
+    "predicted_direction": "tool_only > peer_only",
+    "tool_only": 15,
+    "tool_total": 24,
+    "verdict": "direction holds and the test rejects: confirmed"
+  },
+  "estimand4_equals_central": {
+    "both": 2,
+    "direction_as_predicted": true,
+    "discordant": 21,
+    "measure": "equals_central",
+    "min_attainable_two_sided_p": 9.5367431640625e-07,
+    "n_pairs": 32,
+    "p_exact_sign_test": 9.5367431640625e-07,
+    "peer_only": 0,
+    "peer_total": 2,
+    "predicted_direction": "tool_only > peer_only",
+    "tool_only": 21,
+    "tool_total": 23,
+    "verdict": "direction holds and the test rejects: confirmed"
+  },
+  "estimand4_matches": [
+    [
+      "dpeer_ng",
+      "A01",
+      0,
+      42000
+    ],
+    [
+      "dpeer_ng",
+      "A01",
+      12,
+      255000
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      0,
+      42000
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      2,
+      56100
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      3,
+      64600
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      4,
+      86200
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      5,
+      98900
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      6,
+      107200
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      7,
+      123500
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      10,
+      303600
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      11,
+      349000
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      12,
+      255000
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      13,
+      293200
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      14,
+      231000
+    ],
+    [
+      "dtool_ng",
+      "A01",
+      15,
+      265600
+    ],
+    [
+      "dtool_ng",
+      "A12",
+      2,
+      46200
+    ],
+    [
+      "dtool_ng",
+      "A12",
+      4,
+      63800
+    ],
+    [
+      "dtool_ng",
+      "A12",
+      5,
+      73100
+    ],
+    [
+      "dtool_ng",
+      "A12",
+      6,
+      94900
+    ],
+    [
+      "dtool_ng",
+      "A12",
+      7,
+      109200
+    ],
+    [
+      "dtool_ng",
+      "A12",
+      8,
+      276000
+    ],
+    [
+      "dtool_ng",
+      "A12",
+      12,
+      210000
+    ],
+    [
+      "dtool_ng",
+      "A12",
+      13,
+      241500
+    ],
+    [
+      "dtool_ng",
+      "A12",
+      14,
+      429000
+    ],
+    [
+      "dtool_ng",
+      "A12",
+      15,
+      493400
+    ]
+  ],
+  "mde_constant": 2.8015852185999996,
+  "n_confirming_decisions": 64,
+  "n_continuity": 320,
+  "n_matched_pairs": 32,
+  "registered_in": "damages/AMENDMENT-D1-proximity.md",
+  "run": "D1",
+  "tolerance": 0.02
+}

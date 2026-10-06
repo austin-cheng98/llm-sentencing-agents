@@ -1,0 +1,5 @@
+AWARD: 20000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: Liability turns on conflicting accounts with no independent witness. The documented strain resolved after four months, with no residual restriction or supported economic loss.

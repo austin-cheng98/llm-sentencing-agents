@@ -1,0 +1,5 @@
+AWARD: 109200 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The award uses the middle historical-model estimate, with the four-month recovery and absence of lasting restriction reflected in that file-based prediction.

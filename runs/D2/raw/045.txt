@@ -1,0 +1,5 @@
+AWARD: 94900 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The historical model predictions cluster near this amount. The four-month treatment course supports compensation, while the lack of lasting restriction and documented economic loss limits confidence.

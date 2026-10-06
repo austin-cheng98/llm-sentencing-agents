@@ -1,0 +1,5 @@
+AWARD: 105100 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The award uses the low end of the model’s predicted valuations, reflecting the documented treatment gap, limited attendance, and recovery without residual restriction. Confidence is moderate because the file does not state the dollar amounts of the documented losses.

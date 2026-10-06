@@ -1,0 +1,5 @@
+AWARD: 73100 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The award uses the middle historical-settlement prediction for this claim profile. The four-month recovery without residual restriction, delayed treatment, and limited attendance temper the valuation.

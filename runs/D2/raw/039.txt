@@ -1,0 +1,5 @@
+AWARD: 200000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The fracture, surgery, and lasting grip impairment support a substantial valuation. Contested liability and undocumented economic loss limit the amount and reduce confidence.

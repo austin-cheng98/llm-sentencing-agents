@@ -1,0 +1,5 @@
+AWARD: 80800 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The three valuations from the same file cluster around $80,800. The four-month recovery without residual restriction supports a valuation near that figure, though the file summary does not state the amount of economic loss.

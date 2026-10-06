@@ -1,0 +1,5 @@
+AWARD: 185000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The fracture and lasting grip impairment support a substantial award. Conflicting accounts, delayed treatment, and incomplete attendance reduce confidence in the claim’s full value.

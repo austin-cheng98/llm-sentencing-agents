@@ -1,0 +1,5 @@
+AWARD: 210000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The fracture, permanent impairment, and loss of grip strength support a substantial award. Delayed treatment, limited attendance, and undocumented economic losses limit the valuation.

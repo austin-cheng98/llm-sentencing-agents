@@ -1,0 +1,5 @@
+AWARD: 300000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The surgically repaired fracture and lasting grip impairment support substantial compensation. The treatment delay, limited attendance, and undocumented economic loss temper the valuation.

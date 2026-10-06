@@ -1,0 +1,5 @@
+AWARD: 448500 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: This valuation falls at the midpoint of the three assessments made from the same file. The permanent impairment and loss of grip strength support a substantial award, while the treatment delay and missed sessions temper it.

@@ -1,0 +1,5 @@
+AWARD: 260000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The fracture, surgery, permanent impairment, and loss of grip strength support a substantial award. Contested liability limits confidence in the valuation.

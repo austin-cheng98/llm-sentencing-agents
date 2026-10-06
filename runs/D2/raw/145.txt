@@ -1,0 +1,5 @@
+AWARD: 20000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: Treatment lasted four months and ended without residual restriction. The file does not document the economic loss claimed.

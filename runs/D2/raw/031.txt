@@ -1,0 +1,5 @@
+AWARD: 80800 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The three valuations based on this file cluster around $80,800. The four-month treatment period and absence of lasting restriction support a valuation near their median.

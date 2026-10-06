@@ -1,0 +1,5 @@
+AWARD: 109200 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The award uses the middle historical model prediction, accounting for four months of treatment and recovery without residual restriction. Confidence is moderate because the file gives no dollar totals for wages or treatment.

@@ -1,0 +1,5 @@
+AWARD: 210000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The fracture, surgery, and permanent impairment warrant substantial compensation. The treatment delay, missed sessions, and undocumented economic loss limit the supported valuation.

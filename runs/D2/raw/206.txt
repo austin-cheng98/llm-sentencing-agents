@@ -1,0 +1,5 @@
+AWARD: 25000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The cervical strain resolved within four months without residual restriction. The eleven-week treatment gap and low attendance at prescribed sessions weaken support for a higher valuation.

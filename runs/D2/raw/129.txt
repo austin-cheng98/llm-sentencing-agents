@@ -1,0 +1,5 @@
+AWARD: 300000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The surgically treated fracture, permanent impairment, and loss of grip strength support substantial compensation. The eleven-week treatment delay and limited attendance at prescribed sessions temper the valuation.

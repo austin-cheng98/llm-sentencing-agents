@@ -1,0 +1,5 @@
+AWARD: 258000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The fracture, lasting impairment, and documented grip-strength loss warrant a substantial valuation. Contested liability limits confidence in the amount.

@@ -1,0 +1,5 @@
+AWARD: 20000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The conflicting accounts and lack of an independent witness create substantial liability uncertainty. Four months of completed treatment supports some compensation, but the absence of residual restriction and documented economic loss limits the valuation.

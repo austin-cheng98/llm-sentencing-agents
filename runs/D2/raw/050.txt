@@ -1,0 +1,5 @@
+AWARD: 429000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The fracture, surgery, permanent impairment, and loss of grip strength support a substantial valuation. The absence of wage records and itemised bills limits confidence in the claimed economic loss.

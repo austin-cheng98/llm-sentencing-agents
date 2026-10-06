@@ -1,0 +1,5 @@
+AWARD: 290000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: The fracture, surgery, and permanent loss of grip strength support a substantial valuation. The eleven-week treatment delay and limited attendance reduce confidence in the extent of the claimed ongoing effects.

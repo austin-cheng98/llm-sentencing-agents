@@ -1,0 +1,5 @@
+AWARD: 123500 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The model’s three valuations cluster around $123,500. Four months of documented treatment supports compensation, while the absence of lasting restriction limits the award.

@@ -1,0 +1,5 @@
+AWARD: 18000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The documented injury resolved without residual restriction, and the treatment delay and limited attendance weaken the claimed extent of harm. Contested liability and unsupported economic loss further limit the valuation.

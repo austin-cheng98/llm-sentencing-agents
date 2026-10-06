@@ -1,0 +1,5 @@
+AWARD: 450000 DOLLARS
+CONFIDENCE: 7
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: Surgery, permanent impairment, and documented loss of grip strength support substantial compensation. The valuation falls within the model’s predicted range.

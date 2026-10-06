@@ -1,0 +1,14 @@
+FREEZE damages extension analysis (run D1, eight-agent panel)
+frozen: 2026-10-04
+collection stopped after A09, the fourth agent of the frozen expansion order
+panel at freeze: 256 primary-arm cells across A02 A05 A08 A10 A11 A04 A07 A09
+off-panel cells at freeze: 8 (A12 four, A01 two, A03 one, A06 one)
+new-agents-only design-exact randomization set: 4^4 = 256, floor p = 0.0039
+
+This freeze covers the derived analysis only. The pre-analysis freeze is
+damages/FREEZE-D1-extension.txt and its entries are unchanged.
+
+scripts/damages_analysis_ext.py  1a0086b14a779fc452804d51abf77dbe42bf8c77448b04facafa47c587f844f5
+analysis/damages_d1_ext.json  0334a945ba63731d3dfbba0e3906ac3755d11401083c294739eded2a14e322bb
+damages/RESULTS-D1-extension.md  26f022ec5580768c4fbae3b476d408c99bd8881648b9cdbba3b6fafbea114bd1
+runs/D1/collection-notes.md  bd47db2024950cc5e8c5ffce43a8f2f344ff5aa8600f3169f4a191cd89cb0560

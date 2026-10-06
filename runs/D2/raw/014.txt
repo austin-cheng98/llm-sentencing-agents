@@ -1,0 +1,5 @@
+AWARD: 35000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: Contested liability and the absence of an independent witness reduce the claim’s settlement value. The treatment delay, limited attendance, and recovery without residual restriction also weigh against the model predictions.

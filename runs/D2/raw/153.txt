@@ -1,0 +1,5 @@
+AWARD: 20000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: Liability turns on conflicting accounts with no independent witness. Four months of treatment support compensation, but there is no documented economic loss or lasting restriction.

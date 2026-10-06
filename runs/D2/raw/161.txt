@@ -1,0 +1,5 @@
+AWARD: 25000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: Four months of treatment supports compensation for a temporary injury, but the file documents no lasting restriction. The claimed economic loss has no supporting records.

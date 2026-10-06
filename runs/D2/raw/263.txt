@@ -1,0 +1,5 @@
+AWARD: 266000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: The fracture required surgery and left a documented permanent impairment and loss of grip strength. The award is close to the model predictions, though the file provides no dollar totals for economic loss.

@@ -1,0 +1,5 @@
+AWARD: 200000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The surgically treated fracture and documented permanent impairment warrant a substantial valuation. The treatment delay, limited attendance, and unsupported economic loss reduce confidence in a higher amount.

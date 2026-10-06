@@ -1,0 +1,5 @@
+AWARD: 390000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: The permanent impairment and documented loss of grip strength support a substantial award. The treatment delay, missed sessions, and unsupported economic loss limit the valuation; $390,000 is also the median of the three valuations entered from the same file.

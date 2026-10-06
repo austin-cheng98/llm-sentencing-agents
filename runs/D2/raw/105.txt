@@ -1,0 +1,5 @@
+AWARD: 75900 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The valuation matches the midpoint of the three model predictions for this file. Contested liability and undocumented economic loss limit confidence.

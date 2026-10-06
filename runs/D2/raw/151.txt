@@ -1,0 +1,5 @@
+AWARD: 123500 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The three valuations on this file center on $123,500. Four months of treatment followed by full recovery supports that amount, though the file summary gives no dollar figures for economic loss.

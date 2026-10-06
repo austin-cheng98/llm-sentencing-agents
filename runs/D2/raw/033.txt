@@ -1,0 +1,5 @@
+AWARD: 30000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: Four months of treatment supports compensation, but the strain resolved without residual restriction. The file provides no documentation for the claimed economic loss.

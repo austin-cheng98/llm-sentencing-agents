@@ -1,0 +1,5 @@
+AWARD: 25000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: Four months of treatment support compensation for a temporary injury, but normal imaging and no residual restriction limit the valuation. The claimed economic loss has no supporting records.

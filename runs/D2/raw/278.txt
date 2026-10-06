@@ -1,0 +1,5 @@
+AWARD: 25000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: Conflicting accounts and no independent witness make liability uncertain. The treatment delay, missed sessions, and absence of lasting restriction support a lower valuation than the other entries.

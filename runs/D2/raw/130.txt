@@ -1,0 +1,5 @@
+AWARD: 18000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: Conflicting accounts and the eleven-week treatment delay create substantial uncertainty. Treatment ended after four months without residual restriction, and the claimed economic loss has no supporting records.

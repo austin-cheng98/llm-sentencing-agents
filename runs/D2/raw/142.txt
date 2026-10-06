@@ -1,0 +1,5 @@
+AWARD: 66500 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: This matches the median valuation entered from the same file and reflects four months of treatment with no lasting restriction. Confidence is limited because the amounts of the documented losses were not provided.

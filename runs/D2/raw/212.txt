@@ -1,0 +1,5 @@
+AWARD: 350000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The fracture, surgery, permanent impairment, and loss of grip strength support a substantial valuation. Contested liability and the absence of an independent witness temper it.

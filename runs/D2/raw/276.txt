@@ -1,0 +1,5 @@
+AWARD: 24000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The conflicting accounts make liability uncertain. Four months of treatment support compensation for the strain, but there is no residual restriction or documented economic loss.

@@ -1,0 +1,5 @@
+AWARD: 266000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: The surgically treated fracture, permanent impairment, and documented grip-strength loss support substantial compensation. This valuation is consistent with the other adjusters’ assessments, though the file summary does not state the total economic loss.

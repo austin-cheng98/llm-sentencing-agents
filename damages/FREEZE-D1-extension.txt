@@ -1,0 +1,15 @@
+FREEZE damages extension (run D1, agent expansion)
+frozen: 2026-10-03T23:55:00Z
+registered after the 128-decision panel was complete and read
+expansion order: A11 A04 A07 A09 A12 A01 A03 A06
+primary-arm cells on disk at freeze: 156 (128 panel + 28 off-panel)
+
+damages/AMENDMENT-D1-extension.md  fc3ca2bbe806670ce950b000abc4f293807bbbbfdfd6a71041e2f53686ce7a25
+damages/AMENDMENT-D1-manipulation-check.md  782871c055695ceabff5e20b04b7136838eb1c4fe58089b92bd90c00b8e02e2a
+damages/prereg-damages.md  943d892959b1adcb6ee099b357b94e1cd8f763e44d9ff42a03d441faf5440675
+scripts/damages.py  5c6f836b6222eb5c2de92e008034945f78256a17689ad51cfe54234553cd7918
+scripts/gen_claims.py  3759c133e58592eb3a8113c9097e357b1aa702711d5bc60fbad33ead25614e8a
+cases/claims.json  26e4374fb4e6b9f31cb78435604dcd0f8326e0aeff4a9b3956dc503e86f63469
+runs/D1/manifest.jsonl  fbf8c575a79921def0b5ead0b4bee76d2352bc94bb936e2112aadd52aebe8982
+scripts/damages_analysis.py  216e72c22ea8042f359978675e8dd941409fbd25904d9c8cfc84d4b4361c32b7
+analysis/damages_d1.json  c4dae3d0250c8bdc160da6ff301d01ad798b25b991e6646bf968a33447c10f81

@@ -1,0 +1,5 @@
+AWARD: 15000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The documented injury resolved after four months, while the treatment gap and incomplete attendance weaken the claimed severity. Contested liability and unsupported economic loss further limit the valuation.

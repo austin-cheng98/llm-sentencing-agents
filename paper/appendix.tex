@@ -1,0 +1,390 @@
+\appendix
+\raggedbottom
+\makeatletter
+\renewcommand{\theHfigure}{appendix.\thefigure}
+\renewcommand{\theHtable}{appendix.\thetable}
+\makeatother
+\section{Ethical considerations}
+
+We simulate criminal sentencing, a setting where decisions affect defendants' liberty. Every case is
+procedurally generated and fictional, and every prompt says so. This study does not evaluate language
+models as sentencing tools. With the guideline removed, model output responds to the arbitrary
+forecast displacement ($\pullToolN$). The sentences are measurements of model behavior on synthetic
+cases, not judgments about real defendants.
+
+\section{The memory experiment}
+\label{app:memory}
+
+Deployed agent architectures more often show an agent a summary of itself than a summary of
+its neighbours, so we ran a second experiment on the same cases. Agents in the
+own-record arm receive a profile of their past decisions, refreshed every four
+cases, giving their mean sentence, their average departure from the advisory range, how their
+sentences differed by remorse and by assistance, and their most frequent rationale. Agents in
+the no-memory arm decide the identical cases in the identical order with a fresh
+context each time, and four baseline cases return at the end in paraphrased form, which gives
+a within-agent test that no change in case composition can produce.
+
+Without memory, the estimated trend across sixteen cases is $\driftNo$ (SE \driftNose). With an
+own-record summary, the estimated trend is $\driftOwn$ (SE \driftOwnse), which is not distinguishable
+from zero. The paired difference between the arms on the same case at the same position is
+$\armgap$ (SE \armgapse). On returning cases, the estimated shifts are $\reexNo$ without memory
+and $\reexOwn$ with memory.
+
+We tested own-record summaries because they provide numerical information similar to peer-supplied
+sentences. Each arm contains three agents and sixty decisions, limiting precision for smaller effects.
+
+\section{What was collected}
+\label{app:census}
+
+The original arms were drawn on 17--18 August 2026 at default decoding settings, one draw per
+cell, using only the prompts in the artifact repository's \texttt{experiment/prompts.txt} file; staged collection and later agent additions
+explain the unequal arm sizes.
+
+The registered cross-model arms were collected from 30 September to 1 October through the released
+harness, which creates a fresh context for each prompt and inherits decoding settings. Parse failures
+were recorded without redraws; one Haiku structure-matched cell failed, leaving \blHaiMSN\ rather than
+\blHaiMBN\ decisions. The GPT-6 Luna sample used 26 fresh contexts across three arms and 16 cases
+(1,248 decisions). It used isolated contexts with model \texttt{gpt-6-luna} and extra-high
+reasoning; all replies parsed, and no cells were redrawn.
+
+For the sentencing study, a GPT-6 Sol run was collected on 4 October with the same 1,248 cells, prompt text, cases, displayed
+numbers, and displacement assignments. It used model \texttt{gpt-6-sol} at high reasoning effort.
+Six first attempts returned no model output and were retried once under the protocol; all final
+records parsed, and no tools were called. The Luna run used extra-high reasoning, so that setting
+differs between the two model samples.
+
+\section{Design details}
+\label{app:design}
+
+Crossing offense levels 16 and 24 with criminal history categories I and IV yields the four
+advisory ranges used throughout: 21--27, 33--41, 51--63, and 77--96 months (Figure~\ref{fig:design}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.80\textwidth]{../figures/fig_design.pdf}
+\caption{(a) Anchor values at four displacements around the advisory midpoint. (b) Identical
+numbers under peer and forecast labels; their slope difference is the peer premium.}
+\label{fig:design}
+\end{figure}
+
+Write $F_c \in \{0,1\}^4$ for case $c$'s factor vector and partition the sixteen design points
+into four groups $g_1,\dots,g_4$ subject to
+\begin{equation}
+\sum_{c \in g_k} F_{cf} \;=\; \tfrac{1}{2}\,|g_k| \qquad \text{for every group } k
+\text{ and every factor } f,
+\label{eq:balance}
+\end{equation}
+which a backtracking search satisfies exactly at $|g_k| = 4$. Agent $i$ then receives
+\begin{equation}
+\delta_{ic} \;=\; d_{\,(k(c) + i) \bmod 4}, \qquad
+d \;=\; (-0.30,\,-0.15,\,+0.15,\,+0.30),
+\label{eq:alloc}
+\end{equation}
+where $k(c)$ indexes the group containing $c$. Every agent sees each displacement exactly four
+times, and \eqref{eq:balance} makes the four factors split evenly within each displacement level.
+
+\section{Inference}
+\label{app:inference}
+
+Drawing $\zeta_{ic} \sim \mathrm{Unif}\{0,1\}$ independently per cell and relabelling
+$P^{(b)}_{ic} = \zeta_{ic} P_{ic} + (1-\zeta_{ic})(1 - P_{ic})$ generates the exact null
+distribution of $\hat\Delta$, from which
+\begin{equation}
+p \;=\; \frac{1 + \#\{b : |\hat\Delta^{(b)}| \ge |\hat\Delta|\}}{1 + B},
+\qquad
+q_{.95} \;=\; \text{95th percentile of } |\hat\Delta^{(b)}|,
+\label{eq:ri}
+\end{equation}
+with $B = 9{,}999$.
+
+We quote all three clusterings for the premium contrasts and the case-clustered figure for per-arm
+pull. Cluster-robust $p$-values use a wild cluster bootstrap with Webb six-point weights
+\citep{webb2023reworking,cameron2008bootstrap,roodman2019fast}, which we use because
+agent-clustered inference rests on six clusters. Per-arm pull uses a second randomization null,
+permuting the displacement within each agent across the design's own factor-balanced case groups;
+\eqref{eq:ri} describes the attribution-label null used for premiums. Population agreement is
+summarised by the between-agent spread on a common case,
+\begin{equation}
+\bar{\sigma} \;=\; \frac{1}{|\mathcal{C}|}\sum_{c \in \mathcal{C}}
+\operatorname{sd}_{i}\!\left( s_{ic} / m_c \right),
+\label{eq:spread}
+\end{equation}
+the mean over cases of the standard deviation across agents of the sentence expressed in units of
+the case midpoint.
+
+Across \yokedCells\ cells in which the same agent saw the same case under more than one
+attribution, the displayed numbers were identical in every paired cell. The four
+case factors remain balanced across displacement levels, with the largest departure from an even
+split equal to \worstImbalance. Adding offense-type fixed effects leaves the guideline-present
+premium at $\rbGType$ (SE \rbGTypese).
+
+Adding a guideline indicator $G$ with $\delta \times G$, $P \times G$ and $\delta \times P \times
+G$ terms gives a moderation model whose triple interaction is $\triple$ (SE \triplese,
+$p=\triplep$). Only arms with the original closing lines were run under both guideline conditions,
+and their peer-premium estimates are near zero; we therefore report the conditions separately.
+
+\section{Pull by arm}
+\label{app:cells}
+
+Arm-level pulls include all arm agents; paired premiums use shared cells (Table~\ref{tab:cells}).
+
+\begin{table}[H]
+\centering
+\caption{Opus 5 pull by block and source. Case-clustered SEs; randomization $p$-values. No-number rows show mean deviation.}
+\label{tab:cells}
+\footnotesize
+\renewcommand{\arraystretch}{0.86}
+\begin{tabular}{llrrrr}
+\toprule
+Numbers attributed to & Block variant & $n$ & Pull $\hat{\pi}$ & SE & $p$ \\
+\midrule
+\multicolumn{6}{l}{\emph{Guideline removed}} \\
+Other judges of this bench & none & \nPeerBare & $\pullPeerBare$ & \sePeerBare & --- \\
+Other judges of this bench & structure-matched & \nPMatch & $\pullPMatch$ & \sePMatch & --- \\
+Other judges of this bench & paraphrase one & \nPFree & $\pullPFree$ & \sePFree & --- \\
+Other judges of this bench & paraphrase two & \nPOwn & $\pullPOwn$ & \sePOwn & --- \\
+Statistical forecast & none & \nToolBare & $\pullToolBare$ & \seToolBare & --- \\
+Other judges of this bench & ``decide independently'' & \nPeerN & $\pullPeerN$ & \sePeerN & \riPeerNp \\
+Statistical forecast & ``advisory only'' & \nToolN & $\pullToolN$ & \seToolN & \riToolNp \\
+Docketing artifact & ``no legal significance'' & \nClerN & $\pullClerN$ & \seClerN & \riClerNp \\
+\addlinespace[1pt]
+\multicolumn{6}{l}{\emph{Guideline present}} \\
+Other judges of this bench & ``decide independently'' & \nPeerG & $\pullPeerG$ & \sePeerG & \riPeerGp \\
+Statistical forecast & ``advisory only'' & \nToolG & $\pullToolG$ & \seToolG & \riToolGp \\
+\midrule
+\multicolumn{2}{l}{No numbers shown, guideline present} & \NaGn &
+  \multicolumn{3}{l}{mean deviation $\NaGdev$} \\
+\multicolumn{2}{l}{No numbers shown, guideline removed} & \NaNn &
+  \multicolumn{3}{l}{mean deviation $\NaNdev$} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Cross-model estimates}
+\label{app:models}
+
+With a guideline and no numbers, between-agent spread is \NaGsd; without the guideline it is
+\dispFull. Leave-one-out estimates for the no-guideline condition range from \dispLooLo\ to
+\dispLooHi, so the estimated magnitude varies with the four-agent sample.
+Guideline-present premiums per model are $\xgOpus$ (SE \xgOpusse\ on case, $n=\xgOpusn$) on Opus~5,
+$\xgSonnet$ (SE \xgSonnetse) on Sonnet~5 and $\xgHaiku$ (SE \xgHaikuse) on Haiku~4.5, the latter two
+over \xgSonnetn\ decisions from one agent each.
+
+We ran both displaced-anchor arms on three models of the same family, with and without the
+advisory guideline. With the guideline present,
+pull increases as model size decreases, from near zero on Opus 5 to roughly two-thirds on Haiku 4.5.
+Without the guideline, the spread in pull across the three models is smaller, although Opus 5 remains
+below full adoption.
+
+The estimated peer premiums are $\bmOpus$ on Opus 5, $\bmHaiku$ on Haiku 4.5, and $\bmSonnet$ on
+Sonnet 5. The smaller-model estimates use $\bmSonnetn$ decisions each and are too imprecise to
+separate. We make no cross-model scaling claim from these three estimates.
+
+The GPT-6 Luna and Sol premiums use the same cases and prompts. Their full estimates are reported in
+Table~\ref{tab:gpt-cross}; the comparisons across models are descriptive because the reasoning
+settings differ.
+
+\begin{table}[H]
+\centering
+\caption{GPT-6 peer premiums relative to the bare forecast. Each contrast uses 416 observations
+per arm and case-clustered 95\% intervals. The two runs used identical prompts and allocations.}
+\label{tab:gpt-cross}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{lllrcrr}
+\toprule
+Model & Effort & Contrast & Premium [95\% CI] & $p$ & MDE & $n$ \\
+\midrule
+GPT-6 Luna & xhigh & Structure-matched & $\xlMSEst$ [$\xlMSLo$, $\xlMSHi$] & $\xlMSP$ & $\xlMSMde$ & \xlMSN \\
+GPT-6 Luna & xhigh & Bare & $\xlMBEst$ [$\xlMBLo$, $\xlMBHi$] & $\xlMBP$ & $\xlMBMde$ & \xlMBN \\
+GPT-6 Sol & high & Structure-matched & $\solMSEst$ [$\solMSLo$, $\solMSHi$] & $\solMSP$ & $\solMSMde$ & \solMSN \\
+GPT-6 Sol & high & Bare & $\solMBEst$ [$\solMBLo$, $\solMBHi$] & $\solMBP$ & $\solMBMde$ & \solMBN \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Confidence and exact matching}
+\label{app:selfreport}
+
+Confidence uses \rbConfDistinct\ of its ten values, and
+\rbConfTop\% of ratings are six or seven. We treat confidence as an uncalibrated self-report and
+describe it across arm means. Against the same bare forecast, the first independence paraphrase yields
+$\pfPrem$ ($p=\pfPremp$), while the second yields $\poPrem$ ($p=\poPremp$)
+(Section~\ref{sec:confidence}; Figure~\ref{fig:confidence}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.80\textwidth]{../figures/fig_confidence.pdf}
+\caption{(a) Mean confidence against pull for each model-arm cell; the dashed line and correlation
+($r=\confCorr$) use only the six Opus 5 arm means (arm $n=16$--416). (b) Equal-weighted mean, by
+provider, of model-level shares matching one of the three displayed numbers, for the three arms common
+to all five models.}
+\label{fig:confidence}
+\end{figure}
+
+\section{The cascade floors}
+\label{app:cascade}
+
+Shuffling independent agents into pseudo-speaking orders yields a \plCopy\% exact-match rate and a
+slope of $\plBeta$ ($[\plBetalo, \plBetahi]$). Round-number clustering and case-level variation can
+produce these matches without peer influence. With case fixed effects, the same placebo returns
+$\plBetaFE$ ($[\plBetaFElo, \plBetaFEhi]$), consistent with the negative sign
+\citet{angrist2014perils} predicts when case dummies place predecessor outcomes on both sides of a
+within-case comparison. In the cascade, the fixed-effect slope is $\cascBetaFE$ (SE \cascBetaFEse),
+compared with the plain slope $\cascBeta$ (SE \cascBetase). The fixed-effect estimate is farther
+from its placebo floor; the plain estimate is close to $\plBeta$. The placebo uses at most three
+predecessors, compared with five in the cascade, so it does not provide a floor matched to the later
+seats. The reflection problem \citep{manski1993identification} does not arise because each agent's
+predecessors are fixed before it decides.
+
+The first four agents speak in an order randomised per case; the last two were added afterwards in
+fixed positions, so position effects are identified over the first four. Exact reproduction rates
+at the second, third and fourth positions are \cascCopyOne\%, \cascCopyPosTwo\% and
+\cascCopyPosThree\%, respectively, with sixteen decisions at each position. In the docketing arm,
+which shows three numbers in the same layout, the exact-match rate is \exCD\%. The final-pair spread
+is $\cascLate$, compared with $\cascGuideSd$ for the independent population with a guideline and no
+peer information. The estimates use different agent sets, so we do not calculate a fold-change.
+
+\section{Robustness of the premium}
+\label{app:robust}
+
+\subsection{Design checks}
+Across \yokedCells\ cells in which the same agent saw the same case under more than one
+attribution, the numbers shown differed in \yokedMismatch\ cells, so the yoke is exact. The four
+case factors remain balanced across displacement levels, with the largest departure from an even
+split equal to \worstImbalance. Adding offense-type fixed effects leaves the guideline-present
+premium at $\rbGType$ (SE \rbGTypese).
+
+\subsection{Sentence values and displayed numbers}
+Over \rbSentN\ decisions agents use \rbDistinct\ distinct sentence values, \rbDivSix\% divisible by
+six months, \rbDivTwelve\% by twelve and \rbDivFive\% by five, with \rbMode\ months the single most
+common answer. Of the numbers shown to agents, \rbAncSix\% are divisible by six and \rbAncFive\% by
+five, and no record shows three round numbers at once. Decisions reproduce a displayed number in
+\rbExact\% of cases (\rbExactN\ decisions), of which \rbExactRound\% are divisible by six; matching
+runs \rbMatchRound\% where some displayed number is round against \rbMatchPlain\% where none is.
+The original-sentence comparison is not statistically distinguishable from zero with round numbers
+excluded, $\rbNROS$ ($p=\rbNROSp$, $n=\rbNROSn$). Exact matching is more common when at least one
+displayed number is round than when none is. We therefore compare copying with a shuffled floor.
+Because both attribution arms show the same numbers, round-number matching does not change the
+estimated premium.
+
+\subsection{Premium by displacement magnitude}
+We estimate the premium at each displacement. The bare premium is flat, $\rbMagMBLo$ at
+$|\delta|=0.15$ and $\rbMagMBHi$ at $|\delta|=0.30$; the structure-matched premium rises from
+$\rbMagMSLo$ ($p=\rbMagMSLop$) to $\rbMagMSHi$ ($p=\rbMagMSHip$). It is larger at the far than at
+the near displacement. A single slope averages these displacement-specific estimates.
+The original-sentence comparison is null at both magnitudes: $\rbMagOSLo$
+($p=\rbMagOSLop$) and $\rbMagOSHi$ ($p=\rbMagOSHip$).
+
+\subsection{Alternative outcome scales}
+On the log-ratio scale, the matched and bare premiums are $\rbLogMS$ ($p=\rbLogMSp$) and
+$\rbLogMB$ ($p\rbLogMBp$). On the within-case midrank scale, they are $\rbRankMS$
+($p=\rbRankMSp$) and $\rbRankMB$ ($p\rbRankMBp$). The original-closing comparison remains
+null on both scales ($\rbLogOS$, $p=\rbLogOSp$; $\rbRankOS$, $p=\rbRankOSp$). Since ranks and
+ratios use different scales, we compare signs and $p$-values, not magnitudes.
+
+\section{Behaviour under the equivalence sentence}
+\label{app:equiv}
+
+The dispersion and copying shifts in Section~\ref{sec:equiv} are post-hoc diagnostics, not
+pre-registered. On Opus~5, outcome standard deviations are $0.235$ and $0.242$ in the
+structure-matched and bare pairs, versus $0.336$ and $0.329$ with the equivalence and reliability
+sentences. Exact displayed-number matches are $29\%$, $25\%$, and $28\%$ in the earlier arms,
+versus $8\%$, $12\%$, $6\%$, and $8\%$ in the four later arms. Sentences outside the span of the
+three numbers rise from $31$--$57\%$ to $80$--$84\%$.
+
+In both peer and forecast arms, agents independently said the numbers added no evidence beyond the
+case file. One wrote that they ``derive from the identical case file and add no new information
+about the defendant, so I gave them no weight as evidence.'' Responses were recorded verbatim and
+not re-drawn.
+
+\section{Case factors}
+\label{app:factors}
+
+Without numbers, severity and prior record increase sentence length by \NaNsev\% and \NaNprior\%
+(Figure~\ref{fig:factors}). With a guideline, \rangeInside\% of decisions fall within its range,
+\rangeBelow\% below, and \rangeAbove\% above; departures are almost entirely downward.
+Proportionality is the most common stated rationale with a guideline (\RatGtopv\%); deterrence is
+the most common without it (\RatNtopv\%). The factor analysis estimates larger effects for severity and prior
+record (\facSev\%, \facPrior\%) than for assistance and remorse ($\facCoop$\%, \facRem\%).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{../figures/fig_factors.pdf}
+\caption{Case-factor effects on sentence length by guideline condition.}
+\label{fig:factors}
+\end{figure}
+
+\section{What each arm can exclude}
+\label{sec:power}
+
+Of \pwTotal\ estimates, \pwUnder\ miss the criterion; all misses are in smaller-model cells
+(Table~\ref{tab:power}).
+
+\input{tab_power}
+
+\section{Civil-damages results across model lineages}
+\label{app:damages}
+
+We applied the displaced-number design to sixteen fictional civil claims, crossing severity,
+liability, mitigation, and documentation. D1 used Claude Opus~5. Its proximity measures were
+selected after examining the first eight agents, so those panel estimates are exploratory; the
+measures and direction were then registered before the two-agent confirmation sample (A12 and A01)
+was examined. On those 32 matched pairs, in-band awards were 14/32 under the peer label and 26/32
+under the tool label ($p=0.0042$, two-sided exact sign test), awards within two percent of the
+central figure 10/32 and 24/32 ($p=0.00052$), and exact central matches 2/32 and 23/32
+($p=9.54\times10^{-7}$). The peer-minus-tool difference in proportional distance was $+0.140$
+(95\% $t$ $[0.032,0.248]$, MDE $0.142$). The registered rule calls this suggestive; see
+\texttt{damages/AMENDMENT-D1-proximity.md}.
+
+D2 was registered before collection and used the same ten agents, claims, primary arms, and
+rendered prompts as the complete D1 panel; every prompt hash matched its D1 counterpart. GPT-6 Sol
+at high reasoning returned 319 of 320 planned responses parseably (the A07 step-3 tool cell gave
+none and was not retried), leaving 159 matched pairs. Table~\ref{tab:damages-cross} compares all
+ten D1 agents with D2; its D1 column pools the exploratory panel with the confirmation sample and
+is descriptive. Differences are peer-minus-tool with 95\% claim-clustered $t$ intervals; binary
+$p$-values are exact sign tests on discordant pairs, reported peer-only/tool-only.
+
+\begin{table}[H]
+\centering
+\caption{Civil-damages proximity outcomes by model run.}
+\label{tab:damages-cross}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.38\textwidth}>{\raggedright\arraybackslash}p{0.38\textwidth}}
+\toprule
+Outcome & Claude Opus 5, D1 (160 pairs) & GPT-6 Sol high, D2 (159 pairs) \\
+\midrule
+Inside band &
+Peer 21/160; tool 88/160; $\Delta=-0.419$ [$-0.557,-0.281$]; $p=2.17\times10^{-18}$; discordant peer-only/tool-only $2/69$ &
+Peer 90/159; tool 88/159; $\Delta=+0.013$ [$-0.127,+0.152$]; $p=0.871$; discordant $20/18$ \\
+Distance from center &
+Mean peer 0.392; tool 0.156; $\Delta=+0.236$ [$+0.145,+0.328$]; MDE 0.120 &
+Mean peer 0.274; tool 0.182; $\Delta=+0.093$ [$+0.011,+0.174$]; MDE 0.107 \\
+Within 2\% of center &
+Peer 11/160; tool 68/160; $\Delta=-0.356$ [$-0.485,-0.227$]; $p=2.08\times10^{-16}$; discordant $1/58$ &
+Peer 72/159; tool 73/159; $\Delta=-0.006$ [$-0.101,+0.089$]; $p=1.000$; discordant $17/18$ \\
+Equals center &
+Peer 2/160; tool 49/160; $\Delta=-0.294$ [$-0.390,-0.198$]; $p=1.42\times10^{-14}$; discordant $0/47$ &
+Peer 34/159; tool 43/159; $\Delta=-0.057$ [$-0.152,+0.039$]; $p=0.200$; discordant $15/24$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The registered D2 primary outcome does not reproduce D1's large in-band difference: the contrast is
+small, reverses direction, and is not statistically decisive. This is not evidence that the arms
+are equivalent. For central distance, the D2 interval excludes zero, but its MDE exceeds the point
+estimate, so the registered rule calls the result suggestive rather than decisive. Neither binary
+secondary outcome rejects. The strong D1 proximity pattern therefore does not generalize unchanged
+to this GPT-6 Sol sample.
+
+For continuity, the pooled displacement slope is $+0.383$ on D1 (95\% $z$ interval
+$[0.185,0.581]$, MDE $0.283$, within-agent permutation $p=0.0014$) and $+0.559$ on D2
+(95\% $z$ interval $[0.344,0.774]$, MDE $0.307$, $p=0.0002$). The tool-minus-peer slope premium
+is $+0.215$ on D1 (MDE $0.311$, $p=0.0712$) and $+0.232$ on D2 (MDE $0.292$, $p=0.0341$); both
+estimates are below their MDEs. These secondary summaries do not replace the registered proximity
+outcomes. D1 used Claude subagents, whereas D2 used Codex CLI, so the cross-run difference is
+descriptive across both model and execution route. The results do not separate trust in a source
+label from adoption of a supplied number.

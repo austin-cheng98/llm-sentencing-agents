@@ -1,0 +1,5 @@
+AWARD: 64600 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: This valuation is consistent with the other assessments of the same file. The resolved injury and disputed liability temper the award; confidence is limited because the file summary omits the actual wage and billing amounts.

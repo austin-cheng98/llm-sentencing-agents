@@ -1,0 +1,5 @@
+AWARD: 75900 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The middle model prediction provides the strongest available valuation reference. Contested liability and undocumented economic loss limit confidence in the figure.

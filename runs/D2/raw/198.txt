@@ -1,0 +1,5 @@
+AWARD: 85000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The other same-file valuations cluster near this amount. Disputed liability and full recovery after four months limit my confidence.

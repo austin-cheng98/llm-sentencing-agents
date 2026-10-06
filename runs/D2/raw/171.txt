@@ -1,0 +1,5 @@
+AWARD: 234600 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The permanent impairment and loss of grip strength support substantial damages. Contested liability and the treatment history temper the valuation, which is close to the model's central prediction.

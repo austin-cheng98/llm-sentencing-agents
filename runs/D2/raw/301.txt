@@ -1,0 +1,5 @@
+AWARD: 18000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The conflicting accounts and lack of an independent witness make liability uncertain. The treatment gap, missed sessions, and unsupported economic loss limit the valuation of a strain that resolved within four months.

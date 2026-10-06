@@ -1,0 +1,5 @@
+AWARD: 85000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The model’s predictions support a valuation near $90,000, while disputed liability warrants a modest reduction. The lack of an independent witness limits confidence.

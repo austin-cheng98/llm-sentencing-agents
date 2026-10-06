@@ -1,0 +1,5 @@
+AWARD: 275000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: Surgery, permanent impairment, and documented loss of grip strength support a substantial award. The file does not document the economic loss claimed.

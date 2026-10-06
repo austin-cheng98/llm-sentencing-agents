@@ -1,0 +1,5 @@
+AWARD: 375000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The fracture, surgery, and documented permanent loss of grip strength warrant substantial compensation. The absence of billing and wage records limits support for the claimed economic loss.

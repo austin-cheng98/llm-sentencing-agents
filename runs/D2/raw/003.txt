@@ -1,0 +1,5 @@
+AWARD: 98800 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The valuation is consistent with the model's predictions for this file. Confidence is moderate because liability is contested and the injury resolved without residual restriction.

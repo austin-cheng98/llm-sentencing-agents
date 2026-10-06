@@ -1,0 +1,5 @@
+AWARD: 80000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The valuation is close to the historical settlement predictions and reflects four months of completed treatment. Confidence is moderate because the file describes economic records but provides no loss totals.

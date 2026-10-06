@@ -1,0 +1,5 @@
+AWARD: 73100 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The valuation aligns with the historical model’s predictions for this file. The treatment delay, limited attendance, and lack of residual restriction temper the assessment.

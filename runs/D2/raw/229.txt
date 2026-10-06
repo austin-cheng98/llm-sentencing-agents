@@ -1,0 +1,5 @@
+AWARD: 193200 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The fracture, surgery, and documented permanent grip impairment support a substantial valuation. Contested liability, delayed treatment, and limited attendance at prescribed sessions temper the amount.

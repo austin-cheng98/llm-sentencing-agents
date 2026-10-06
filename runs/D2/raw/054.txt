@@ -1,0 +1,5 @@
+AWARD: 18000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The strain resolved after four months without residual restriction. The eleven-week treatment delay and limited attendance reduce the support for a higher valuation.

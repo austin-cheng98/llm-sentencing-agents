@@ -1,0 +1,5 @@
+AWARD: 109000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The model predictions cluster near $109,000, and the documented four-month recovery supports a valuation in that range. The absence of lasting restriction limits the award.

@@ -1,0 +1,5 @@
+AWARD: 40000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: Conflicting accounts on the central facts create substantial liability uncertainty. Four months of treatment supports compensation, but full recovery and undocumented economic loss limit the valuation.

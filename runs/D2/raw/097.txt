@@ -1,0 +1,5 @@
+AWARD: 30000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: Liability is contested without an independent witness. The documented strain resolved after four months with no residual restriction, and the claimed economic loss is unsupported.

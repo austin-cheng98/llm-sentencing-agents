@@ -1,0 +1,5 @@
+AWARD: 25000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: Four months of treatment supports compensation for a temporary injury, but the file documents no lasting restriction or economic loss. Conflicting accounts of the incident make liability uncertain.

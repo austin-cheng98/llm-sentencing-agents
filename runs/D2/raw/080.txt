@@ -1,0 +1,5 @@
+AWARD: 493400 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The valuation is near the midpoint of the three historical-settlement predictions and reflects the documented permanent impairment and loss of grip strength. Confidence is limited because the file does not state the amounts of medical bills or lost wages.

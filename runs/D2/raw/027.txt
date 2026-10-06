@@ -1,0 +1,5 @@
+AWARD: 40000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The four-month course of treatment supports compensation, while the absence of lasting restriction limits the valuation. Conflicting accounts on the central facts add uncertainty about liability.

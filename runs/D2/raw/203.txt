@@ -1,0 +1,5 @@
+AWARD: 90000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The model estimates cluster near $95,000, but treatment ended after four months with no residual restriction. The absence of documented economic loss supports a modest reduction.

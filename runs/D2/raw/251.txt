@@ -1,0 +1,5 @@
+AWARD: 170000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The surgically treated fracture and permanent grip impairment support a substantial award. Contested liability, delayed treatment, incomplete attendance, and undocumented economic loss limit the valuation.

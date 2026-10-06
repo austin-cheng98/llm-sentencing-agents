@@ -1,0 +1,5 @@
+AWARD: 35000 DOLLARS
+CONFIDENCE: 3
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The conflicting accounts and lack of an independent witness create substantial liability uncertainty. The documented strain resolved without restriction, while the treatment delay and missed sessions limit support for a higher valuation.

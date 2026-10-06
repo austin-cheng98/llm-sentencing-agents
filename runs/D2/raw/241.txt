@@ -1,0 +1,5 @@
+AWARD: 30000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: Conflicting accounts and no independent witness create uncertainty about liability. The treatment delay, missed sessions, full recovery, and undocumented economic loss support a valuation below the model predictions.

@@ -1,0 +1,320 @@
+{
+  "D1_Opus5": {
+    "proximity": {
+      "measures": {
+        "dist_central": {
+          "ci95_t": [
+            0.14509028438497804,
+            0.327746962333491
+          ],
+          "clustered_se": 0.04284799476700286,
+          "clusters": 16,
+          "mde": 0.12004230878588534,
+          "mean_peer": 0.3923516124055624,
+          "mean_tool": 0.15593298904632777,
+          "n_pairs": 160,
+          "peer_minus_tool": 0.23641862335923453,
+          "sign_test": null
+        },
+        "equals_central": {
+          "ci95_t": [
+            -0.38999769234791165,
+            -0.19750230765208826
+          ],
+          "clustered_se": 0.045155979670471115,
+          "clusters": 16,
+          "n_pairs": 160,
+          "peer_minus_tool": -0.29374999999999996,
+          "peer_total": 2,
+          "sign_test": {
+            "both": 2,
+            "direction_as_predicted": true,
+            "discordant": 47,
+            "measure": "equals_central",
+            "min_attainable_two_sided_p": 1.4210854715202004e-14,
+            "n_pairs": 160,
+            "p_exact_sign_test": 1.4210854715202004e-14,
+            "peer_only": 0,
+            "peer_total": 2,
+            "predicted_direction": "tool_only > peer_only",
+            "tool_only": 47,
+            "tool_total": 49
+          },
+          "tool_total": 49
+        },
+        "inside_band": {
+          "ci95_t": [
+            -0.5566351141328515,
+            -0.2808648858671484
+          ],
+          "clustered_se": 0.06469077085128398,
+          "clusters": 16,
+          "n_pairs": 160,
+          "peer_minus_tool": -0.41874999999999996,
+          "peer_total": 21,
+          "sign_test": {
+            "both": 19,
+            "direction_as_predicted": true,
+            "discordant": 71,
+            "measure": "inside_band",
+            "min_attainable_two_sided_p": 8.470329472543003e-22,
+            "n_pairs": 160,
+            "p_exact_sign_test": 2.165863246129246e-18,
+            "peer_only": 2,
+            "peer_total": 21,
+            "predicted_direction": "tool_only > peer_only",
+            "tool_only": 69,
+            "tool_total": 88
+          },
+          "tool_total": 88
+        },
+        "within_tol": {
+          "ci95_t": [
+            -0.4852698383034716,
+            -0.22723016169652843
+          ],
+          "clustered_se": 0.06053150006401626,
+          "clusters": 16,
+          "n_pairs": 160,
+          "peer_minus_tool": -0.35625,
+          "peer_total": 11,
+          "sign_test": {
+            "both": 10,
+            "direction_as_predicted": true,
+            "discordant": 59,
+            "measure": "within_tol",
+            "min_attainable_two_sided_p": 3.469446951953614e-18,
+            "n_pairs": 160,
+            "p_exact_sign_test": 2.0816681711721685e-16,
+            "peer_only": 1,
+            "peer_total": 11,
+            "predicted_direction": "tool_only > peer_only",
+            "tool_only": 58,
+            "tool_total": 68
+          },
+          "tool_total": 68
+        }
+      },
+      "n_pairs": 160,
+      "n_rows": 320
+    },
+    "pull": {
+      "pooled_pull": {
+        "ci95_z": [
+          0.18519845587219816,
+          0.580611097972731
+        ],
+        "clusters": 16,
+        "est": 0.3829047769224646,
+        "mde": 0.2826026962317945,
+        "n": 320,
+        "p_ri_within_agent": 0.0014,
+        "se": 0.10087242549524014
+      },
+      "slope_premium": {
+        "ci95_z": [
+          -0.002497010693756685,
+          0.4330569799650611
+        ],
+        "clusters": 16,
+        "est": 0.2152799846356522,
+        "mde": 0.31129184808260296,
+        "n": 320,
+        "orientation": "tool minus peer",
+        "p_ri_within_agent": 0.0712,
+        "se": 0.11111275359960704
+      }
+    }
+  },
+  "D2_GPT6Sol_high": {
+    "proximity": {
+      "measures": {
+        "dist_central": {
+          "ci95_t": [
+            0.011343500384801822,
+            0.17371986807020945
+          ],
+          "clustered_se": 0.038090596144699666,
+          "clusters": 16,
+          "mde": 0.10671405112665272,
+          "mean_peer": 0.2741872550798699,
+          "mean_tool": 0.18165557085236428,
+          "n_pairs": 159,
+          "peer_minus_tool": 0.09253168422750563,
+          "sign_test": null
+        },
+        "equals_central": {
+          "ci95_t": [
+            -0.15217465962388121,
+            0.038967112454069905
+          ],
+          "clustered_se": 0.044838446323108426,
+          "clusters": 16,
+          "n_pairs": 159,
+          "peer_minus_tool": -0.05660377358490565,
+          "peer_total": 34,
+          "sign_test": {
+            "both": 19,
+            "direction_as_predicted": true,
+            "discordant": 39,
+            "measure": "equals_central",
+            "min_attainable_two_sided_p": 3.637978807091713e-12,
+            "n_pairs": 159,
+            "p_exact_sign_test": 0.19959086691960692,
+            "peer_only": 15,
+            "peer_total": 34,
+            "predicted_direction": "tool_only > peer_only",
+            "tool_only": 24,
+            "tool_total": 43
+          },
+          "tool_total": 43
+        },
+        "inside_band": {
+          "ci95_t": [
+            -0.12710982211471336,
+            0.15226705481911587
+          ],
+          "clustered_se": 0.06553682622135837,
+          "clusters": 16,
+          "n_pairs": 159,
+          "peer_minus_tool": 0.012578616352201259,
+          "peer_total": 90,
+          "sign_test": {
+            "both": 70,
+            "direction_as_predicted": false,
+            "discordant": 38,
+            "measure": "inside_band",
+            "min_attainable_two_sided_p": 7.275957614183426e-12,
+            "n_pairs": 159,
+            "p_exact_sign_test": 0.8714146793645341,
+            "peer_only": 20,
+            "peer_total": 90,
+            "predicted_direction": "tool_only > peer_only",
+            "tool_only": 18,
+            "tool_total": 88
+          },
+          "tool_total": 88
+        },
+        "within_tol": {
+          "ci95_t": [
+            -0.10111639040076392,
+            0.08853777404856267
+          ],
+          "clustered_se": 0.04448948013910379,
+          "clusters": 16,
+          "n_pairs": 159,
+          "peer_minus_tool": -0.006289308176100629,
+          "peer_total": 72,
+          "sign_test": {
+            "both": 55,
+            "direction_as_predicted": true,
+            "discordant": 35,
+            "measure": "within_tol",
+            "min_attainable_two_sided_p": 5.820766091346741e-11,
+            "n_pairs": 159,
+            "p_exact_sign_test": 1.0,
+            "peer_only": 17,
+            "peer_total": 72,
+            "predicted_direction": "tool_only > peer_only",
+            "tool_only": 18,
+            "tool_total": 73
+          },
+          "tool_total": 73
+        }
+      },
+      "n_pairs": 159,
+      "n_rows": 319
+    },
+    "pull": {
+      "pooled_pull": {
+        "ci95_z": [
+          0.3441990974205992,
+          0.7743736104450757
+        ],
+        "clusters": 16,
+        "est": 0.5592863539328374,
+        "mde": 0.30744711799074886,
+        "n": 319,
+        "p_ri_within_agent": 0.0002,
+        "se": 0.10974041265979603
+      },
+      "slope_premium": {
+        "ci95_z": [
+          0.027139591958966675,
+          0.4363128692609237
+        ],
+        "clusters": 16,
+        "est": 0.23172623060994518,
+        "mde": 0.2924374667872485,
+        "n": 319,
+        "orientation": "tool minus peer",
+        "p_ri_within_agent": 0.0341,
+        "se": 0.10438285612221518
+      }
+    }
+  },
+  "D2_missing_pair": {
+    "arm": "dtool_ng",
+    "judge": "A07",
+    "reason": "no final model response; not retried per registration",
+    "step": 3
+  },
+  "agents": [
+    "A02",
+    "A05",
+    "A08",
+    "A10",
+    "A11",
+    "A04",
+    "A07",
+    "A09",
+    "A12",
+    "A01"
+  ],
+  "analysis_note": "D1 proximity measures were selected after its initial panel; D2 was registered before GPT-6 Sol collection. D1-D2 contrast is descriptive.",
+  "model_contrast": {
+    "measures": {
+      "dist_central": {
+        "ci95_t": [
+          -0.22823188899356983,
+          -0.05742325120402768
+        ],
+        "clustered_se": 0.04006865612779953,
+        "clusters": 16,
+        "interpretation": "descriptive D2-minus-D1 change in peer-minus-tool contrast",
+        "peer_minus_tool": -0.14282757009879876
+      },
+      "equals_central": {
+        "ci95_t": [
+          0.09981326805132193,
+          0.37817415333232585
+        ],
+        "clustered_se": 0.06529849272316648,
+        "clusters": 16,
+        "interpretation": "descriptive D2-minus-D1 change in peer-minus-tool contrast",
+        "peer_minus_tool": 0.2389937106918239
+      },
+      "inside_band": {
+        "ci95_t": [
+          0.254217125151565,
+          0.6137074031503217
+        ],
+        "clustered_se": 0.08432999944749366,
+        "clusters": 16,
+        "interpretation": "descriptive D2-minus-D1 change in peer-minus-tool contrast",
+        "peer_minus_tool": 0.43396226415094336
+      },
+      "within_tol": {
+        "ci95_t": [
+          0.18417653734339956,
+          0.5202259783798708
+        ],
+        "clustered_se": 0.07883119770219263,
+        "clusters": 16,
+        "interpretation": "descriptive D2-minus-D1 change in peer-minus-tool contrast",
+        "peer_minus_tool": 0.3522012578616352
+      }
+    },
+    "n_common_pairs": 159
+  }
+}

@@ -1,0 +1,5 @@
+AWARD: 15000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: Conflicting accounts leave liability uncertain, and the treatment delay and missed sessions weaken the injury claim. The strain resolved without lasting restriction, and the claimed economic loss is undocumented.

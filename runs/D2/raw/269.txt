@@ -1,0 +1,5 @@
+AWARD: 493400 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: The fracture, surgery, and permanent loss of grip strength support a substantial valuation. The amount is consistent with the other valuations, though the file summary gives no dollar totals for economic loss.

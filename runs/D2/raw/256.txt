@@ -1,0 +1,5 @@
+AWARD: 325000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: The fracture required surgery and left documented permanent impairment and reduced grip strength. The model predictions provide a rough comparison, but the file gives no dollar totals for medical costs or lost wages.

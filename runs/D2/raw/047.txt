@@ -1,0 +1,5 @@
+AWARD: 28000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The strain resolved after four months without residual restriction, while the treatment delay and limited attendance weaken the claimed impact. The file provides no documentation for the demanded economic loss.

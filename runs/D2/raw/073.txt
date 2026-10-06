@@ -1,0 +1,5 @@
+AWARD: 15000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: Conflicting accounts and no independent witness create substantial liability uncertainty. The delayed treatment, limited attendance, full recovery, and undocumented economic loss support a modest valuation.

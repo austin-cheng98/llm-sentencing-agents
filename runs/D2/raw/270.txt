@@ -1,0 +1,5 @@
+AWARD: 25000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The documented injury resolved within four months without residual restriction. The eleven-week treatment delay, limited attendance, and lack of records supporting the claimed economic loss limit the valuation.

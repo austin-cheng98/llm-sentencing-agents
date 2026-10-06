@@ -1,0 +1,5 @@
+AWARD: 40000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: Four months of treatment supports compensation for temporary pain and disruption. The absence of imaging abnormalities or lasting restrictions limits the valuation.

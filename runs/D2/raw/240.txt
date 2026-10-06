@@ -1,0 +1,5 @@
+AWARD: 350000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The surgically repaired fracture and documented permanent impairment warrant a substantial award. The treatment delay, limited attendance, and unsupported economic loss reduce the valuation.

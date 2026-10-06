@@ -1,0 +1,5 @@
+AWARD: 85000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The historical model estimates cluster around $85,800 for this file’s profile. Contested liability and undocumented economic loss limit confidence in that valuation.

@@ -1,0 +1,5 @@
+AWARD: 12000 DOLLARS
+CONFIDENCE: 7
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The treatment gap, limited attendance, and full recovery support a modest valuation. Contested liability and undocumented economic loss further limit the award.

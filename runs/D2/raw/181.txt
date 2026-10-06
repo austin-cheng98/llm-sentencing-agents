@@ -1,0 +1,5 @@
+AWARD: 123500 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The three file-matched model estimates center on $123,500. The documented four-month recovery without lasting restriction supports that valuation.

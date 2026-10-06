@@ -1,0 +1,5 @@
+AWARD: 87400 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The median of the three same-file valuations is $87,400. The strain resolved after four months, but the conflicting accounts leave liability uncertain.

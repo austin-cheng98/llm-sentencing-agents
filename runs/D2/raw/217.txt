@@ -1,0 +1,5 @@
+AWARD: 60200 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The central model prediction provides a reference for this profile. The treatment delay, missed sessions, and full recovery limit the valuation despite admitted liability.

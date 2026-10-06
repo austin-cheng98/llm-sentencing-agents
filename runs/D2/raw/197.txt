@@ -1,0 +1,5 @@
+AWARD: 18000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The conflicting accounts leave liability uncertain, and the eleven-week treatment delay and missed sessions weaken the connection between the fall and the claimed injury. The documented strain resolved within four months without residual restriction.

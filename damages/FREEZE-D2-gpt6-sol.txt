@@ -1,0 +1,17 @@
+# D2 GPT-6 Sol prompt and analysis-input freeze
+# Registered 2026-10-04 20:24 UTC, before the first model response.
+# Requested model: gpt-6-sol; reasoning effort: high; Codex CLI 0.160.0.
+# Hashes are relative to the repository root.
+5eddb59f559bcbed443dbd7006a92bf25465c8e5a8af0bd8346c6af9948498ec  damages/prereg-D2-gpt6-sol.md
+ce9ba9684bd446e95864c4fc82e224885e8b8414ffb2efb47f3de24cc16f2f8d  scripts/collect_gpt6_sol_d2.py
+5c6f836b6222eb5c2de92e008034945f78256a17689ad51cfe54234553cd7918  scripts/damages.py
+26e4374fb4e6b9f31cb78435604dcd0f8326e0aeff4a9b3956dc503e86f63469  cases/claims.json
+fbf8c575a79921def0b5ead0b4bee76d2352bc94bb936e2112aadd52aebe8982  runs/D1/manifest.jsonl
+da6fba76b91b776c103703bc0eeb94bd593e5e6bcd5a98419c6610173f97941a  runs/D2/manifest.jsonl
+2f4b63f1abba462e0d56bf2e002879bd4f2e929246251a7cd22d7b3ceb1e0c4c  damages/AMENDMENT-D1-proximity.md
+cb262ff4f5deb5de2539864b2aafae86e030d9db1794e0e84200aa0f480c9cf2  damages/FREEZE-D1-proximity.txt
+121ab10a3e7ec193936180c8ccc074116b9a0091d4d00895dd6a2de341f156fb  scripts/damages_analysis_prox.py
+1a0086b14a779fc452804d51abf77dbe42bf8c77448b04facafa47c587f844f5  scripts/damages_analysis_ext.py
+943d892959b1adcb6ee099b357b94e1cd8f763e44d9ff42a03d441faf5440675  damages/prereg-damages.md
+782871c055695ceabff5e20b04b7136838eb1c4fe58089b92bd90c00b8e02e2a  damages/AMENDMENT-D1-manipulation-check.md
+b0d20d1193a4cf718ca8dbba8a7606d70d2ff8ec5e32bea63584afb384104076  experiment/gpt6-protocol.md

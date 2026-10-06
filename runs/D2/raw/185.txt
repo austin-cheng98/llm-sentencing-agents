@@ -1,0 +1,5 @@
+AWARD: 98800 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The three valuations on this same file cluster around $98,800. Contested liability and the absence of residual restriction limit confidence in that figure.

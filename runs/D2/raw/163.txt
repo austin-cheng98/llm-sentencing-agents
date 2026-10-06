@@ -1,0 +1,5 @@
+AWARD: 75000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The historical model supports a substantial valuation, but the four-month recovery without residual restriction and the undocumented economic loss warrant an amount below its predictions.

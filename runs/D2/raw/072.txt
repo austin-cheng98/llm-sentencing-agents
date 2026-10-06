@@ -1,0 +1,5 @@
+AWARD: 25000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: Four months of treatment with no imaging abnormality or lasting restriction supports compensation for a temporary injury. The claimed economic loss is undocumented, limiting confidence in the valuation.

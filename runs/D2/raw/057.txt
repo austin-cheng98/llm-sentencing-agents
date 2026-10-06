@@ -1,0 +1,5 @@
+AWARD: 98900 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The three model predictions center on $98,900 and are based on this file’s profile. The treatment delay, limited attendance, and full recovery temper confidence in that figure.

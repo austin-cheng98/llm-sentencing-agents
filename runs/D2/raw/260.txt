@@ -1,0 +1,5 @@
+AWARD: 225000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The fracture, surgery, permanent impairment, and documented grip loss support a substantial award. The unsupported economic loss figure limits confidence in a higher valuation.

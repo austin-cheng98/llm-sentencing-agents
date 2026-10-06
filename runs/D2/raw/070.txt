@@ -1,0 +1,5 @@
+AWARD: 20000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: Liability is contested with no independent witness. The eleven-week treatment delay, limited attendance, and absence of lasting restriction support a modest valuation, though the loss amounts were not provided.

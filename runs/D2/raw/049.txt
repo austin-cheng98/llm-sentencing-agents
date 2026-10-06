@@ -1,0 +1,5 @@
+AWARD: 60000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: Four months of treatment supports compensation for temporary pain, while normal imaging and no residual restriction limit the award. The file does not document the economic loss claimed.

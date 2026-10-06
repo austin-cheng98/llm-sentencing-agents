@@ -1,0 +1,5 @@
+AWARD: 63000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: LIABILITY_RISK
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: Four months of treatment support compensation, while full recovery limits the injury component. Conflicting accounts and no independent witness leave material uncertainty about liability.

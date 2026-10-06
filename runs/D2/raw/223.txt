@@ -1,0 +1,5 @@
+AWARD: 64600 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The midpoint of the three valuations is reasonable for four months of completed treatment with no lasting restriction. The conflicting accounts of liability limit confidence.

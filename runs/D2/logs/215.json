@@ -1,0 +1,18 @@
+{
+  "task": 215,
+  "source_task": 531,
+  "exit_code": 0,
+  "elapsed_seconds": 14.49,
+  "final_message_present": true,
+  "final_message_chars": 273,
+  "parsed_ok": true,
+  "cli_event_types": [
+    "item.completed",
+    "thread.started",
+    "turn.completed",
+    "turn.started"
+  ],
+  "tool_events": 0,
+  "stderr_chars": 998,
+  "stderr_sha256": "0f41c0933d4fc6ecce9b8be16218e64ef15722bee8332b3069aa957f5081e192"
+}

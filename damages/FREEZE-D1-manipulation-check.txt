@@ -1,0 +1,13 @@
+FREEZE damages manipulation check (run D1, reduced)
+frozen: 2026-10-03T22:05:00Z
+confirmatory sample: 128 decisions, agents A02 A05 A08 A10 x 16 claims x 2 primary arms
+cells collected at freeze, inside the confirmatory sample: 27
+cells collected at freeze, outside it: 28
+premium: demoted to secondary, not inspected before this freeze
+
+damages/AMENDMENT-D1-manipulation-check.md  782871c055695ceabff5e20b04b7136838eb1c4fe58089b92bd90c00b8e02e2a
+damages/prereg-damages.md  943d892959b1adcb6ee099b357b94e1cd8f763e44d9ff42a03d441faf5440675
+scripts/damages.py  5c6f836b6222eb5c2de92e008034945f78256a17689ad51cfe54234553cd7918
+scripts/gen_claims.py  3759c133e58592eb3a8113c9097e357b1aa702711d5bc60fbad33ead25614e8a
+cases/claims.json  26e4374fb4e6b9f31cb78435604dcd0f8326e0aeff4a9b3956dc503e86f63469
+runs/D1/manifest.jsonl  fbf8c575a79921def0b5ead0b4bee76d2352bc94bb936e2112aadd52aebe8982

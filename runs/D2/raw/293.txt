@@ -1,0 +1,5 @@
+AWARD: 30000 DOLLARS
+CONFIDENCE: 4
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: Prompt treatment and four months of therapy support compensation for a temporary injury. Normal imaging, no residual restriction, and undocumented economic loss limit the valuation.

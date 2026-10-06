@@ -1,0 +1,5 @@
+AWARD: 18000 DOLLARS
+CONFIDENCE: 3
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The cervical strain resolved without lasting restriction, while the eleven-week treatment delay and limited attendance weaken the case for a larger award. Billing and wage totals are not stated in the supplied summary, so confidence is low.

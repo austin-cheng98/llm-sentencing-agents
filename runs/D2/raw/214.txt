@@ -1,0 +1,5 @@
+AWARD: 109200 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PAIN_AND_SUFFERING
+JUSTIFICATION: The other valuations on this file cluster near this amount. The four-month recovery with no lasting restriction supports a moderate award, though the file summary gives no dollar figures for wages or treatment.

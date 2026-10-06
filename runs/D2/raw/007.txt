@@ -1,0 +1,5 @@
+AWARD: 53200 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The middle of the three valuations on this same file is $53,200. The disputed liability and recovery without residual restriction limit confidence in that figure.

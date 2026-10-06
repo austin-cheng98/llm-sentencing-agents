@@ -1,0 +1,98 @@
+{
+  "benchmark_premium": 0.206,
+  "benchmark_pull": 0.61,
+  "by_arm": {
+    "dpeer_ng": {
+      "ci95_z": [
+        0.018802716507796413,
+        0.36420034871177587
+      ],
+      "est": 0.19150153260978614,
+      "mde": 0.24685680663721687,
+      "n": 64,
+      "se": 0.08811325994951368
+    },
+    "dtool_ng": {
+      "ci95_z": [
+        0.01910776614850429,
+        0.7059966353169447
+      ],
+      "est": 0.3625522007327245,
+      "mde": 0.4909216999421476,
+      "n": 64,
+      "se": 0.17522997218962685
+    }
+  },
+  "dev_mean": -0.31216170740834137,
+  "dev_sd": 0.333057152059419,
+  "exact_matches_exploratory": {
+    "both": 0,
+    "n_pairs": 64,
+    "p_exact_sign_test": 6.103515625e-05,
+    "peer_only": 0,
+    "peer_total": 0,
+    "tool_only": 15,
+    "tool_total": 15
+  },
+  "mde_constant": 2.8015852185999996,
+  "n": 128,
+  "panel": [
+    "A02",
+    "A05",
+    "A08",
+    "A10"
+  ],
+  "pooled_slope": {
+    "ci95_t": [
+      0.04498711961469262,
+      0.5090666137278198
+    ],
+    "ci95_z": [
+      0.06365585431636087,
+      0.4903978790261515
+    ],
+    "clusters": 16,
+    "est": 0.2770268666712562,
+    "mde": 0.304993907472842,
+    "n": 128,
+    "p_ri": 0.0301,
+    "p_ri_rotation_exact": 0.109375,
+    "p_wild": 0.0261,
+    "rotation_set_size": 256,
+    "se": 0.10886476179555685,
+    "t": 2.544688125910754
+  },
+  "pooled_slope_claim_fe": {
+    "ci95_z": [
+      0.010004528196790485,
+      0.4868069792075211
+    ],
+    "clusters": 16,
+    "est": 0.24840575370215578,
+    "mde": 0.3407722563187592,
+    "n": 128,
+    "p_ri": 0.0486,
+    "se": 0.12163551337162214
+  },
+  "premium_secondary": {
+    "ci95_z": [
+      -0.16852067036983687,
+      0.5106220066157129
+    ],
+    "clusters": 16,
+    "est": 0.171050668122938,
+    "mde": 0.48538547129557347,
+    "n": 128,
+    "p_ri": 0.343,
+    "peer_minus_tool": -0.171050668122938,
+    "peer_minus_tool_ci95_z": [
+      -0.5106220066157129,
+      0.16852067036983687
+    ],
+    "se": 0.1732538664442729
+  },
+  "randomization_set_note": "The displacement allocation is randomized only through the group-to-displacement rotation, one of four per agent. With four agents the randomization set holds 4^4 = 256 allocations, so the smallest attainable two-sided p is 1/256 = 0.0039 and the distribution of the test statistic is coarse. The registered within-agent permutation test draws from a much larger set that the design did not actually sample from. Both are reported. Reducing the panel from twelve agents to four shrank this set from 4^12 to 4^4; that cost was not noted in the amendment and is recorded here.",
+  "resid_sd": 0.20389530121381394,
+  "run": "D1",
+  "verdict": "displacement moves valuations in the damages domain: the pooled slope is positive and the interval excludes zero"
+}

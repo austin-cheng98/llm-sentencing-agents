@@ -1,0 +1,5 @@
+AWARD: 5000 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: PROPORTIONALITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The documented injury resolved within four months, while the treatment gap and limited attendance weaken the claimed damages. Conflicting accounts also leave liability uncertain.

@@ -1,0 +1,5 @@
+AWARD: 53200 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: This valuation reflects the other assessments of the same file, with uncertainty from the conflicting accounts of liability. The four-month recovery and lack of residual restriction limit the injury component.

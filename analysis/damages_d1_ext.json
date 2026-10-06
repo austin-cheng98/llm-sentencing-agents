@@ -1,0 +1,450 @@
+{
+  "benchmark_premium": 0.206,
+  "benchmark_pull": 0.61,
+  "by_arm": {
+    "all": {
+      "dpeer_ng": {
+        "ci95_z": [
+          0.059703401898951625,
+          0.37563534443246605
+        ],
+        "est": 0.21766937316570883,
+        "mde": 0.22579758277687909,
+        "n": 128,
+        "se": 0.08059636425755916
+      },
+      "dtool_ng": {
+        "ci95_z": [
+          0.1532847190866629,
+          0.7332117915323173
+        ],
+        "est": 0.4432482553094901,
+        "mde": 0.4144757573261522,
+        "n": 128,
+        "se": 0.14794329816362783
+      }
+    },
+    "new": {
+      "dpeer_ng": {
+        "ci95_z": [
+          0.05989315726780142,
+          0.4277812701754553
+        ],
+        "est": 0.24383721372162837,
+        "mde": 0.26293082605309476,
+        "n": 64,
+        "se": 0.09385073290202674
+      },
+      "dtool_ng": {
+        "ci95_z": [
+          0.2940860149053126,
+          0.7538026048671971
+        ],
+        "est": 0.5239443098862548,
+        "mde": 0.32856093607822406,
+        "n": 64,
+        "se": 0.11727679525751197
+      }
+    }
+  },
+  "cannot_settle": "Whether peer attribution produces more pull than tool attribution in the damages domain. One model lineage, one additional domain, no human baseline, and no variation in the realism of the valuation model's provenance.",
+  "dev_mean_all": -0.3053570213791633,
+  "dev_sd_all": 0.32882397563980026,
+  "estimand1_new_agents_slope": {
+    "ci95_t": [
+      0.19552254983890577,
+      0.5722589737689789
+    ],
+    "ci95_z": [
+      0.21067769554136015,
+      0.5571038280665245
+    ],
+    "clusters": 16,
+    "est": 0.3838907618039423,
+    "mde": 0.24759187914855108,
+    "min_attainable_two_sided_p": 0.00390625,
+    "n": 128,
+    "p_ri_rotation_exact": 0.01953125,
+    "p_ri_within_agent": 0.0012,
+    "p_wild": 0.0008,
+    "rotation_set_size": 256,
+    "se": 0.08837563730161205,
+    "t": 4.343852825567571,
+    "verdict": "established on the registered rule: the slope is positive, the interval excludes zero, and the design-exact test rejects at 5%"
+  },
+  "estimand1_new_agents_slope_claim_fe": {
+    "ci95_t": [
+      0.1663126564404938,
+      0.6050051237300267
+    ],
+    "ci95_z": [
+      0.1839601357868925,
+      0.5873576443836279
+    ],
+    "clusters": 16,
+    "est": 0.3856588900852602,
+    "mde": 0.28830950618326806,
+    "n": 128,
+    "p_ri_rotation_exact": 0.05859375,
+    "p_ri_within_agent": 0.0019,
+    "se": 0.1029094186638168,
+    "t": 3.747556784332111
+  },
+  "estimand2_all_agents_slope": {
+    "ci95_t": [
+      0.11514975612609069,
+      0.5457678723491088
+    ],
+    "ci95_z": [
+      0.13247242491770075,
+      0.5284452035574988
+    ],
+    "clusters": 16,
+    "error_rate_protected": false,
+    "est": 0.33045881423759976,
+    "mde": 0.2830030276309459,
+    "n": 256,
+    "p_ri_within_agent": 0.0051,
+    "p_wild": 0.0057,
+    "se": 0.10101532009523073,
+    "t": 3.2713732325558587
+  },
+  "estimand2_all_agents_slope_claim_fe": {
+    "ci95_t": [
+      0.1102303267418408,
+      0.5506873017333587
+    ],
+    "ci95_z": [
+      0.1279487877338094,
+      0.53296884074139
+    ],
+    "clusters": 16,
+    "est": 0.3304588142375997,
+    "mde": 0.2894691439298631,
+    "n": 256,
+    "p_ri_within_agent": 0.0055,
+    "se": 0.1033233406601552,
+    "t": 3.1982978107969293
+  },
+  "estimand3_exact_matches_new_agents": {
+    "both": 0,
+    "direction_as_predicted": true,
+    "discordant": 11,
+    "matches": [
+      [
+        "dtool_ng",
+        "A04",
+        11,
+        258000
+      ],
+      [
+        "dtool_ng",
+        "A07",
+        6,
+        70100
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        0,
+        42000
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        3,
+        64600
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        6,
+        107200
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        7,
+        123500
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        9,
+        358800
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        11,
+        349000
+      ],
+      [
+        "dtool_ng",
+        "A11",
+        4,
+        52500
+      ],
+      [
+        "dtool_ng",
+        "A11",
+        11,
+        212400
+      ],
+      [
+        "dtool_ng",
+        "A11",
+        15,
+        436400
+      ]
+    ],
+    "n_pairs": 64,
+    "p_exact_sign_test": 0.0009765625,
+    "peer_only": 0,
+    "peer_total": 0,
+    "predicted_direction": "tool_only > peer_only",
+    "tool_only": 11,
+    "tool_total": 11,
+    "verdict": "confirmed: the discordant pairs fall in the predicted direction and the sign test rejects at 5%"
+  },
+  "estimand4_premium": {
+    "all": {
+      "ci95_z": [
+        -0.015180401376633457,
+        0.46633816566419556
+      ],
+      "clusters": 16,
+      "est": 0.22557888214378105,
+      "mde": 0.3441428797231291,
+      "mde_at_or_below_benchmark": false,
+      "n": 256,
+      "p_ri_within_agent": 0.0821,
+      "peer_minus_tool": -0.22557888214378105,
+      "peer_minus_tool_ci95_z": [
+        -0.46633816566419556,
+        0.015180401376633457
+      ],
+      "se": 0.12283862630282695
+    },
+    "new": {
+      "ci95_z": [
+        -0.004553431531541363,
+        0.5647676238607844
+      ],
+      "clusters": 16,
+      "est": 0.28010709616462154,
+      "mde": 0.4068956025803943,
+      "mde_at_or_below_benchmark": false,
+      "n": 128,
+      "p_ri_rotation_exact": 0.09765625,
+      "p_ri_within_agent": 0.0728,
+      "peer_minus_tool": -0.28010709616462154,
+      "peer_minus_tool_ci95_z": [
+        -0.5647676238607844,
+        0.004553431531541363
+      ],
+      "se": 0.1452376318517725
+    }
+  },
+  "exact_matches_all_agents_descriptive": {
+    "both": 0,
+    "direction_as_predicted": true,
+    "discordant": 26,
+    "matches": [
+      [
+        "dtool_ng",
+        "A02",
+        7,
+        66500
+      ],
+      [
+        "dtool_ng",
+        "A02",
+        10,
+        343200
+      ],
+      [
+        "dtool_ng",
+        "A02",
+        13,
+        396700
+      ],
+      [
+        "dtool_ng",
+        "A04",
+        11,
+        258000
+      ],
+      [
+        "dtool_ng",
+        "A05",
+        2,
+        56100
+      ],
+      [
+        "dtool_ng",
+        "A05",
+        3,
+        64600
+      ],
+      [
+        "dtool_ng",
+        "A05",
+        7,
+        123500
+      ],
+      [
+        "dtool_ng",
+        "A05",
+        11,
+        349000
+      ],
+      [
+        "dtool_ng",
+        "A05",
+        14,
+        231000
+      ],
+      [
+        "dtool_ng",
+        "A07",
+        6,
+        70100
+      ],
+      [
+        "dtool_ng",
+        "A08",
+        7,
+        109200
+      ],
+      [
+        "dtool_ng",
+        "A08",
+        11,
+        258000
+      ],
+      [
+        "dtool_ng",
+        "A08",
+        12,
+        210000
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        0,
+        42000
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        3,
+        64600
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        6,
+        107200
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        7,
+        123500
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        9,
+        358800
+      ],
+      [
+        "dtool_ng",
+        "A09",
+        11,
+        349000
+      ],
+      [
+        "dtool_ng",
+        "A10",
+        2,
+        75900
+      ],
+      [
+        "dtool_ng",
+        "A10",
+        7,
+        66500
+      ],
+      [
+        "dtool_ng",
+        "A10",
+        9,
+        193200
+      ],
+      [
+        "dtool_ng",
+        "A10",
+        13,
+        396700
+      ],
+      [
+        "dtool_ng",
+        "A11",
+        4,
+        52500
+      ],
+      [
+        "dtool_ng",
+        "A11",
+        11,
+        212400
+      ],
+      [
+        "dtool_ng",
+        "A11",
+        15,
+        436400
+      ]
+    ],
+    "n_pairs": 128,
+    "p_exact_sign_test": 2.9802322387695312e-08,
+    "peer_only": 0,
+    "peer_total": 0,
+    "predicted_direction": "tool_only > peer_only",
+    "tool_only": 26,
+    "tool_total": 26
+  },
+  "expansion_order": [
+    "A11",
+    "A04",
+    "A07",
+    "A09",
+    "A12",
+    "A01",
+    "A03",
+    "A06"
+  ],
+  "mde_constant": 2.8015852185999996,
+  "min_attainable_two_sided_p_new": 0.00390625,
+  "n_all": 256,
+  "n_new": 128,
+  "new_agents": [
+    "A11",
+    "A04",
+    "A07",
+    "A09"
+  ],
+  "original_panel": [
+    "A02",
+    "A05",
+    "A08",
+    "A10"
+  ],
+  "registered_rule_reachable": true,
+  "resid_sd_all": 0.20573033979886476,
+  "rotation_set_all": 65536,
+  "rotation_set_new": 256,
+  "run": "D1"
+}

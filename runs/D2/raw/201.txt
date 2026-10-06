@@ -1,0 +1,5 @@
+AWARD: 317400 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The middle file-matched prediction reflects the documented fracture and permanent impairment. Contested liability and the treatment gap limit confidence.

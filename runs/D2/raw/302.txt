@@ -1,0 +1,5 @@
+AWARD: 123500 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: PROPORTIONALITY
+JUSTIFICATION: The award uses the midpoint of the three historical-settlement predictions. The four-month recovery with no residual restriction supports a measured valuation despite undisputed liability.

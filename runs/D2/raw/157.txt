@@ -1,0 +1,5 @@
+AWARD: 64600 DOLLARS
+CONFIDENCE: 5
+PRIMARY_RATIONALE: COMPARABILITY
+SECONDARY_RATIONALE: LIABILITY_RISK
+JUSTIFICATION: The median valuation from three adjusters who reviewed the same file is a reasonable estimate. Contested liability limits confidence in that figure.

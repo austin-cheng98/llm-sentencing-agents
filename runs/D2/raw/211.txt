@@ -1,0 +1,5 @@
+AWARD: 295000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: COMPARABILITY
+JUSTIFICATION: The surgically treated fracture and lasting grip loss support a substantial valuation, tempered by the treatment delay and limited attendance. The historical model estimates cluster near this amount.

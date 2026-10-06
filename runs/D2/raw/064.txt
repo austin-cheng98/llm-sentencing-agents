@@ -1,0 +1,5 @@
+AWARD: 230000 DOLLARS
+CONFIDENCE: 6
+PRIMARY_RATIONALE: PAIN_AND_SUFFERING
+SECONDARY_RATIONALE: ECONOMIC_LOSS
+JUSTIFICATION: The fracture required surgery and left documented permanent impairment and reduced grip strength. The lack of billing and wage records limits support for the claimed economic loss.
