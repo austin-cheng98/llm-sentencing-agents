@@ -31,4 +31,4 @@ The source code and analysis outputs are provided so readers can inspect how the
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT License. See [LICENSE](LICENSE) for details.
