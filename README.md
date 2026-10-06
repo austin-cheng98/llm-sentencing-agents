@@ -1,4 +1,4 @@
-# Wording rivals peers in LLM judicial decision-making
+# Wording Rivals Peers in LLM Judicial Decision-Making
 
 Code and data for an experiment on how LLM agents respond to numbers attributed to peers. The effect varies with prompt wording and model.
 
