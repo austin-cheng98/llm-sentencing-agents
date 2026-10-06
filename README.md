@@ -1,5 +1,6 @@
 # Wording Rivals Peers in LLM Judicial Decision-Making
 Austin L. Cheng
+
 Accepted to SocialAgent: Second Workshop on Large Language Models for Social Reasoning and Simulation @ NeurIPS 2026.
 
 This project studies why language-model agents move toward numbers shown in a prompt. When an agent sees another agent's decision, its response could reflect social influence, numerical anchoring, or both. The experiments separate these explanations by holding the displayed numbers constant while changing whether they are attributed to peers or to a statistical forecast.
