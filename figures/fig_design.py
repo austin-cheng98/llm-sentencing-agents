@@ -1,4 +1,4 @@
-"""Plot displaced anchors and framing."""
+"""Figure: how the anchor is displaced, and how the two framings differ."""
 import sys, os
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -31,6 +31,8 @@ ylab = []
 for i, d in enumerate(DELTAS):
     y = 3.4 - i * 0.95
     a = anchors(MID, d)
+    # the band runs from the midpoint to the mean of the three shown numbers,
+    # so its width is the displacement and the side it falls on is the direction
     lo, hi = sorted([MID, float(np.mean(a))])
     ax.barh(y, hi - lo, left=lo, height=0.34, color="#d6e2ee", linewidth=0,
             zorder=1)
@@ -69,6 +71,7 @@ for y0, col in ((0.72, F.PEER), (0.26, F.TOOL)):
     ax2.add_patch(FancyArrowPatch((0.40, 0.38), (0.55, y0), arrowstyle="-|>",
                                   mutation_scale=7, color=col, lw=0.9,
                                   connectionstyle="arc3,rad=0.12"))
+# bracket marking the contrast the two labels identify
 ax2.plot([0.995, 0.995], [0.26, 0.72], color=F.INK, lw=0.8)
 ax2.plot([0.975, 0.995], [0.26, 0.26], color=F.INK, lw=0.8)
 ax2.plot([0.975, 0.995], [0.72, 0.72], color=F.INK, lw=0.8)
@@ -78,5 +81,4 @@ ax2.set_title("b  The same numbers under two labels", loc="left",
               fontweight="bold", pad=17)
 
 fig.savefig(f"{ROOT}/figures/fig_design.pdf")
-fig.savefig(f"{ROOT}/figures/fig_design.png")
 print("wrote figures/fig_design.pdf")

@@ -163,8 +163,5 @@ mac("rSevenToolOutside", f"{100 * R7['number_use']['neutral_shared_file']['toola
 
 txt = "\n".join(out) + "\n"
 open(f"{ROOT}/analysis/out_revision_macros.tex", "w").write(txt)
-paper_revision = f"{ROOT}/paper/revision.tex"
-if os.path.isdir(os.path.dirname(paper_revision)):
-    open(paper_revision, "w").write(txt)
 print(txt)
 print(f"{len(out)} macros")

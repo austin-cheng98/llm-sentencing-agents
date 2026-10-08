@@ -1,0 +1,21 @@
+FREEZE cross-model completion amendment
+frozen: 2026-10-07
+registered sample: second cross-model agent on peerdelta, peerdelta_ng,
+tooldelta, tooldelta_ng; 64 decisions per model, all sixteen cases,
+one draw per cell
+haiku45 collected this stage on claude-haiku-4-5-20251001
+sonnet5 not collected: the available route serves claude-sonnet-5-5
+at freeze: sonnet5 = 160 decisions, haiku45 = 160 decisions,
+S2 and H2 = 0 cells on all four displacement arms
+the expansion is outcome-dependent and overrides prereg-balanced.md;
+no estimate on the enlarged sample carries a protected error rate
+
+experiment/AMENDMENT-crossmodel-completion.md  c4b7b3b4f00b987a7e954d85b10ff080006fa1711799aad9bcdcabd5bc3d26c0
+experiment/prereg-balanced.md  c340f3e7586d64934c4632f43a340edad83a160a687b59264541e7f53fcabfe0
+experiment/harness.py  8624610c7e7579daee0b25b4c6be61f807e313c6c00e5488678c12bd713960dd
+analysis/crossmodel.py  a768ac8afe5842c360ade41d5c821b2ae18312175ef5c06bbeb0ead93ef9f808
+analysis/robustness.py  7bf8df7e9a126522c9bc4770deecaf446e40eaf873284458c189891556e26965
+analysis/power.py  b759602e9acabaaefee5330538318db0db090ecf98c1965fef3b0b27b8f2502c
+data/cases.json  3fcfe84e672872a8772582dd6b6a1a9de11ffc0475f8bdfc9740a855af74e2ff
+data/sequence.json  fa5d1eff450b39ed30705945c8c70ac530fec2fbc3c22c4af99b2ede7100a85d
+data/decisions.jsonl  4d2712ad6aa4a8aea389d768f1ec8f0c823d5c3f9b36f4b13ee20cc108720c18

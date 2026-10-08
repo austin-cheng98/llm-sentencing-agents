@@ -1,0 +1,16 @@
+FREEZE cross-model completion, Sonnet route
+frozen: 2026-10-07, before any Sonnet cell of this stage was collected
+registered sample unchanged: second cross-model agent on peerdelta,
+peerdelta_ng, tooldelta, tooldelta_ng; 64 decisions, all sixteen cases,
+one draw per cell
+sonnet5 collected this stage on claude-sonnet-5, identity reported by the
+pinned route before collection began
+at freeze: sonnet5 = 160 decisions, S2 = 0 cells on all four displacement arms
+haiku45 at freeze = 179 decisions, 19 of 64 H2 cells collected, 1 refusal
+recorded with ok: false and not re-drawn
+the expansion is outcome-dependent and overrides prereg-balanced.md;
+no estimate on the enlarged sample carries a protected error rate
+
+experiment/AMENDMENT-crossmodel-sonnet.md  5d5938ca47595fc6a900acdb55d9e29d1316936faca92d2ffb7d593c3de68f42
+experiment/AMENDMENT-crossmodel-completion.md  c4b7b3b4f00b987a7e954d85b10ff080006fa1711799aad9bcdcabd5bc3d26c0
+runs/R1/manifest-crossmodel-completion.jsonl  fa4939d33f127a934e702dc6a0a0c949a11ff9108e2e2e5f5dd4de4747fde53a

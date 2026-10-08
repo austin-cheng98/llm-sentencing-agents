@@ -12,7 +12,11 @@ F4 = ("severity", "prior", "remorse", "cooperation")
 
 
 def endpoints(recs, treated, base):
-    """Return pull endpoints for an arm contrast."""
+    """Pull in the base arm and in the treated arm, on the agents shared by both.
+
+    Same balanced sample and same specification as the contrast in
+    analysis10, so the gap between the two points is the reported estimate.
+    """
     d = [r for r in recs if r["arm"] in (treated, base)]
     shared = ({r["judge"] for r in d if r["arm"] == treated} &
               {r["judge"] for r in d if r["arm"] == base})
@@ -50,7 +54,7 @@ LBL = {"peerdelta_ng": "“You are deciding the same\ncase independently.”",
 
 
 def spread(vals, gap):
-    """Separate overlapping labels."""
+    """Nudge label positions apart, keeping their order and centre of mass."""
     order = sorted(range(len(vals)), key=lambda i: vals[i])
     out = list(vals)
     for k in range(1, len(order)):
@@ -61,11 +65,11 @@ def spread(vals, gap):
     return [v + shift for v in out]
 
 
-fig, ax = plt.subplots(figsize=(5.1, 2.3))
+fig, ax = plt.subplots(figsize=(5.4, 1.50))
 pts = [(lab, treated, base, est, col) + endpoints(recs, treated, base) for
        lab, treated, base, est, col in rows]
-left = spread([p[5] for p in pts], 0.052)
-right = spread([p[6] for p in pts], 0.088)
+left = spread([p[5] for p in pts], 0.095)
+right = spread([p[6] for p in pts], 0.150)
 
 for k, (lab, treated, base, est, col, a, b) in enumerate(pts):
     ax.plot([0, 1], [a, b], color=col, lw=1.7, alpha=0.9,
@@ -74,26 +78,25 @@ for k, (lab, treated, base, est, col, a, b) in enumerate(pts):
     ax.plot([1], [b], "o", ms=4.4, color=col, mec="white", mew=0.8, zorder=4)
     ax.plot([-0.075, -0.02], [left[k], a], color=col, lw=0.5, alpha=0.5, zorder=2)
     ax.plot([1.02, 1.075], [b, right[k]], color=col, lw=0.5, alpha=0.5, zorder=2)
-    ax.text(-0.085, left[k], f"{a:.2f}", fontsize=7.2, ha="right", va="center",
+    ax.text(-0.085, left[k], f"{a:.2f}", fontsize=8.5, ha="right", va="center",
             color=col)
-    ax.text(1.085, right[k], f"{b:.2f}", fontsize=7.2, ha="left", va="center",
+    ax.text(1.085, right[k], f"{b:.2f}", fontsize=8.5, ha="left", va="center",
             color=col, fontweight="bold")
-    ax.text(1.235, right[k], LBL[treated], fontsize=6.4, ha="left", va="center",
+    ax.text(1.33, right[k], LBL[treated], fontsize=7.4, ha="left", va="center",
             color=F.INK, linespacing=1.3)
 
 ax.plot([-0.30, 1.10], [1.0, 1.0], color=F.MUTED, lw=0.7, ls=":",
         zorder=1, clip_on=False)
-ax.text(-0.28, 1.008, "full adoption of the shown numbers", fontsize=6.4,
+ax.text(0.22, 1.008, "full adoption of the shown numbers", fontsize=8.0,
         color=F.MUTED, ha="left", va="bottom", style="italic")
-ax.set_xlim(-0.30, 2.28)
-ax.set_ylim(0.42, 1.06)
+ax.set_xlim(-0.30, 2.42)
+ax.set_ylim(0.38, 1.10)
 ax.set_xticks([0, 1])
-ax.set_xticklabels(["block as written", "sentence appended"], fontsize=7.6)
+ax.set_xticklabels(["block as written", "sentence appended"], fontsize=7.2)
 ax.set_yticks([0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
 ax.tick_params(axis="x", length=0, pad=6)
 ax.spines["bottom"].set_visible(False)
 F.finish(ax, None, "pull  $\\hat{\\pi}$", None)
 fig.savefig(f"{ROOT}/figures/fig_sentences.pdf")
-fig.savefig(f"{ROOT}/figures/fig_sentences.png")
 for lab, treated, base, est, col, a, b in pts:
     print(f"  {treated:14s} {a:+.3f} -> {b:+.3f}  (delta {b-a:+.3f}, reported {est:+.3f})")

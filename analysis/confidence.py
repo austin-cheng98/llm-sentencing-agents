@@ -1,108 +1,73 @@
-"""Report confidence and exact adoption."""
-import json, os, sys
+"""Summarize confidence and exact adoption by released model and arm."""
+import json
+import os
+import sys
+
 import numpy as np
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import load, ols, PRIMARY, FACTORS, ROOT
+from common import FACTORS, PRIMARY, load, ols
 
-ARMS = ["peerbare_ng", "peermatch_ng", "peerdelta_ng", "tooldelta_ng",
-        "toolbare_ng", "clerdelta_ng"]
-MODEL_ARMS = {
-    "opus5": ARMS,
-    "sonnet5": ["peerbare_ng", "peermatch_ng", "peerdelta_ng",
-                "tooldelta_ng", "toolbare_ng"],
-    "haiku45": ["peerbare_ng", "peermatch_ng", "peerdelta_ng",
-                "tooldelta_ng", "toolbare_ng"],
-    "gpt6": ["peerbare_ng", "peermatch_ng", "toolbare_ng"],
-    "gpt6sol": ["peerbare_ng", "peermatch_ng", "toolbare_ng"],
-}
-OTHER_MODELS = ("sonnet5", "haiku45", "gpt6", "gpt6sol")
-PROVIDER_MODELS = {
-    "Claude": ("opus5", "sonnet5", "haiku45"),
-    "OpenAI": ("gpt6", "gpt6sol"),
-}
-SHARED_ARMS = ("peerbare_ng", "peermatch_ng", "toolbare_ng")
+ARMS = ["peerbare_ng", "peermatch_ng", "peerdelta_ng", "toolbare_ng",
+        "tooldelta_ng", "clerdelta_ng"]
+CROSS_MODELS = ["sonnet5", "haiku45", "gpt6", "gpt6sol"]
+COMMON_ARMS = ["peerbare_ng", "peermatch_ng", "toolbare_ng"]
+PROVIDERS = {"Claude": ["opus5", "sonnet5", "haiku45"],
+             "OpenAI": ["gpt6", "gpt6sol"]}
 
 
-def pull(d):
-    y = np.array([r["dev"] for r in d])
-    x = np.array([r["delta"] for r in d])
-    F = np.column_stack([[r[f] for r in d] for f in FACTORS]).astype(float)
-    return float(ols(np.column_stack([np.ones(len(y)), x, F]), y)[1])
+def pull(records):
+    y = np.array([r["dev"] for r in records])
+    x = np.array([r["delta"] for r in records])
+    factors = np.column_stack([[r[name] for r in records] for name in FACTORS]).astype(float)
+    return float(ols(np.column_stack([np.ones(len(y)), x, factors]), y)[1])
 
 
-def cells(recs, arms):
+def summarize(records, model, arms):
     out = []
     for arm in arms:
-        d = [r for r in recs if r["arm"] == arm and r.get("confidence")]
-        if len(d) < 16:
+        data = [r for r in records if r["arm"] == arm and r.get("confidence")]
+        if len(data) < 16:
             continue
-        ex = sum(1 for r in d if r.get("peer_vals") and r["sentence"] in r["peer_vals"])
-        out.append({"arm": arm, "pull": pull(d),
-                    "conf": float(np.mean([r["confidence"] for r in d])),
-                    "exact": 100 * ex / len(d), "n": len(d)})
+        exact = sum(1 for r in data if r.get("peer_vals") and r["sentence"] in r["peer_vals"])
+        out.append({"model": model, "arm": arm, "pull": pull(data),
+                    "conf": float(np.mean([r["confidence"] for r in data])),
+                    "exact": 100 * exact / len(data), "n": len(data)})
     return out
 
 
 def main():
-    recs = [r for r in load(model=PRIMARY) if r["run"] == "R1"]
-    rows = []
-    for arm in ARMS:
-        d = [r for r in recs if r["arm"] == arm and r.get("confidence")]
-        if len(d) < 16:
-            continue
-        p = pull(d)
-        c = float(np.mean([r["confidence"] for r in d]))
-        ex = sum(1 for r in d if r.get("peer_vals") and r["sentence"] in r["peer_vals"])
-        rows.append((arm, p, c, 100 * ex / len(d), len(d)))
-        print(f"  {arm:14s} pull {p:+.3f}  confidence {c:.2f}  "
-              f"exact adoption {100 * ex / len(d):4.1f}%  n={len(d)}")
-
-    P = np.array([r[1] for r in rows])
-    C = np.array([r[2] for r in rows])
-    corr = float(np.corrcoef(P, C)[0, 1])
-    print(f"\n  pull against reported confidence: r = {corr:+.2f} over {len(rows)} arms")
-
-    g = [r for r in recs if r["arm"] in ("peerdelta", "tooldelta") and r.get("confidence")]
-    u = [r for r in recs if r["arm"].endswith("_ng") and r.get("confidence")]
-    cg = float(np.mean([r["confidence"] for r in g]))
-    cu = float(np.mean([r["confidence"] for r in u]))
-    print(f"  confidence with a guideline {cg:.2f}, without {cu:.2f}")
-
+    primary = [r for r in load(model=PRIMARY) if r["run"] == "R1"]
+    arms = summarize(primary, PRIMARY, ARMS)
     cross = []
-    for model in OTHER_MODELS:
-        model_cells = cells(load(model=model), MODEL_ARMS[model])
-        for a in model_cells:
-            a["model"] = model
-            cross.append(a)
-            print(f"  {model}/{a['arm']:12s} pull {a['pull']:+.3f}  confidence "
-                  f"{a['conf']:.2f}  exact adoption {a['exact']:4.1f}%  n={a['n']}")
+    for model in CROSS_MODELS:
+        cross.extend(summarize(load(model=model), model, ARMS))
 
-    cells_by_model_arm = {
-        (a["model"], a["arm"]): a
-        for a in ([{"model": PRIMARY, "arm": arm, "pull": p, "conf": c,
-                    "exact": e, "n": n}
-                   for arm, p, c, e, n in rows] + cross)
-    }
+    pulls = np.array([r["pull"] for r in arms])
+    confidence = np.array([r["conf"] for r in arms])
+    corr = float(np.corrcoef(pulls, confidence)[0, 1])
+
+    cells = {(r["model"], r["arm"]): r["exact"] for r in arms + cross}
     provider_exact = []
-    for provider, models in PROVIDER_MODELS.items():
-        for arm in SHARED_ARMS:
-            model_values = [cells_by_model_arm[(model, arm)] for model in models]
-            provider_exact.append({
-                "provider": provider,
-                "arm": arm,
-                "exact": float(np.mean([a["exact"] for a in model_values])),
-                "models": [{"model": model, "exact": a["exact"], "n": a["n"]}
-                           for model, a in zip(models, model_values)],
-            })
+    for arm in COMMON_ARMS:
+        for provider, models in PROVIDERS.items():
+            values = [cells[(model, arm)] for model in models if (model, arm) in cells]
+            if values:
+                provider_exact.append({"provider": provider, "arm": arm,
+                                       "exact": float(np.mean(values)),
+                                       "n_models": len(values)})
 
-    out = {"arms": [{"arm": a, "pull": p, "conf": c, "exact": e, "n": n}
-                    for a, p, c, e, n in rows],
-           "corr": corr, "conf_guided": cg, "conf_unguided": cu,
-           "cross_models": list(OTHER_MODELS), "cross": cross,
-           "provider_exact_method": "unweighted mean of model-level exact-match rates",
+    out = {"arms": arms, "corr": corr, "cross": cross,
            "provider_exact": provider_exact}
-    json.dump(out, open(os.path.join(ROOT, "analysis", "out_confidence.json"), "w"),
-              indent=1)
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out_confidence.json")
+    with open(path, "w") as stream:
+        json.dump(out, stream, indent=1)
+        stream.write("\n")
+
+    print(f"  pull against confidence: r = {corr:+.2f} across {len(arms)} Opus arms")
+    for row in arms + cross:
+        print(f"  {row['model']:8s} {row['arm']:14s} pull={row['pull']:+.3f} "
+              f"confidence={row['conf']:.2f} exact={row['exact']:.1f}% n={row['n']}")
 
 
 if __name__ == "__main__":

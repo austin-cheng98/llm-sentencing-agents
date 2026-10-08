@@ -1,0 +1,9 @@
+FREEZE cross-model completion manifest
+frozen: 2026-10-07, before any cell of this stage was collected
+128 target cells: 4 displacement arms x {H2, S2} x 16 cases, one draw per cell
+each line carries the SHA-256 of the exact prompt the frozen harness builds for
+that cell; every dispatch asserts its hash against this file before being sent
+64 H2 cells are collected at this stage; the 64 S2 cells are not, for the model
+identity reason recorded in AMENDMENT-crossmodel-completion.md
+
+runs/R1/manifest-crossmodel-completion.jsonl  fa4939d33f127a934e702dc6a0a0c949a11ff9108e2e2e5f5dd4de4747fde53a
