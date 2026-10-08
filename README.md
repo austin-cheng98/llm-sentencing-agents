@@ -1,4 +1,5 @@
 # Wording rivals peers in LLM judicial decision-making
+SocialAgent: Second Workshop on Large Language Models for Social Reasoning and Simulation
 
 This project tests whether language-model agents follow peer decisions because of social attribution or because numbers in a prompt anchor their responses. It studies fictional criminal sentences and civil-damages awards. The repository contains the decision records, analysis code, collection materials, and figure scripts.
 
@@ -39,5 +40,3 @@ The analyses use the released records and make no language-model API calls. The 
 ## Scope
 
 The cases and claims are fictional. These experiments measure how model outputs respond to source labels, numerical anchors, wording, and institutional reference points. They do not establish that language models reproduce judicial reasoning or predict real case outcomes.
-
-Licensed under the MIT License.
