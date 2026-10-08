@@ -1,5 +1,5 @@
 # Wording rivals peers in LLM judicial decision-making
-SocialAgent: Second Workshop on Large Language Models for Social Reasoning and Simulation
+Accepted to: SocialAgent: Second Workshop on Large Language Models for Social Reasoning and Simulation
 
 This project tests whether language-model agents follow peer decisions because of social attribution or because numbers in a prompt anchor their responses. It studies fictional criminal sentences and civil-damages awards. The repository contains the decision records, analysis code, collection materials, and figure scripts.
 
